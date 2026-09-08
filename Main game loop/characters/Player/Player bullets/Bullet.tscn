@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bc1dyw233yaa2"]
+
+[ext_resource type="Script" uid="uid://cb46r5a2cgi66" path="res://Main game loop/characters/Player/Player bullets/Bullet.gd" id="1_dyopk"]
+[ext_resource type="AudioStream" uid="uid://dcs838hbv8c2c" path="res://assets/sound/shoot.wav" id="3_u230n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tya31"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3umxu"]
+
+[node name="Bullet" type="Area3D" unique_id=171727240]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0)
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_dyopk")
+speed = 999
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="." unique_id=1232173343]
+shape = SubResource("CapsuleShape3D_tya31")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier3D" parent="." unique_id=65630602]
+
+[node name="MeshInstance2D" type="MeshInstance3D" parent="." unique_id=2142549565]
+mesh = SubResource("CapsuleMesh_3umxu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer3D" parent="." unique_id=1531674879]
+stream = ExtResource("3_u230n")
+volume_db = -80.0
+autoplay = true
+
+[connection signal="area_entered" from="." to="." method="_on_enemy"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

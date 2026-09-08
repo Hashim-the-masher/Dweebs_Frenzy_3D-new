@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://3aar40idpt37"]
+
+[ext_resource type="PackedScene" uid="uid://c4uv6fisup5fn" path="res://Main game loop/characters/Player/Player character.tscn" id="1_6ibnl"]
+[ext_resource type="Script" uid="uid://ba5tkakqhj0yl" path="res://Main game loop/Main/central_game_controler.gd" id="1_v7lg2"]
+[ext_resource type="PackedScene" uid="uid://bqkn7wtuydlss" path="res://Menus/paused.tscn" id="3_ops67"]
+
+[node name="Main" type="Node3D" unique_id=228340767]
+script = ExtResource("1_v7lg2")
+
+[node name="player" parent="." unique_id=768464723 instance=ExtResource("1_6ibnl")]
+
+[node name="Ui" type="CanvasLayer" parent="." unique_id=574960613]
+
+[node name="menu_pause" parent="Ui" unique_id=1629708582 instance=ExtResource("3_ops67")]
+
+[node name="screeneffects" type="CanvasLayer" parent="." unique_id=782142030]
+
+[node name="Black" type="ColorRect" parent="screeneffects" unique_id=1141368041]
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="on_win" from="." to="." method="_on_win"]

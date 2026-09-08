@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dj6l43tiggqsb"]
+
+[ext_resource type="Script" uid="uid://c60o2fnyyjbtg" path="res://Player bullets/smash.gd" id="1_22g6n"]
+[ext_resource type="Texture2D" uid="uid://doisbhxhnuw30" path="res://Assets/Textures/Black colour.tres" id="2_c1nte"]
+[ext_resource type="AudioStream" uid="uid://b5qyvuh0i72qi" path="res://Assets/sounds_aaaaaaaah/smash.wav" id="3_u73wy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t5kv4"]
+radius = 12.0
+height = 70.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_6qxam"]
+radius = 5.39
+height = 5.04
+is_hemisphere = true
+
+[node name="Smash" type="Area2D" unique_id=731608158]
+scale = Vector2(3, 3)
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("1_22g6n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352593337]
+position = Vector2(-1.9073486e-06, 27)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_t5kv4")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1607695156]
+position = Vector2(-1.9073486e-06, 20)
+scale = Vector2(5.943652, 3.5714285)
+mesh = SubResource("SphereMesh_6qxam")
+texture = ExtResource("2_c1nte")
+
+[node name="Timer" type="Timer" parent="." unique_id=160926852]
+wait_time = 0.5
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=278992576]
+stream = ExtResource("3_u73wy")
+autoplay = true
+attenuation = 3.8637452
+
+[connection signal="area_entered" from="." to="." method="_on_enemy"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

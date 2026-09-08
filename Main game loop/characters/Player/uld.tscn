@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://p1qot1lojblj"]
+
+[ext_resource type="Script" uid="uid://c1yq5e3ldovvc" path="res://Main game loop/characters/Player/Player code.gd" id="1_brlli"]
+[ext_resource type="Texture2D" uid="uid://dunh2c5j5h5qy" path="res://assets/Textures/coursor_placeholder.tres" id="2_urkgk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_je8wp"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_je8wp"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_vdagh"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_3rftl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7ach6"]
+
+[node name="player" type="CharacterBody3D" unique_id=425188365]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0)
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_brlli")
+rotation_friction = 1.18
+speed = 450.0
+max_velocity = 750.0
+
+[node name="AudioListener2D" type="AudioListener3D" parent="." unique_id=2082400932]
+current = true
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="." unique_id=604396028]
+shape = SubResource("SphereShape3D_je8wp")
+
+[node name="Camera2D" type="Camera3D" parent="." unique_id=1983085817]
+
+[node name="Mesh(es)" type="Node3D" parent="." unique_id=1274255043]
+
+[node name="Normal state" type="Node3D" parent="Mesh(es)" unique_id=1302343925]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh(es)/Normal state" unique_id=718026764]
+mesh = SubResource("SphereMesh_je8wp")
+
+[node name="Smash state" type="Node3D" parent="Mesh(es)" unique_id=1180310971]
+visible = false
+
+[node name="MeshInstance2D2" type="MeshInstance3D" parent="Mesh(es)/Smash state" unique_id=431144994]
+transform = Transform3D(17, 0, 0, 0, 20, 0, 0, 0, 0, -1.5, 0, 0)
+mesh = SubResource("QuadMesh_vdagh")
+
+[node name="MeshInstance2D3" type="MeshInstance3D" parent="Mesh(es)/Smash state" unique_id=831449031]
+transform = Transform3D(20.060163, 0, 0, 0, 3.0061002, 0, 0, 0, 0, 8.485012, -0.064583786, 0)
+mesh = SubResource("PrismMesh_3rftl")
+
+[node name="Dash state" type="Node3D" parent="Mesh(es)" unique_id=1389170201]
+visible = false
+
+[node name="MeshInstance2D3" type="MeshInstance3D" parent="Mesh(es)/Dash state" unique_id=1921835700]
+transform = Transform3D(18.122608, 0, 0, 0, 14.674477, 0, 0, 0, 0, 2.6508234, -5.364418e-07, 0)
+mesh = SubResource("PrismMesh_3rftl")
+
+[node name="Area2D" type="Area3D" parent="." unique_id=1151701196]
+collision_mask = 212
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Area2D" unique_id=2070299927]
+shape = SubResource("SphereShape3D_7ach6")
+
+[node name="shoot" type="Timer" parent="." unique_id=1456680334]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="spawn" type="Timer" parent="." unique_id=258339630]
+one_shot = true
+autostart = true
+
+[node name="cooldown" type="Timer" parent="." unique_id=1874697940]
+wait_time = 0.5
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1275259850]
+
+[node name="coursor" type="TextureRect" parent="CanvasLayer" unique_id=1603040080]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_urkgk")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Enemy_contact"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

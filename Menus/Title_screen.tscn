@@ -1,0 +1,1117 @@
+[gd_scene format=3 uid="uid://cg418vk1chf5k"]
+
+[ext_resource type="Script" uid="uid://btwmxl0icbht1" path="res://Menus/Title_screen.gd" id="1_swqdk"]
+[ext_resource type="LabelSettings" uid="uid://dvpvf7wdsrfxi" path="res://assets/Textures/UI_selected.tres" id="2_hfqrc"]
+[ext_resource type="LabelSettings" uid="uid://b4ckevhw0xmal" path="res://assets/Textures/UI_settings.tres" id="3_7ciif"]
+[ext_resource type="LabelSettings" uid="uid://b5pijvb5s1ujn" path="res://assets/Textures/UI.tres" id="3_og6q2"]
+[ext_resource type="LabelSettings" uid="uid://bi6gm77mgn5ao" path="res://assets/Textures/UI_settings_hidden.tres" id="4_svrpk"]
+[ext_resource type="Texture2D" uid="uid://dyf64kjp5hdow" path="res://assets/Textures/arrow.png" id="4_tbroc"]
+[ext_resource type="Texture2D" uid="uid://dodcs7kjehofa" path="res://assets/Textures/you_did_it.png" id="5_hfqrc"]
+[ext_resource type="Script" uid="uid://c18kikulbtpj4" path="res://Menus/controls.gd" id="6_3uu78"]
+[ext_resource type="Script" uid="uid://bb5c1x6kearoa" path="res://Menus/settings.gd" id="10_vqljg"]
+
+[node name="Control" type="Control" unique_id=1629708582]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_swqdk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1529390860]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sound_settings" type="VBoxContainer" parent="." unique_id=1048002492]
+visible = false
+layout_mode = 0
+offset_right = 149.0
+offset_bottom = 128.0
+alignment = 1
+
+[node name="SliderSettings" type="HBoxContainer" parent="Sound_settings" unique_id=475544684]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Titles" type="VBoxContainer" parent="Sound_settings/SliderSettings" unique_id=1513974424]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="Music" type="Label" parent="Sound_settings/SliderSettings/Titles" unique_id=1837070024]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Music"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Sounds" type="Label" parent="Sound_settings/SliderSettings/Titles" unique_id=1003959736]
+layout_mode = 2
+text = "Sounds"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Quit" type="Label" parent="Sound_settings/SliderSettings/Titles" unique_id=2058709989]
+layout_mode = 2
+text = "Back"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Display value" type="VBoxContainer" parent="Sound_settings/SliderSettings" unique_id=1016383124]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Music" type="Label" parent="Sound_settings/SliderSettings/Display value" unique_id=1321024326]
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Sounds" type="Label" parent="Sound_settings/SliderSettings/Display value" unique_id=1548976174]
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Quit" type="Label" parent="Sound_settings/SliderSettings/Display value" unique_id=54265836]
+layout_mode = 2
+text = "HI"
+label_settings = ExtResource("4_svrpk")
+
+[node name="arrows" type="VBoxContainer" parent="Sound_settings/SliderSettings" unique_id=753554816]
+layout_mode = 2
+
+[node name="empty" type="Control" parent="Sound_settings/SliderSettings/arrows" unique_id=356208816]
+custom_minimum_size = Vector2(0, 1.655)
+layout_mode = 2
+
+[node name="arrow" type="Control" parent="Sound_settings/SliderSettings/arrows" unique_id=1593436032]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="arrow" type="TextureRect" parent="Sound_settings/SliderSettings/arrows/arrow" unique_id=1775182232]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 32.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty2" type="Control" parent="Sound_settings/SliderSettings/arrows" unique_id=1322238299]
+custom_minimum_size = Vector2(0, 32.24)
+layout_mode = 2
+
+[node name="arrow2" type="Control" parent="Sound_settings/SliderSettings/arrows" unique_id=1620896702]
+visible = false
+layout_mode = 2
+
+[node name="arrow2" type="TextureRect" parent="Sound_settings/SliderSettings/arrows/arrow2" unique_id=275550618]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty3" type="Control" parent="Sound_settings/SliderSettings/arrows" unique_id=682189887]
+custom_minimum_size = Vector2(0, 42.095)
+layout_mode = 2
+
+[node name="arrow3" type="Control" parent="Sound_settings/SliderSettings/arrows" unique_id=1129532380]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="Sound_settings/SliderSettings/arrows/arrow3" unique_id=1434336836]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="Visual_settings" type="VBoxContainer" parent="." unique_id=979734954]
+visible = false
+layout_mode = 0
+offset_right = 202.0
+offset_bottom = 128.0
+alignment = 1
+
+[node name="SliderSettings" type="HBoxContainer" parent="Visual_settings" unique_id=1700841219]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Titles" type="VBoxContainer" parent="Visual_settings/SliderSettings" unique_id=2020850549]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="Size" type="Label" parent="Visual_settings/SliderSettings/Titles" unique_id=1275902873]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Screen size"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Fullscreen?" type="Label" parent="Visual_settings/SliderSettings/Titles" unique_id=2125267927]
+layout_mode = 2
+text = "Fullscreen?"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Quit" type="Label" parent="Visual_settings/SliderSettings/Titles" unique_id=837240758]
+layout_mode = 2
+text = "Back"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Display value" type="VBoxContainer" parent="Visual_settings/SliderSettings" unique_id=1817513698]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Size" type="Label" parent="Visual_settings/SliderSettings/Display value" unique_id=2024345911]
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Fullscreen?" type="Label" parent="Visual_settings/SliderSettings/Display value" unique_id=515464381]
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Quit" type="Label" parent="Visual_settings/SliderSettings/Display value" unique_id=225049278]
+layout_mode = 2
+text = "HI"
+label_settings = ExtResource("4_svrpk")
+
+[node name="arrows" type="VBoxContainer" parent="Visual_settings/SliderSettings" unique_id=1043209191]
+layout_mode = 2
+
+[node name="empty" type="Control" parent="Visual_settings/SliderSettings/arrows" unique_id=1286872261]
+custom_minimum_size = Vector2(0, 1.655)
+layout_mode = 2
+
+[node name="arrow" type="Control" parent="Visual_settings/SliderSettings/arrows" unique_id=139849673]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="arrow" type="TextureRect" parent="Visual_settings/SliderSettings/arrows/arrow" unique_id=841917778]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 32.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty2" type="Control" parent="Visual_settings/SliderSettings/arrows" unique_id=147288555]
+custom_minimum_size = Vector2(0, 32.24)
+layout_mode = 2
+
+[node name="arrow2" type="Control" parent="Visual_settings/SliderSettings/arrows" unique_id=1356427634]
+visible = false
+layout_mode = 2
+
+[node name="arrow2" type="TextureRect" parent="Visual_settings/SliderSettings/arrows/arrow2" unique_id=1846305686]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty3" type="Control" parent="Visual_settings/SliderSettings/arrows" unique_id=640393566]
+custom_minimum_size = Vector2(0, 42.095)
+layout_mode = 2
+
+[node name="arrow3" type="Control" parent="Visual_settings/SliderSettings/arrows" unique_id=929724132]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="Visual_settings/SliderSettings/arrows/arrow3" unique_id=2038529944]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="Controler_settings" type="VBoxContainer" parent="." unique_id=720729759]
+visible = false
+layout_mode = 0
+offset_right = 147.0
+offset_bottom = 128.0
+alignment = 1
+
+[node name="SliderSettings" type="HBoxContainer" parent="Controler_settings" unique_id=1908633835]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Titles" type="VBoxContainer" parent="Controler_settings/SliderSettings" unique_id=2110605421]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="Keyboard" type="Label" parent="Controler_settings/SliderSettings/Titles" unique_id=467678145]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Keyboard"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Controler" type="Label" parent="Controler_settings/SliderSettings/Titles" unique_id=1299728306]
+layout_mode = 2
+text = "Controler"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Quit" type="Label" parent="Controler_settings/SliderSettings/Titles" unique_id=2106408644]
+layout_mode = 2
+text = "Back"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Display value" type="VBoxContainer" parent="Controler_settings/SliderSettings" unique_id=1079853994]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Controler_settings/SliderSettings/Display value" unique_id=769610258]
+layout_mode = 2
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label2" type="Label" parent="Controler_settings/SliderSettings/Display value" unique_id=547233314]
+layout_mode = 2
+label_settings = ExtResource("3_7ciif")
+
+[node name="Quit" type="Label" parent="Controler_settings/SliderSettings/Display value" unique_id=666215169]
+layout_mode = 2
+label_settings = ExtResource("4_svrpk")
+
+[node name="arrows" type="VBoxContainer" parent="Controler_settings/SliderSettings" unique_id=1047306965]
+layout_mode = 2
+
+[node name="empty" type="Control" parent="Controler_settings/SliderSettings/arrows" unique_id=185634440]
+custom_minimum_size = Vector2(0, 1.655)
+layout_mode = 2
+
+[node name="arrow" type="Control" parent="Controler_settings/SliderSettings/arrows" unique_id=535255202]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="arrow" type="TextureRect" parent="Controler_settings/SliderSettings/arrows/arrow" unique_id=450217059]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 32.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty2" type="Control" parent="Controler_settings/SliderSettings/arrows" unique_id=933643240]
+custom_minimum_size = Vector2(0, 32.24)
+layout_mode = 2
+
+[node name="arrow2" type="Control" parent="Controler_settings/SliderSettings/arrows" unique_id=298037545]
+visible = false
+layout_mode = 2
+
+[node name="arrow2" type="TextureRect" parent="Controler_settings/SliderSettings/arrows/arrow2" unique_id=1816179802]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty3" type="Control" parent="Controler_settings/SliderSettings/arrows" unique_id=333632679]
+custom_minimum_size = Vector2(0, 42.095)
+layout_mode = 2
+
+[node name="arrow3" type="Control" parent="Controler_settings/SliderSettings/arrows" unique_id=78907480]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="Controler_settings/SliderSettings/arrows/arrow3" unique_id=79324648]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="settings" type="VBoxContainer" parent="." unique_id=1271004144]
+visible = false
+layout_mode = 0
+offset_right = 145.0
+offset_bottom = 172.0
+alignment = 1
+script = ExtResource("10_vqljg")
+
+[node name="SliderSettings" type="HBoxContainer" parent="settings" unique_id=341999911]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Titles" type="VBoxContainer" parent="settings/SliderSettings" unique_id=2099379472]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="Sounds" type="Label" parent="settings/SliderSettings/Titles" unique_id=1455046024]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Sounds"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Visuals" type="Label" parent="settings/SliderSettings/Titles" unique_id=661890829]
+layout_mode = 2
+text = "Visuals"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Controls" type="Label" parent="settings/SliderSettings/Titles" unique_id=94355107]
+layout_mode = 2
+text = "Controls"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Quit" type="Label" parent="settings/SliderSettings/Titles" unique_id=982456285]
+layout_mode = 2
+text = "Back"
+label_settings = ExtResource("3_7ciif")
+
+[node name="arrows" type="VBoxContainer" parent="settings/SliderSettings" unique_id=635506588]
+layout_mode = 2
+
+[node name="empty" type="Control" parent="settings/SliderSettings/arrows" unique_id=1108659067]
+custom_minimum_size = Vector2(0, 4.525)
+layout_mode = 2
+
+[node name="arrow" type="Control" parent="settings/SliderSettings/arrows" unique_id=1794846835]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="arrow" type="TextureRect" parent="settings/SliderSettings/arrows/arrow" unique_id=2086064841]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 32.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty2" type="Control" parent="settings/SliderSettings/arrows" unique_id=287568852]
+custom_minimum_size = Vector2(0, 31.71)
+layout_mode = 2
+
+[node name="arrow2" type="Control" parent="settings/SliderSettings/arrows" unique_id=822028484]
+visible = false
+layout_mode = 2
+
+[node name="arrow2" type="TextureRect" parent="settings/SliderSettings/arrows/arrow2" unique_id=1538562840]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty3" type="Control" parent="settings/SliderSettings/arrows" unique_id=1663336853]
+custom_minimum_size = Vector2(0, 40.455)
+layout_mode = 2
+
+[node name="arrow3" type="Control" parent="settings/SliderSettings/arrows" unique_id=910172709]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="settings/SliderSettings/arrows/arrow3" unique_id=1502134953]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty4" type="Control" parent="settings/SliderSettings/arrows" unique_id=330694008]
+custom_minimum_size = Vector2(0, 40.51)
+layout_mode = 2
+
+[node name="arrow4" type="Control" parent="settings/SliderSettings/arrows" unique_id=1713193626]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="settings/SliderSettings/arrows/arrow4" unique_id=31964728]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="keyboard" type="HBoxContainer" parent="." unique_id=691496028]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -82.0
+offset_bottom = 23.0
+grow_horizontal = 0
+script = ExtResource("6_3uu78")
+
+[node name="actions" type="VBoxContainer" parent="keyboard" unique_id=1699945797]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="keyboard/actions" unique_id=38000330]
+layout_mode = 2
+text = "Action|"
+label_settings = ExtResource("3_7ciif")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="keyboard/actions" unique_id=1279522013]
+layout_mode = 2
+text = "Shoot"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label3" type="Label" parent="keyboard/actions" unique_id=352395150]
+layout_mode = 2
+text = "forwards"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label4" type="Label" parent="keyboard/actions" unique_id=1275123749]
+layout_mode = 2
+text = "backwards"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label5" type="Label" parent="keyboard/actions" unique_id=770860667]
+layout_mode = 2
+text = "strafe left"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label6" type="Label" parent="keyboard/actions" unique_id=549125143]
+layout_mode = 2
+text = "strafe right"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label7" type="Label" parent="keyboard/actions" unique_id=666206002]
+layout_mode = 2
+text = "esc"
+label_settings = ExtResource("3_7ciif")
+
+[node name="key" type="VBoxContainer" parent="keyboard" unique_id=197177278]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="keyboard/key" unique_id=1101524302]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "key"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label2" type="Label" parent="keyboard/key" unique_id=1647736714]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "If your seeing"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label3" type="Label" parent="keyboard/key" unique_id=1472946504]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "Then please"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label4" type="Label" parent="keyboard/key" unique_id=1281972826]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "Know that"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label5" type="Label" parent="keyboard/key" unique_id=1250153516]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "the only reason"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label6" type="Label" parent="keyboard/key" unique_id=782701513]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "im doing this"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label7" type="Label" parent="keyboard/key" unique_id=154178924]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "is because"
+label_settings = ExtResource("3_7ciif")
+
+[node name="arrows" type="VBoxContainer" parent="keyboard" unique_id=392628018]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="empty" type="Control" parent="keyboard/arrows" unique_id=236127333]
+custom_minimum_size = Vector2(0, 4.525)
+layout_mode = 2
+
+[node name="arrow" type="Control" parent="keyboard/arrows" unique_id=1924955231]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="arrow" type="TextureRect" parent="keyboard/arrows/arrow" unique_id=1882079240]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 32.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty2" type="Control" parent="keyboard/arrows" unique_id=267680211]
+custom_minimum_size = Vector2(0, 31.71)
+layout_mode = 2
+
+[node name="arrow2" type="Control" parent="keyboard/arrows" unique_id=1713731668]
+visible = false
+layout_mode = 2
+
+[node name="arrow2" type="TextureRect" parent="keyboard/arrows/arrow2" unique_id=414422978]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty3" type="Control" parent="keyboard/arrows" unique_id=368597898]
+custom_minimum_size = Vector2(0, 40.455)
+layout_mode = 2
+
+[node name="arrow3" type="Control" parent="keyboard/arrows" unique_id=1255113784]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="keyboard/arrows/arrow3" unique_id=483237116]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty4" type="Control" parent="keyboard/arrows" unique_id=1696474793]
+custom_minimum_size = Vector2(0, 40.51)
+layout_mode = 2
+
+[node name="arrow4" type="Control" parent="keyboard/arrows" unique_id=1611885103]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="keyboard/arrows/arrow4" unique_id=1459340206]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="ui_actions" type="VBoxContainer" parent="keyboard" unique_id=71588696]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="keyboard/ui_actions" unique_id=1351368565]
+layout_mode = 2
+text = "Ui Action|"
+label_settings = ExtResource("3_7ciif")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="keyboard/ui_actions" unique_id=117645911]
+layout_mode = 2
+text = "ui_accept"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label3" type="Label" parent="keyboard/ui_actions" unique_id=1881908044]
+layout_mode = 2
+text = "ui_up"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label4" type="Label" parent="keyboard/ui_actions" unique_id=82024843]
+layout_mode = 2
+text = "ui_down"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label5" type="Label" parent="keyboard/ui_actions" unique_id=1202018497]
+layout_mode = 2
+text = "ui_left"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label6" type="Label" parent="keyboard/ui_actions" unique_id=305581111]
+layout_mode = 2
+text = "ui_right"
+label_settings = ExtResource("3_7ciif")
+
+[node name="key2" type="VBoxContainer" parent="keyboard" unique_id=1885479421]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="keyboard/key2" unique_id=1547166414]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "key"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label2" type="Label" parent="keyboard/key2" unique_id=942827421]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "im insane"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label3" type="Label" parent="keyboard/key2" unique_id=1672803553]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "yea thats it"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label4" type="Label" parent="keyboard/key2" unique_id=615774805]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "..."
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label5" type="Label" parent="keyboard/key2" unique_id=1436642541]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "there is no"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label6" type="Label" parent="keyboard/key2" unique_id=1916684947]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "other reason"
+label_settings = ExtResource("3_7ciif")
+
+[node name="controler" type="HBoxContainer" parent="." unique_id=1047121746]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -361.0
+offset_bottom = 127.0
+grow_horizontal = 0
+
+[node name="actions" type="VBoxContainer" parent="controler" unique_id=9327542]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="controler/actions" unique_id=1087132709]
+layout_mode = 2
+text = "Action|"
+label_settings = ExtResource("3_7ciif")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="controler/actions" unique_id=1107621317]
+layout_mode = 2
+text = "Shoot"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label3" type="Label" parent="controler/actions" unique_id=1945385353]
+layout_mode = 2
+text = "forwards"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label4" type="Label" parent="controler/actions" unique_id=1922218728]
+layout_mode = 2
+text = "backwards"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label5" type="Label" parent="controler/actions" unique_id=19670720]
+layout_mode = 2
+text = "strafe left"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label6" type="Label" parent="controler/actions" unique_id=33995036]
+layout_mode = 2
+text = "strafe right"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label7" type="Label" parent="controler/actions" unique_id=953632857]
+layout_mode = 2
+text = "esc"
+label_settings = ExtResource("3_7ciif")
+
+[node name="key" type="VBoxContainer" parent="controler" unique_id=901708521]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="controler/key" unique_id=1280206881]
+custom_minimum_size = Vector2(254, 0)
+layout_mode = 2
+text = "Key"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label2" type="Label" parent="controler/key" unique_id=796922763]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "If your seeing"
+label_settings = ExtResource("3_7ciif")
+clip_text = true
+
+[node name="Label3" type="Label" parent="controler/key" unique_id=838568291]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "Then please"
+label_settings = ExtResource("3_7ciif")
+clip_text = true
+
+[node name="Label4" type="Label" parent="controler/key" unique_id=901851297]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "Know that"
+label_settings = ExtResource("3_7ciif")
+clip_text = true
+
+[node name="Label5" type="Label" parent="controler/key" unique_id=1541055465]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "the only reason"
+label_settings = ExtResource("3_7ciif")
+clip_text = true
+
+[node name="Label6" type="Label" parent="controler/key" unique_id=2118221941]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "im doing this"
+label_settings = ExtResource("3_7ciif")
+clip_text = true
+
+[node name="Label7" type="Label" parent="controler/key" unique_id=548756533]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "is because"
+label_settings = ExtResource("3_7ciif")
+clip_text = true
+
+[node name="arrows" type="VBoxContainer" parent="controler" unique_id=253615183]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="empty" type="Control" parent="controler/arrows" unique_id=1947493844]
+custom_minimum_size = Vector2(0, 4.525)
+layout_mode = 2
+
+[node name="arrow" type="Control" parent="controler/arrows" unique_id=346959041]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="arrow" type="TextureRect" parent="controler/arrows/arrow" unique_id=1756883431]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 32.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty2" type="Control" parent="controler/arrows" unique_id=672083013]
+custom_minimum_size = Vector2(0, 31.71)
+layout_mode = 2
+
+[node name="arrow2" type="Control" parent="controler/arrows" unique_id=323211582]
+visible = false
+layout_mode = 2
+
+[node name="arrow2" type="TextureRect" parent="controler/arrows/arrow2" unique_id=714768690]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty3" type="Control" parent="controler/arrows" unique_id=1789683242]
+custom_minimum_size = Vector2(0, 40.455)
+layout_mode = 2
+
+[node name="arrow3" type="Control" parent="controler/arrows" unique_id=1495606464]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="controler/arrows/arrow3" unique_id=1493939781]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty4" type="Control" parent="controler/arrows" unique_id=583346060]
+custom_minimum_size = Vector2(0, 40.51)
+layout_mode = 2
+
+[node name="arrow4" type="Control" parent="controler/arrows" unique_id=1117269250]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="controler/arrows/arrow4" unique_id=370660470]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="ui_actions" type="VBoxContainer" parent="controler" unique_id=1471090621]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="controler/ui_actions" unique_id=649798085]
+layout_mode = 2
+text = "Ui Action|"
+label_settings = ExtResource("3_7ciif")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="controler/ui_actions" unique_id=575319534]
+layout_mode = 2
+text = "ui_accept"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label3" type="Label" parent="controler/ui_actions" unique_id=550715062]
+layout_mode = 2
+text = "ui_up"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label4" type="Label" parent="controler/ui_actions" unique_id=1091756110]
+layout_mode = 2
+text = "ui_down"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label5" type="Label" parent="controler/ui_actions" unique_id=2114956504]
+layout_mode = 2
+text = "ui_left"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label6" type="Label" parent="controler/ui_actions" unique_id=1837481771]
+layout_mode = 2
+text = "ui_right"
+label_settings = ExtResource("3_7ciif")
+
+[node name="key2" type="VBoxContainer" parent="controler" unique_id=839953240]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="controler/key2" unique_id=1876978629]
+custom_minimum_size = Vector2(254, 0)
+layout_mode = 2
+text = "Key"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label2" type="Label" parent="controler/key2" unique_id=448142924]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "im insane"
+label_settings = ExtResource("3_7ciif")
+clip_text = true
+
+[node name="Label3" type="Label" parent="controler/key2" unique_id=1551656536]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "yea thats it"
+label_settings = ExtResource("3_7ciif")
+clip_text = true
+
+[node name="Label4" type="Label" parent="controler/key2" unique_id=1661940038]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "..."
+label_settings = ExtResource("3_7ciif")
+clip_text = true
+
+[node name="Label5" type="Label" parent="controler/key2" unique_id=1034006306]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "there is no"
+label_settings = ExtResource("3_7ciif")
+clip_text = true
+
+[node name="Label6" type="Label" parent="controler/key2" unique_id=907285617]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "other reason"
+label_settings = ExtResource("3_7ciif")
+clip_text = true
+
+[node name="Title_screen" type="HBoxContainer" parent="." unique_id=2083741596]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Title_screen" unique_id=2128584590]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="Title_screen/VBoxContainer" unique_id=1845538501]
+layout_mode = 2
+text = "Start"
+label_settings = ExtResource("2_hfqrc")
+
+[node name="Options" type="Label" parent="Title_screen/VBoxContainer" unique_id=1753880263]
+layout_mode = 2
+text = "Options"
+label_settings = ExtResource("3_og6q2")
+
+[node name="Exit" type="Label" parent="Title_screen/VBoxContainer" unique_id=834751316]
+layout_mode = 2
+text = "Exit"
+label_settings = ExtResource("3_og6q2")
+
+[node name="Exit2" type="Label" parent="Title_screen/VBoxContainer" unique_id=817677894]
+layout_mode = 2
+text = "Exit"
+label_settings = ExtResource("3_og6q2")
+
+[node name="Exit3" type="Label" parent="Title_screen/VBoxContainer" unique_id=2015931383]
+layout_mode = 2
+text = "Exit"
+label_settings = ExtResource("3_og6q2")
+
+[node name="Exit4" type="Label" parent="Title_screen/VBoxContainer" unique_id=1488532470]
+layout_mode = 2
+text = "Exit"
+label_settings = ExtResource("3_og6q2")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Title_screen" unique_id=888538755]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="empty" type="Control" parent="Title_screen/VBoxContainer2" unique_id=1362687933]
+custom_minimum_size = Vector2(0, 5.18)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="arrow" type="Control" parent="Title_screen/VBoxContainer2" unique_id=191218695]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Title_screen/VBoxContainer2/arrow" unique_id=247671857]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 64.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty2" type="Control" parent="Title_screen/VBoxContainer2" unique_id=2014981095]
+custom_minimum_size = Vector2(0, 81.63)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="arrow2" type="Control" parent="Title_screen/VBoxContainer2" unique_id=1743522057]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Title_screen/VBoxContainer2/arrow2" unique_id=1255549365]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty3" type="Control" parent="Title_screen/VBoxContainer2" unique_id=888312752]
+custom_minimum_size = Vector2(0, 82.28)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="arrow3" type="Control" parent="Title_screen/VBoxContainer2" unique_id=196044255]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Title_screen/VBoxContainer2/arrow3" unique_id=1977197747]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty4" type="Control" parent="Title_screen/VBoxContainer2" unique_id=1642927308]
+custom_minimum_size = Vector2(0, 80.395)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="arrow4" type="Control" parent="Title_screen/VBoxContainer2" unique_id=1097120802]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Title_screen/VBoxContainer2/arrow4" unique_id=1221487602]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty5" type="Control" parent="Title_screen/VBoxContainer2" unique_id=156011393]
+custom_minimum_size = Vector2(0, 82.12)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="arrow5" type="Control" parent="Title_screen/VBoxContainer2" unique_id=155811815]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Title_screen/VBoxContainer2/arrow5" unique_id=1244050104]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty6" type="Control" parent="Title_screen/VBoxContainer2" unique_id=2137118554]
+custom_minimum_size = Vector2(0, 76.48)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="arrow6" type="Control" parent="Title_screen/VBoxContainer2" unique_id=792794761]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Title_screen/VBoxContainer2/arrow6" unique_id=1875600286]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty7" type="Control" parent="Title_screen/VBoxContainer2" unique_id=476473184]
+custom_minimum_size = Vector2(0, 73.075)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="you_did_it" type="TextureRect" parent="." unique_id=1198323234]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_hfqrc")

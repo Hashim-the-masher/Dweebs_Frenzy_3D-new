@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dd5qbpotmendt"]
+
+[ext_resource type="Script" uid="uid://bmal7xntq3fjr" path="res://Main game loop/tiles/win_area.gd" id="1_2ithu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjo3c"]
+size = Vector2(64, 64)
+
+[node name="Win_area" type="Area2D" unique_id=2002466003]
+collision_layer = 0
+script = ExtResource("1_2ithu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=303751962]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_bjo3c")

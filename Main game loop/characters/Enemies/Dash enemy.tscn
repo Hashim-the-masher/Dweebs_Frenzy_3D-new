@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://ccv00riqhsp4c"]
+
+[ext_resource type="Texture2D" uid="uid://doisbhxhnuw30" path="res://assets/Textures/Black colour.tres" id="1_00obo"]
+
+[sub_resource type="GDScript" id="GDScript_tfsms"]
+script/source = "extends CharacterBody2D
+
+signal kill
+
+
+
+
+func _on_hitbot_area_entered(area: Area2D) -> void:
+	print(area.name)
+	if area.name == \"Bullet\" or area.name == \"Smash\":
+		kill.emit()
+		queue_free()
+"
+
+[sub_resource type="PrismMesh" id="PrismMesh_xk3ga"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_tfsms"]
+points = PackedVector2Array(-4.665, -8.98, -4.625, 9.045, 9.9, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_00obo"]
+radius = 5.0
+
+[node name="dash" type="CharacterBody2D" unique_id=1750941581]
+scale = Vector2(4, 4)
+collision_layer = 4
+collision_mask = 14
+script = SubResource("GDScript_tfsms")
+
+[node name="Dash state" type="Node2D" parent="." unique_id=1238788509]
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="Dash state" unique_id=1008312891]
+position = Vector2(2.6508234, -5.364418e-07)
+rotation = -1.5707964
+scale = Vector2(18.122608, 14.674477)
+mesh = SubResource("PrismMesh_xk3ga")
+texture = ExtResource("1_00obo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=119338462]
+shape = SubResource("ConvexPolygonShape2D_tfsms")
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=165873883]
+collision_layer = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=1348034248]
+position = Vector2(0.5, 0)
+shape = SubResource("CircleShape2D_00obo")
+
+[node name="hitbot" type="Area2D" parent="." unique_id=1801806416]
+collision_mask = 40
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbot" unique_id=1719934875]
+shape = SubResource("ConvexPolygonShape2D_tfsms")
+
+[connection signal="area_entered" from="hitbot" to="." method="_on_hitbot_area_entered"]
