@@ -69,10 +69,10 @@ func _physics_process(delta: float) -> void:
 					velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*tank_speed*delta 
 					velocity_on_a_plane /= breaking_friction
 				velocity_on_a_plane /= friction
-				velocity = Vector3(velocity_on_a_plane.x,velocity_on_a_plane.y,0)
-		elif sqrt(velocity.x**2+velocity.y**2)>min_velocity:
+				velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
+		elif sqrt(velocity.x**2+velocity.z**2)>min_velocity:
 			velocity /= breaking_friction
-		else:pass 
+		else:pass
 		if atan2(coursor.position.y-225,coursor.position.x-480)>rotation.y:
 			if (rad_to_deg(atan2(coursor.position.y-225,coursor.position.x-480))-180)>rotation_degrees.y:
 				rotaion_velocity += -1*delta*rotation_speed
@@ -88,6 +88,7 @@ func _physics_process(delta: float) -> void:
 		rotaion_velocity = clampf(rotaion_velocity,min_rotation,max_rotation)
 		rotation.y += rotaion_velocity
 		audio_listener.rotation.y -= rotaion_velocity
+		camera.rotation.y -= rotaion_velocity
 		move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:

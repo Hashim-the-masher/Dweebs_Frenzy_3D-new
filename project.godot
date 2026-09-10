@@ -89,13 +89,21 @@ esc={
 [layer_names]
 
 2d_physics/layer_1="Player"
+3d_physics/layer_1="Player"
 2d_physics/layer_2="Walls"
+3d_physics/layer_2="walls"
 2d_physics/layer_3="Enemies"
+3d_physics/layer_3="enemies"
 2d_physics/layer_4="Player Bullets"
+3d_physics/layer_4="Player bullets"
 2d_physics/layer_5="Enemy Bullets"
+3d_physics/layer_5="enemy bullets"
 2d_physics/layer_6="Player Smashes"
+3d_physics/layer_6="Player smashes"
 2d_physics/layer_7="Lava"
+3d_physics/layer_7="lava"
 2d_physics/layer_8="Dashable Lava"
+3d_physics/layer_8="dashable lava"
 2d_physics/layer_9="Coursor"
 
 [physics]

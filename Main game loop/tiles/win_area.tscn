@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bmal7xntq3fjr" path="res://Main game loop/tiles/win_area.gd" id="1_2ithu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjo3c"]
-size = Vector2(64, 64)
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ithu"]
+size = Vector3(2, 2, 2)
 
-[node name="Win_area" type="Area2D" unique_id=2002466003]
+[node name="Win_area" type="Area3D" unique_id=1598248560]
 collision_layer = 0
 script = ExtResource("1_2ithu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=303751962]
-position = Vector2(32, 32)
-shape = SubResource("RectangleShape2D_bjo3c")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=158531989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
+shape = SubResource("BoxShape3D_2ithu")

@@ -10,6 +10,8 @@ func start(pos,the_rotation,volume):
 	rotate(Vector3.UP,deg_to_rad(90))
 	rotation.z += the_rotation
 func _process(delta):
+	if line_of_fire == null:
+		return
 	position += Vector3(1,0,0).rotated(Vector3.UP,line_of_fire)*speed*delta
 func _on_enemy(area: Area2D) -> void:
 	if area.collision_layer == 32:
