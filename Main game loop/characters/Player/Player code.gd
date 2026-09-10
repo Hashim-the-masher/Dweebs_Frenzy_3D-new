@@ -23,7 +23,7 @@ var tank_speed:float = speed*4
 var flags = {"spawn":false,"cooldown":true,"hit?":false} 
 var state = "Normal state"
 var meshstate
-@onready var meshes = $"Mesh(es)" 
+@onready var meshes = {"Normal state":$"Mesh(es)/Normal state", "Dash state":$"Mesh(es)/Dash state", "Smash state":$"Mesh(es)/Smash state"}
 var states = {0:"Normal state",1:"Smash state",2:"Dash state"} 
 var bullet_volume:float
 @onready var file_tools = file_control.new()
@@ -42,13 +42,13 @@ func reset_volume():
 
 func switch_mesh(selectstate=state):
 	meshstate = selectstate
-	for num in states:
-		if meshstate == meshes.get_child(num).name:
-			meshes.get_child(num).show()
-			print(states[num],"shown")
-		elif meshstate != meshes.get_child(num).name:
-			meshes.get_child(num).hide()
-			print(states[num],"hidden")
+	for num in meshes:
+		if meshstate == num:
+			meshes[num].show()
+			print(num+" shown")
+		elif meshstate != num:
+			meshes[num].hide()
+			print(num+" hidden")
 
 func _physics_process(delta: float) -> void:
 	if menu_pause != null:
@@ -56,7 +56,6 @@ func _physics_process(delta: float) -> void:
 			return
 	if Input.is_action_pressed("Shoot") and flags["cooldown"] == true:  
 		shoot()
-		flags["cooldown"]= false
 	elif flags["spawn"] == true:
 		if Input.get_vector("backwards","forwards","turn left","turn right"):
 			if sqrt(velocity.x**2+velocity.y**2) < max_velocity:
@@ -87,6 +86,8 @@ func _physics_process(delta: float) -> void:
 		rotaion_velocity /= rotation_friction
 		rotaion_velocity = clampf(rotaion_velocity,min_rotation,max_rotation)
 		rotation.y += rotaion_velocity
+		meshes[state].get_parent().rotation_degrees.y -= rad_to_deg(rotaion_velocity)
+		meshes[state].get_parent().rotation_degrees.y -= rad_to_deg(rotaion_velocity)#i dont want to know, but it works
 		audio_listener.rotation.y -= rotaion_velocity
 		camera.rotation.y -= rotaion_velocity
 		move_and_slide()
@@ -104,6 +105,7 @@ func shoot():
 			var bullet = bullet_scenes["bullet"].instantiate()
 			add_sibling(bullet)
 			bullet.start(position,rotation.z,bullet_volume)
+			flags["cooldown"]= false
 			cooldown_timer.wait_time = wait_time["shoot"]
 			cooldown_timer.start()
 		"Smash state":

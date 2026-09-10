@@ -19,11 +19,13 @@ script = ExtResource("1_dyopk")
 speed = 999
 
 [node name="CollisionShape2D" type="CollisionShape3D" parent="." unique_id=1232173343]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_tya31")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier3D" parent="." unique_id=65630602]
 
 [node name="MeshInstance2D" type="MeshInstance3D" parent="." unique_id=2142549565]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_3umxu")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer3D" parent="." unique_id=1531674879]

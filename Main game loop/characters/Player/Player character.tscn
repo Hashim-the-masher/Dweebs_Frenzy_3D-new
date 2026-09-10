@@ -1,13 +1,25 @@
 [gd_scene format=3 uid="uid://c4uv6fisup5fn"]
 
 [ext_resource type="Script" uid="uid://c1yq5e3ldovvc" path="res://Main game loop/characters/Player/Player code.gd" id="1_h07og"]
-[ext_resource type="Texture2D" uid="uid://c5knpln58e3fi" path="res://assets/Textures/xtra_arrow.png" id="2_7ach6"]
 [ext_resource type="Texture2D" uid="uid://dunh2c5j5h5qy" path="res://assets/Textures/coursor_placeholder.tres" id="4_kyhia"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_je8wp"]
 
+[sub_resource type="Gradient" id="Gradient_je8wp"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.36129034, 0.68064517)
+colors = PackedColorArray(0, 0, 0, 1, 0.41215247, 0.41215247, 0.41215247, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7ach6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kyhia"]
+noise = SubResource("FastNoiseLite_7ach6")
+color_ramp = SubResource("Gradient_je8wp")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyhia"]
-albedo_texture = ExtResource("2_7ach6")
+emission_enabled = true
+emission_energy_multiplier = 4.9
+emission_texture = SubResource("NoiseTexture2D_kyhia")
 
 [sub_resource type="SphereMesh" id="SphereMesh_je8wp"]
 material = SubResource("StandardMaterial3D_kyhia")
@@ -17,6 +29,8 @@ radius = 0.41357422
 
 [node name="player" type="CharacterBody3D" unique_id=1720083908]
 collision_mask = 2
+motion_mode = 1
+wall_min_slide_angle = 1.5707964
 script = ExtResource("1_h07og")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1078139661]
@@ -27,6 +41,7 @@ shape = SubResource("CylinderShape3D_je8wp")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1062787763]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)
 projection = 1
+current = true
 size = 10.0
 
 [node name="Mesh(es)" type="Node3D" parent="." unique_id=1761470679]
@@ -59,11 +74,10 @@ one_shot = true
 
 [node name="spawn" type="Timer" parent="." unique_id=732477077]
 one_shot = true
-autostart = true
 
 [node name="cooldown" type="Timer" parent="." unique_id=264411453]
 wait_time = 0.5
-autostart = true
+one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=136473358]
 
@@ -82,3 +96,5 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_kyhia")
 metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

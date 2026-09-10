@@ -6,7 +6,6 @@ var alevel = [preload("uid://c2sdayly3ckis"), preload("uid://th2xsi4ecpks"), pre
 var current_level
 signal on_win
 func _ready() -> void:
-	filecontrols.fullscreen(get_window())
 	start_level(1)
 	player.flags["spawn"] = true
 

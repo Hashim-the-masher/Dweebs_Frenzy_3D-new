@@ -8,6 +8,9 @@
 script = ExtResource("1_v7lg2")
 
 [node name="player" parent="." unique_id=768464723 instance=ExtResource("1_6ibnl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5543064, 0)
+platform_floor_layers = 4294901760
+platform_wall_layers = 2
 
 [node name="Ui" type="CanvasLayer" parent="." unique_id=574960613]
 
