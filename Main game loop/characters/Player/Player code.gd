@@ -59,12 +59,16 @@ func _physics_process(delta: float) -> void:
 		shoot()
 	elif flags["spawn"] == true:
 		if Input.get_vector("backwards","forwards","turn left","turn right"):
-			velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*speed
+			if Input.is_action_pressed("backwards") == true:
+				velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*speed*back_slow_mutiplyer
+			else:
+				velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*speed
 			velocity_on_a_plane /= friction
 			velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
+			print(rotation)
 		elif sqrt(velocity.x**2+velocity.z**2)>min_velocity:
 			velocity /= breaking_friction
-		else:pass
+		else:velocity = Vector3.ZERO
 		if atan2(coursor.position.y-225,coursor.position.x-480)>rotation.y:
 			if (rad_to_deg(atan2(coursor.position.y-225,coursor.position.x-480))-180)>rotation_degrees.y:
 				rotaion_velocity += -1*delta*rotation_speed
