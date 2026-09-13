@@ -7,6 +7,8 @@
 [sub_resource type="Environment" id="Environment_ops67"]
 background_mode = 1
 background_color = Color(1, 1, 1, 1)
+ambient_light_source = 1
+adjustment_enabled = true
 
 [node name="Main" type="Node3D" unique_id=228340767]
 script = ExtResource("1_v7lg2")

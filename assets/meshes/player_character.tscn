@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://blel8lmh8pqig" path="res://assets/meshes/player_character.glb" id="1_1iw3k"]
 
 [sub_resource type="Gradient" id="Gradient_1iw3k"]
-offsets = PackedFloat32Array(0, 0.5410959)
 colors = PackedColorArray(0, 0, 1, 1, 1, 1, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ndwgi"]
@@ -12,8 +11,10 @@ fill_from = Vector2(0.5214286, 0.85)
 fill_to = Vector2(0.5214286, 0.5404762)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1iw3k"]
-shading_mode = 0
+shading_mode = 2
 albedo_texture = SubResource("GradientTexture2D_ndwgi")
+emission_enabled = true
+emission_texture = SubResource("GradientTexture2D_ndwgi")
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ndwgi"]
@@ -24,9 +25,9 @@ albedo_color = Color(0, 0, 0, 1)
 [node name="player_character" unique_id=369899107 instance=ExtResource("1_1iw3k")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
-[node name="Icosphere" parent="." index="0" unique_id=1697140161]
-transform = Transform3D(-0.11378356, 0.9659258, -0.23246643, -0.898181, 1.9216655e-08, 0.43962586, 0.42464596, 0.2588191, 0.86757624, 0, 0, 0)
+[node name="Icosphere" parent="." index="0" unique_id=1922967098]
+transform = Transform3D(0.53148293, 0.56087905, -0.63477594, -0.6493476, 0.7509841, 0.119875446, 0.5439422, 0.34847844, 0.76334065, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_1iw3k")
 
-[node name="Cube" parent="." index="1" unique_id=787862227]
+[node name="Cube" parent="." index="1" unique_id=527146472]
 surface_material_override/0 = SubResource("StandardMaterial3D_ndwgi")
