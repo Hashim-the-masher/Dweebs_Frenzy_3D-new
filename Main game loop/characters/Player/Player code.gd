@@ -5,14 +5,14 @@ var rotaion_velocity:float
 @export var min_rotation:float = -.1
 @export var rotation_friction:float = 1.15
 @export var coursorspeed:float = 0.015
-@export var speed:float = 150 
+@export var speed:float = 1.5
 var velocity_on_a_plane:=Vector2(0,0)
 var tank_speed:float = speed*(PI/2)
 @export var max_velocity:float = 250
 @export var min_velocity:float = 0.1  
-@export var back_slow_mutiplyer:float = .2 
-@export var friction:float = 1.03 
-@export var breaking_friction:float = 1.1 
+@export var back_slow_mutiplyer:float = .7
+@export var friction:float = (1+ .05) 
+@export var breaking_friction:float = (1+ .1) 
 @onready var camera = $Camera3D
 @onready var audio_listener = $AudioListener3D
 @onready var menu_pause: Control = $"../Ui/menu_pause"
@@ -58,20 +58,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Shoot") and flags["cooldown"] == true:  
 		shoot()
 	elif flags["spawn"] == true:
-		if Input.get_vector("backwards","forwards","turn left","turn right"):
+		if Input.is_action_pressed("forwards")==true or Input.is_action_pressed("backwards")==true or Input.is_action_pressed("turn left")==true or Input.is_action_pressed("turn right")==true:
 			if Input.is_action_pressed("turn left") == true or Input.is_action_pressed("turn right") == true:
 				velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*tank_speed
-				velocity_on_a_plane /= breaking_friction
+				velocity_on_a_plane /= breaking_friction-delta
 			elif Input.is_action_pressed("backwards") == true:
 				velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*speed*back_slow_mutiplyer
 			else:
 				velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*speed
-			velocity_on_a_plane /= friction
-			velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
-			print(rotation)
-		elif sqrt(velocity.x**2+velocity.z**2)>min_velocity:
-			velocity /= breaking_friction
-		else:velocity = Vector3.ZERO
+			velocity_on_a_plane /= friction-delta
+		elif sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2)>min_velocity:
+			velocity_on_a_plane /= breaking_friction-delta
+		else:velocity_on_a_plane = Vector2.ZERO
+		velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
+		print(sqrt(velocity.x**2+velocity.z**2))
 		if atan2(coursor.position.y-225,coursor.position.x-480)>rotation.y:
 			if (rad_to_deg(atan2(coursor.position.y-225,coursor.position.x-480))-180)>rotation_degrees.y:
 				rotaion_velocity += -1*delta*rotation_speed
