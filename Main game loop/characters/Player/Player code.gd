@@ -5,7 +5,7 @@ var rotaion_velocity:float
 @export var min_rotation:float = -.1
 @export var rotation_friction:float = 1.15
 @export var coursorspeed:float = 0.015
-@export var speed:float = 1.5
+@export var speed:float = 9
 var velocity_on_a_plane:=Vector2(0,0)
 var tank_speed:float = speed*(PI/2)
 @export var max_velocity:float = 250
@@ -60,7 +60,11 @@ func _physics_process(delta: float) -> void:
 	elif flags["spawn"] == true:
 		if Input.is_action_pressed("forwards")==true or Input.is_action_pressed("backwards")==true or Input.is_action_pressed("turn left")==true or Input.is_action_pressed("turn right")==true:
 			if Input.is_action_pressed("turn left") == true or Input.is_action_pressed("turn right") == true:
-				velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*tank_speed
+				match Input.is_action_pressed("forwards"):
+					true:
+						velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*tank_speed*2
+					false:
+						velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*tank_speed
 				velocity_on_a_plane /= breaking_friction-delta
 			elif Input.is_action_pressed("backwards") == true:
 				velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*speed*back_slow_mutiplyer
