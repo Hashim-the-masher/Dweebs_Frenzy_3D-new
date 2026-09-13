@@ -75,7 +75,6 @@ func _physics_process(delta: float) -> void:
 			velocity_on_a_plane /= breaking_friction-delta
 		else:velocity_on_a_plane = Vector2.ZERO
 		velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
-		print(sqrt(velocity.x**2+velocity.z**2))
 		if atan2(coursor.position.y-225,coursor.position.x-480)>rotation.y:
 			if (rad_to_deg(atan2(coursor.position.y-225,coursor.position.x-480))-180)>rotation_degrees.y:
 				rotaion_velocity += -1*delta*rotation_speed

@@ -2,7 +2,7 @@ extends Node3D
 @onready var player = $player
 @onready var black: ColorRect = $screeneffects/Black
 @onready var filecontrols = file_control.new()
-var alevel = [preload("uid://c2sdayly3ckis"), preload("uid://th2xsi4ecpks"), preload("uid://dmg15bcspfka8"), preload("uid://w4s1n77gvswu"), preload("uid://dlbh7daxflal5"), preload("uid://bchtimm4qxhwo")]
+var alevel = [preload("res://Main game loop/Levels/L0.tscn"), preload("res://Main game loop/Levels/L1.tscn"),preload("res://Main game loop/Levels/L2.tscn")]
 var current_level
 signal on_win
 func _ready() -> void:

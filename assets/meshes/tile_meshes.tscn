@@ -18,7 +18,7 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_dlbqi")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yudk0"]
-size = Vector3(2, 1, 1.9837646)
+size = Vector3(2, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_klna5"]
 shading_mode = 0
@@ -51,6 +51,9 @@ texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_m7j03"]
 material = SubResource("StandardMaterial3D_m72vo")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_67sat"]
+size = Vector3(2, 1, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbw7p"]
 shading_mode = 0
@@ -108,32 +111,11 @@ shape = SubResource("BoxShape3D_yudk0")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1099979953]
 mesh = SubResource("PlaneMesh_a4844")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2" unique_id=158062231]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D" unique_id=779766710]
-shape = SubResource("BoxShape3D_yudk0")
-
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1378284769]
 mesh = SubResource("PlaneMesh_sc6xe")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3" unique_id=376093781]
-collision_layer = 64
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D" unique_id=1112997454]
-shape = SubResource("BoxShape3D_yudk0")
-
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=82681678]
 mesh = SubResource("PlaneMesh_oxhb3")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D4" unique_id=982100648]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D" unique_id=112222492]
-shape = SubResource("BoxShape3D_yudk0")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1827851905]
 mesh = SubResource("PlaneMesh_m7j03")
@@ -143,17 +125,10 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D5/StaticBody3D" unique_id=456014577]
-shape = SubResource("BoxShape3D_yudk0")
+shape = SubResource("BoxShape3D_67sat")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=962684260]
 mesh = SubResource("PlaneMesh_f1uvq")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D6" unique_id=787488298]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D6/StaticBody3D" unique_id=938000816]
-shape = SubResource("BoxShape3D_yudk0")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=1823581912]
 mesh = SubResource("PlaneMesh_r1j6h")

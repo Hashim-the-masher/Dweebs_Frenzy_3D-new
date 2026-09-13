@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://dmg15bcspfka8"]
+[gd_scene format=3 uid="uid://bkns4lqn2imlv"]
 
 [ext_resource type="PackedScene" uid="uid://dd5qbpotmendt" path="res://Main game loop/tiles/win_area.tscn" id="1_u7wt6"]
 [ext_resource type="PackedScene" uid="uid://cp267vm7138lp" path="res://Tools/tile_map.tscn" id="2_mqlrh"]
 
-[node name="L2" type="Node3D" unique_id=1856612198]
+[node name="L2" type="Node3D" unique_id=484251561]
 
-[node name="Win_area" parent="." unique_id=2002466003 instance=ExtResource("1_u7wt6")]
-transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 0, -1152, -128, 0)
+[node name="Win_area" parent="." unique_id=1598248560 instance=ExtResource("1_u7wt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -2)
 Current_level = 2
-Win_type = 1
 
-[node name="TileMapLayer" parent="." unique_id=104892764 instance=ExtResource("2_mqlrh")]
-
-[connection signal="area_entered" from="Win_area" to="Win_area" method="_on_area_entered"]
+[node name="TileMapLayer" parent="." unique_id=1277801139 instance=ExtResource("2_mqlrh")]
+data = {
+"cells": PackedInt32Array(65535, 0, 3, 0, 0, 3, 1, 0, 3, 2, 0, 3, 3, 0, 3, 4, 0, 3, 5, 0, 3, 5, 65535, 3, 4, 65535, 3, 3, 65535, 3, 2, 65534, 4, 1, 65534, 4, 1, 65535, 3, 0, 65535, 3, 65535, 65535, 3, 65534, 65535, 3, 65533, 65535, 3, 65532, 65535, 3, 65532, 0, 3, 65531, 0, 3, 65533, 0, 3, 65534, 0, 3, 2, 65535, 3, 65531, 65535, 3, 5, 65534, 4, 4, 65534, 4, 3, 65534, 4, 2, 65533, 4, 1, 65533, 4, 0, 65533, 4, 65535, 65533, 4, 65534, 65533, 4, 65533, 65533, 4, 0, 65534, 4, 65535, 65534, 4, 65532, 65533, 4, 65532, 65534, 4, 65533, 65534, 4, 65534, 65534, 4, 65531, 65534, 4, 65531, 1, 4, 65532, 1, 4, 65533, 1, 4, 65534, 1, 4, 65535, 1, 4, 0, 1, 4, 1, 1, 4, 2, 1, 4, 3, 1, 4, 4, 1, 4, 5, 1, 4, 6, 0, 4, 6, 1, 4, 6, 65534, 4, 6, 65535, 3)
+}

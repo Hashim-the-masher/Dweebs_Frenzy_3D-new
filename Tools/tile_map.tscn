@@ -30,7 +30,7 @@ data = {
 image = SubResource("Image_tmgvy")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yudk0"]
-size = Vector3(2, 1, 1.9837646)
+size = Vector3(2, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_klna5"]
 shading_mode = 0
@@ -111,6 +111,9 @@ data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_1hbu7"]
 image = SubResource("Image_iqp4p")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_67sat"]
+size = Vector3(2, 1, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbw7p"]
 shading_mode = 0
@@ -213,7 +216,7 @@ item/1/name = "MeshInstance3D2"
 item/1/mesh = SubResource("PlaneMesh_fuhss")
 item/1/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/1/mesh_cast_shadow = 1
-item/1/shapes = [SubResource("BoxShape3D_yudk0"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/1/shapes = []
 item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/1/navigation_layers = 1
 item/1/preview = SubResource("ImageTexture_6q6s0")
@@ -221,7 +224,7 @@ item/2/name = "MeshInstance3D3"
 item/2/mesh = SubResource("PlaneMesh_k5acu")
 item/2/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/2/mesh_cast_shadow = 1
-item/2/shapes = [SubResource("BoxShape3D_yudk0"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/2/shapes = []
 item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/2/navigation_layers = 1
 item/2/preview = SubResource("ImageTexture_5cy2n")
@@ -229,7 +232,7 @@ item/3/name = "MeshInstance3D4"
 item/3/mesh = SubResource("PlaneMesh_x5aor")
 item/3/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/3/mesh_cast_shadow = 1
-item/3/shapes = [SubResource("BoxShape3D_yudk0"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/3/shapes = []
 item/3/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/3/navigation_layers = 1
 item/3/preview = SubResource("ImageTexture_0rl73")
@@ -237,7 +240,7 @@ item/4/name = "MeshInstance3D5"
 item/4/mesh = SubResource("PlaneMesh_bfqm7")
 item/4/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/4/mesh_cast_shadow = 1
-item/4/shapes = [SubResource("BoxShape3D_yudk0"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/4/shapes = [SubResource("BoxShape3D_67sat"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/4/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/4/navigation_layers = 1
 item/4/preview = SubResource("ImageTexture_1hbu7")
@@ -245,7 +248,7 @@ item/5/name = "MeshInstance3D6"
 item/5/mesh = SubResource("PlaneMesh_xhrqu")
 item/5/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/5/mesh_cast_shadow = 1
-item/5/shapes = [SubResource("BoxShape3D_yudk0"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/5/shapes = []
 item/5/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/5/navigation_layers = 1
 item/5/preview = SubResource("ImageTexture_mpq67")
@@ -277,6 +280,6 @@ metadata/_editor_source_scene = "res://assets/meshes/tile_meshes.tscn"
 
 [node name="TileMapLayer" type="GridMap" unique_id=1277801139]
 mesh_library = SubResource("MeshLibrary_wmv33")
-cell_size = Vector3(2, 0.035, 2)
-collision_layer = 0
+cell_center_y = false
+collision_layer = 194
 collision_mask = 0
