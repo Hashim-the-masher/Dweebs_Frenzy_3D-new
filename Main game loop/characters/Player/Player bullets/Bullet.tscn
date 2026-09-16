@@ -4,10 +4,25 @@
 [ext_resource type="AudioStream" uid="uid://dcs838hbv8c2c" path="res://assets/sound/shoot.wav" id="3_u230n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tya31"]
+radius = 0.538
+height = 2.069
+
+[sub_resource type="Gradient" id="Gradient_tya31"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qv84b"]
+gradient = SubResource("Gradient_tya31")
+fill = 2
+fill_from = Vector2(0.67990655, 0.317757)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tya31"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
+shading_mode = 0
+detail_enabled = true
+detail_uv_layer = 1
+detail_albedo = SubResource("GradientTexture2D_qv84b")
+uv2_triplanar = true
+uv2_world_triplanar = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3umxu"]
 material = SubResource("StandardMaterial3D_tya31")
@@ -16,16 +31,15 @@ material = SubResource("StandardMaterial3D_tya31")
 collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_dyopk")
-speed = 999
 
 [node name="CollisionShape2D" type="CollisionShape3D" parent="." unique_id=1232173343]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_tya31")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier3D" parent="." unique_id=65630602]
 
 [node name="MeshInstance2D" type="MeshInstance3D" parent="." unique_id=2142549565]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_3umxu")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer3D" parent="." unique_id=1531674879]

@@ -107,7 +107,7 @@ func shoot():
 		"Normal state":
 			var bullet = bullet_scenes["bullet"].instantiate()
 			add_sibling(bullet)
-			bullet.start(position,rotation.z,bullet_volume)
+			bullet.start(position,meshes[state].get_parent().rotation.y,bullet_volume)
 			flags["cooldown"]= false
 			cooldown_timer.wait_time = wait_time["shoot"]
 			cooldown_timer.start()
