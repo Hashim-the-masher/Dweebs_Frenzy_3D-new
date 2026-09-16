@@ -7,8 +7,10 @@ func start(pos,the_rotation,volume):
 	print("bullet spawned")
 	position = pos
 	line_of_fire = the_rotation
+	line_of_fire -= the_rotation
+	line_of_fire -= the_rotation
+	rotation.y -= the_rotation
 	sfx.volume_db = volume
-	rotation.y += the_rotation
 func _process(delta):
 	if line_of_fire == null:
 		return

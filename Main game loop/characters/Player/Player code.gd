@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 			velocity_on_a_plane /= breaking_friction-delta
 		else:velocity_on_a_plane = Vector2.ZERO
 		velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
-		if absf(atan2(coursor.position.y-225,coursor.position.x-480)-rotation.y)<0.1:
+		if absf(atan2(coursor.position.y-225,coursor.position.x-480)-rotation.y)<0.05:
 			pass
 		elif atan2(coursor.position.y-225,coursor.position.x-480)>rotation.y:
 			if (rad_to_deg(atan2(coursor.position.y-225,coursor.position.x-480))-180)>rotation_degrees.y:
@@ -109,7 +109,7 @@ func shoot():
 		"Normal state":
 			var bullet = bullet_scenes["bullet"].instantiate()
 			add_sibling(bullet)
-			bullet.start(position,meshes[state].get_parent().rotation.y,bullet_volume)
+			bullet.start(position,rotation.y,bullet_volume)
 			flags["cooldown"]= false
 			cooldown_timer.wait_time = wait_time["shoot"]
 			cooldown_timer.start()
