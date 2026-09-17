@@ -25,12 +25,18 @@ script = ExtResource("1_h07og")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=629946737]
 shape = SubResource("CylinderShape3D_je8wp")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1062787763]
+[node name="camera0" type="Camera3D" parent="." unique_id=1062787763]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 7.359198, 0)
 attributes = SubResource("CameraAttributesPractical_7ach6")
 projection = 2
-current = true
 size = 0.1
+
+[node name="camera1" type="Camera3D" parent="." unique_id=1957945109]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 7.359198, 0)
+attributes = SubResource("CameraAttributesPractical_7ach6")
+projection = 1
+current = true
+size = 12.0
 
 [node name="Mesh(es)" type="Node3D" parent="." unique_id=1761470679]
 
@@ -49,6 +55,7 @@ mesh = SubResource("SphereMesh_je8wp")
 mesh = SubResource("SphereMesh_je8wp")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1385163065]
+collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=182703933]
 shape = SubResource("CylinderShape3D_7ach6")
@@ -85,4 +92,5 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("4_kyhia")
 metadata/_edit_use_anchors_ = true
 
+[connection signal="area_entered" from="Area3D" to="." method="_on_Enemy_contact"]
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

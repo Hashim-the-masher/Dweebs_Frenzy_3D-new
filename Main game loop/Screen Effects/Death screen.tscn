@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://db15ot4l0gjtp"]
+
+[ext_resource type="Script" uid="uid://dc8cendfmfagy" path="res://Main game loop/Screen Effects/death_screen.gd" id="1_hjv52"]
+[ext_resource type="FontFile" uid="uid://bffuiwh7227js" path="res://assets/fonts/UbuntuSans[wdth,wght].ttf" id="2_g0pa0"]
+[ext_resource type="AudioStream" uid="uid://nkbk0mofd6gf" path="res://assets/sound/lose.wav" id="3_g30hm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hjv52"]
+font = ExtResource("2_g0pa0")
+font_color = Color(1, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=1489311292]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hjv52")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=366429503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=1080785008]
+wait_time = 3.5
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=191498446]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_hjv52")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=530600404]
+stream = ExtResource("3_g30hm")
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

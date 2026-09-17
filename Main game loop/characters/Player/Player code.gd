@@ -13,7 +13,7 @@ var tank_speed:float = speed*(PI/2)
 @export var back_slow_mutiplyer:float = .7
 @export var friction:float = (1+ .05) 
 @export var breaking_friction:float = (1+ .1) 
-@onready var camera = $Camera3D
+@onready var camera = $camera1
 @onready var audio_listener = $AudioListener3D
 @onready var menu_pause: Control = $"../Ui/menu_pause"
 @onready var hitbox = $Area3D 
@@ -121,14 +121,13 @@ func shoot():
 func on_kill(killdata):
 	print("killed:"+str(killdata))
 
-func _on_Enemy_contact(area: Area2D) -> void:
+func _on_Enemy_contact(area: Area3D) -> void:
 	if flags["hit?"] == true:
 		return
-	
 	print("this area killed me:"+area.name)
 	Death()
 	flags["hit?"] = true
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body: Node3D) -> void:
 	if flags["hit?"] == true:
 		return
 	print("this body killed me:"+body.name)
@@ -136,7 +135,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	flags["hit?"] = true
 
 func Death():
-	get_tree().change_scene_to_file("")
+	get_tree().change_scene_to_file("res://Main game loop/Screen Effects/Death screen.tscn")
 
 
 func _on_cooldown_timeout() -> void:

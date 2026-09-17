@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://3yq15gpwfedm"]
+
+[ext_resource type="PackedScene" uid="uid://dd5qbpotmendt" path="res://Main game loop/tiles/win_area.tscn" id="1_blhfn"]
+[ext_resource type="PackedScene" uid="uid://cp267vm7138lp" path="res://Tools/tile_map.tscn" id="2_ruvcs"]
+
+[node name="L3" type="Node3D" unique_id=484251561]
+
+[node name="Win_area" parent="." unique_id=1598248560 instance=ExtResource("1_blhfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -2)
+Current_level = 3
+Win_type = 1
+
+[node name="TileMapLayer" parent="." unique_id=1277801139 instance=ExtResource("2_ruvcs")]

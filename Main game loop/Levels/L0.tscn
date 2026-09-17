@@ -1,3 +1,26 @@
 [gd_scene format=3 uid="uid://6iux07jg6eh0"]
 
+[sub_resource type="Gradient" id="Gradient_bvdpo"]
+offsets = PackedFloat32Array(0, 0.99666667)
+colors = PackedColorArray(0, 0, 0, 1, 0.92941177, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ygjn3"]
+gradient = SubResource("Gradient_bvdpo")
+fill = 2
+fill_from = Vector2(0.50233644, 0.48831776)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rofrd"]
+detail_enabled = true
+detail_uv_layer = 1
+detail_albedo = SubResource("GradientTexture2D_ygjn3")
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[sub_resource type="TorusMesh" id="TorusMesh_nyyf0"]
+material = SubResource("StandardMaterial3D_rofrd")
+outer_radius = 5.535
+
 [node name="L0" type="Node3D" unique_id=484251561]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1895694545]
+mesh = SubResource("TorusMesh_nyyf0")
