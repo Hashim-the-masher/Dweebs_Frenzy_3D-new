@@ -26,6 +26,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node3D) -> void:
 	print("player,"+name+",despawned from hitting:"+body.name)
 	queue_free()

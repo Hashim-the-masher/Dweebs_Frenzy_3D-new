@@ -80,6 +80,8 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.075, 0.075)
+pivot_offset = Vector2(32, 32)
 texture = ExtResource("4_kyhia")
 metadata/_edit_use_anchors_ = true
 
