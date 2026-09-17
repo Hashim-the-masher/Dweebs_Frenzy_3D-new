@@ -81,7 +81,6 @@ func _input(event: InputEvent) -> void:
 		match option_selected:
 			1:
 				savedata["setting_no"]["title"] = option_selected
-				file_controls.save_to_json_file(savedata)
 				deactivate = true
 				inputflag = false
 				print("deactivated")
@@ -91,7 +90,6 @@ func _input(event: InputEvent) -> void:
 				match sure_flag:
 					true:
 						savedata["setting_no"]["title"] = option_selected
-						file_controls.save_to_json_file(savedata)
 						get_tree().change_scene_to_file("res://Main game loop/Main/Central_game_controler.tscn")
 					false:
 						sure_flag = true

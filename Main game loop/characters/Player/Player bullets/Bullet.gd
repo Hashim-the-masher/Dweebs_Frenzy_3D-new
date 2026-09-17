@@ -16,7 +16,7 @@ func _process(delta):
 		return
 	print(rad_to_deg(line_of_fire))
 	position += Vector3(1,0,0).rotated(Vector3(0,1,0),line_of_fire)*speed*delta
-func _on_enemy(area: Area2D) -> void:
+func _on_enemy(area: Area3D) -> void:
 	if area.collision_layer == 32:
 		print("player,"+name+",despawned from hitting:"+area.name)
 		queue_free()
