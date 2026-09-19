@@ -23,6 +23,7 @@ script = ExtResource("1_bxkaj")
 shape = SubResource("CylinderShape3D_8ioxq")
 
 [node name="Timer" type="Timer" parent="." unique_id=272665300]
+process_callback = 0
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1053751352]
 collision_layer = 4
@@ -33,3 +34,5 @@ shape = SubResource("CylinderShape3D_n673q")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1738252397]
 stream = ExtResource("3_47qgu")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_hitbox_area_entered"]
