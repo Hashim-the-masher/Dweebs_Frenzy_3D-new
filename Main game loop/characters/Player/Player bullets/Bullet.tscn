@@ -44,8 +44,8 @@ mesh = SubResource("CapsuleMesh_3umxu")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer3D" parent="." unique_id=1531674879]
 stream = ExtResource("3_u230n")
-volume_db = -80.0
 autoplay = true
+bus = &"Sfx"
 
 [connection signal="area_entered" from="." to="." method="_on_enemy"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

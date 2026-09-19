@@ -26,7 +26,6 @@ var state = "Normal state"
 var meshstate
 @onready var meshes = {"Normal state":$"Mesh(es)/Normal state", "Dash state":$"Mesh(es)/Dash state", "Smash state":$"Mesh(es)/Smash state"}
 var states = {0:"Normal state",1:"Smash state",2:"Dash state"} 
-var bullet_volume:float
 @onready var file_tools = file_control.new()
 var savedata:Dictionary
 
@@ -35,11 +34,6 @@ func _ready() -> void:
 	savedata = file_tools.load_json_file()
 	state = states[0]
 	switch_mesh()
-	bullet_volume = linear_to_db(savedata["settings"]["sounds"][1])
-
-func reset_volume():
-	savedata = file_tools.load_json_file()
-	bullet_volume = linear_to_db(savedata["settings"]["sounds"][1])
 
 func switch_mesh(selectstate=state):
 	meshstate = selectstate
@@ -52,6 +46,7 @@ func switch_mesh(selectstate=state):
 			print(num+" hidden")
 
 func _physics_process(delta: float) -> void:
+	print(rotation_degrees.y)
 	if menu_pause != null:
 		if menu_pause.active == true:
 			return
@@ -109,7 +104,7 @@ func shoot():
 		"Normal state":
 			var bullet = bullet_scenes["bullet"].instantiate()
 			add_sibling(bullet)
-			bullet.start(position,rotation.y,bullet_volume)
+			bullet.start(position,rotation.y)
 			flags["cooldown"]= false
 			cooldown_timer.wait_time = wait_time["shoot"]
 			cooldown_timer.start()

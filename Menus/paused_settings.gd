@@ -54,8 +54,7 @@ func _input(event: InputEvent) -> void:
 					values[current_setting].get_child(setting_no[current_setting]).label_settings = UI_SETTINGS
 					move_mode=0
 					file_controls.save_to_json_file(savedata)
-					level.reset_volume()
-					player.reset_volume()
+					file_controls.set_volume(savedata)
 					return
 			2:
 				if event.is_action_pressed("ui_left"):

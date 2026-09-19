@@ -1,16 +1,14 @@
 extends Area3D
-@onready var sfx: AudioStreamPlayer3D = $AudioStreamPlayer2D
 @export var speed = 33
 @export var damage = 1
 var line_of_fire
-func start(pos,the_rotation,volume):
+func start(pos,the_rotation):
 	print( name+" spawned")
 	position = pos
 	line_of_fire = the_rotation
 	line_of_fire -= the_rotation
 	line_of_fire -= the_rotation
 	rotation.y -= the_rotation
-	sfx.volume_db = volume
 func _process(delta):
 	if line_of_fire == null:
 		return

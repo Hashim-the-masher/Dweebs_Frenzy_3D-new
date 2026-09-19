@@ -12,6 +12,7 @@ func _ready() -> void:
 		filecontrols.fullscreen(get_window())
 	else:
 		filecontrols.change_res(savedata["settings"]["visuals"][0],get_window())
+	filecontrols.set_volume(savedata)
 	start_level(1)
 	player.flags["spawn"] = true
 

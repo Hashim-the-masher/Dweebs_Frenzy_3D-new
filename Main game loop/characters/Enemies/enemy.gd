@@ -9,15 +9,9 @@ var enemy_detected_flag = false
 var rotation_friction = 1.15
 var rotation_velocity:float
 @onready var dmg_sound: AudioStreamPlayer3D = $AudioStreamPlayer3D
-var file_controls = file_control.new()
-var savedata:Dictionary
 @onready var player: CharacterBody3D = $"../../player"
 var BULLET:PackedScene
 signal kill
-
-func _ready() -> void:
-	savedata = file_controls.load_json_file()
-	dmg_sound.volume_linear = savedata["settings"]["sounds"][1]
 
 func _process(delta: float) -> void:
 	if enemy_detected_flag == false:

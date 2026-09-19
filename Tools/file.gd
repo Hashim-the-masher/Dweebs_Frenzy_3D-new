@@ -53,6 +53,12 @@ func fullscreen(window):
 	window.content_scale_factor =  1
 	window.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 
+func set_volume(data):
+	savedata = data
+	print("setting volume")
+	AudioServer.set_bus_volume_linear(1,savedata["settings"]["sounds"][0])#music
+	AudioServer.set_bus_volume_linear(2,savedata["settings"]["sounds"][1])#sound
+
 func map_inputs(data):#spesific to THE GAME WITH FAWAS
 	print("mapping controls")
 	savedata = data
