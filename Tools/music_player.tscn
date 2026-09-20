@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cd84kpceb6h3p"]
 
+[ext_resource type="Script" uid="uid://b608oqa21a84r" path="res://Tools/music_player.gd" id="1_id1nq"]
+
 [node name="Music player" type="Control" unique_id=899637923]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +9,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_id1nq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1413297032]
+max_polyphony = 3
+bus = &"Music"
+
+[node name="Timer" type="Timer" parent="." unique_id=1537931602]
+process_callback = 0
+one_shot = true

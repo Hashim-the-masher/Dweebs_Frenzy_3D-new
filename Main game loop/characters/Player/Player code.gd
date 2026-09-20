@@ -46,7 +46,6 @@ func switch_mesh(selectstate=state):
 			print(num+" hidden")
 
 func _physics_process(delta: float) -> void:
-	print(rotation_degrees.y)
 	if menu_pause != null:
 		if menu_pause.active == true:
 			return
