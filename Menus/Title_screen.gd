@@ -54,6 +54,8 @@ func _input(event: InputEvent) -> void:
 	title_screen.show()
 	if event.is_action_pressed("ui_down"):
 		option_selected +=1
+		labels[0].text = "Start"
+		sure_flag = false
 		option_selected = clamp(option_selected,0,max_options)
 	if event.is_action_pressed("ui_up"):
 		option_selected -=1
@@ -90,6 +92,7 @@ func _input(event: InputEvent) -> void:
 				match sure_flag:
 					true:
 						savedata["setting_no"]["title"] = option_selected
+						file_controls.save_to_json_file(savedata)
 						get_tree().change_scene_to_file("res://Main game loop/Main/Central_game_controler.tscn")
 					false:
 						sure_flag = true
