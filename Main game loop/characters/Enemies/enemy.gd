@@ -19,22 +19,28 @@ func _process(delta: float) -> void:
 			rotation_speed = 0.5
 		print(name+str(rotation_degrees.y))
 		var desireable_rotation = atan2((player.position.x-position.x),(player.position.z-position.z))-PI/2
+		if rad_to_deg(desireable_rotation) >= -270  and rad_to_deg(desireable_rotation) <= -180:
+			desireable_rotation += TAU
+		print(name+str(rad_to_deg(desireable_rotation)))
 		if absf(desireable_rotation-rotation.y)<0.05:
 			pass
 		elif desireable_rotation>rotation.y:
-			if desireable_rotation-PI>rotation.y:
+			if rad_to_deg(desireable_rotation)-180>rotation_degrees.y:
 				rotation_velocity += -1*delta*rotation_speed
 			else:
 				rotation_velocity += 1*delta*rotation_speed
 		else:
-			if desireable_rotation+PI<rotation.y:
+			if rad_to_deg(desireable_rotation)+180<rotation_degrees.y:
 				rotation_velocity += 1*delta*rotation_speed
 			else:
 				rotation_velocity += -1*delta*rotation_speed
 		rotation_velocity /= rotation_friction
 		rotation_velocity = clampf(rotation_velocity,min_rotation,max_rotation)
 		rotation.y += rotation_velocity
-		
+		if rotation_degrees.y > 180:
+			rotation_degrees.y = -179
+		if rotation_degrees.y < -180:
+			rotation_degrees.y = 179
 func _on_hitbox_area_entered(area: Area3D) -> void:
 	print(name+",took damge from:"+area.name)
 	hp -= 1 

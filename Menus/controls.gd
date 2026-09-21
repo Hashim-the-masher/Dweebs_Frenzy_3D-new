@@ -1,7 +1,7 @@
 extends HBoxContainer
 @onready var settings: VBoxContainer = $"../settings"
 @onready var controler = [$".", $"../controler"]
-@onready var controleractions = {"keyboard":{"actions":[[$actions/Label2, $actions/Label3, $actions/Label4, $actions/Label5, $actions/Label6, $actions/Label7],[$ui_actions/Label2, $ui_actions/Label3, $ui_actions/Label4, $ui_actions/Label5, $ui_actions/Label6]],"key":[[$key/Label2, $key/Label3, $key/Label4, $key/Label5, $key/Label6, $key/Label7],[$key2/Label2, $key2/Label3, $key2/Label4, $key2/Label5, $key2/Label6]]},"controler":{"actions":[[$"../controler/actions/Label2", $"../controler/actions/Label3", $"../controler/actions/Label4", $"../controler/actions/Label5", $"../controler/actions/Label6", $"../controler/actions/Label7"],[$"../controler/ui_actions/Label2", $"../controler/ui_actions/Label3", $"../controler/ui_actions/Label4", $"../controler/ui_actions/Label5", $"../controler/ui_actions/Label6"]],"key":[[$"../controler/key/Label2", $"../controler/key/Label3", $"../controler/key/Label4", $"../controler/key/Label5", $"../controler/key/Label6", $"../controler/key/Label7"],[$"../controler/key2/Label2", $"../controler/key2/Label3", $"../controler/key2/Label4", $"../controler/key2/Label5", $"../controler/key2/Label6"]]}}
+@onready var controleractions = [{"actions":[[$actions/Label2, $actions/Label3, $actions/Label4, $actions/Label5, $actions/Label6, $actions/Label7],[$ui_actions/Label2, $ui_actions/Label3, $ui_actions/Label4, $ui_actions/Label5, $ui_actions/Label6]],"key":[[$key/Label2, $key/Label3, $key/Label4, $key/Label5, $key/Label6, $key/Label7],[$key2/Label2, $key2/Label3, $key2/Label4, $key2/Label5, $key2/Label6]]},{"actions":[[$"../controler/actions/Label2", $"../controler/actions/Label3", $"../controler/actions/Label4", $"../controler/actions/Label5", $"../controler/actions/Label6", $"../controler/actions/Label7"],[$"../controler/ui_actions/Label2", $"../controler/ui_actions/Label3", $"../controler/ui_actions/Label4", $"../controler/ui_actions/Label5", $"../controler/ui_actions/Label6"]],"key":[[$"../controler/key/Label2", $"../controler/key/Label3", $"../controler/key/Label4", $"../controler/key/Label5", $"../controler/key/Label6", $"../controler/key/Label7"],[$"../controler/key2/Label2", $"../controler/key2/Label3", $"../controler/key2/Label4", $"../controler/key2/Label5", $"../controler/key2/Label6"]]}]
 var keyno:int = 0
 var keypos:int = 0
 var pressnow:bool = false
@@ -23,32 +23,30 @@ func _input(event: InputEvent) -> void:
 		reset_values()
 		return
 	if controler[0].visible == true:
-		current_setting = "keyboard"
+		current_setting = 0
 	if controler[1].visible == true:
-		current_setting = "controler"
+		current_setting = 1
 	if pressnow == true:
 		match current_setting:
-			"keyboard":
-				controleractions[current_setting]["key"][keyno][keypos].text = "Listing for input"
+			0:
+				controleractions[0]["key"][keyno][keypos].text = "Listing for input"
 				if wait == true:
 					wait = false
-					return
-				if event is InputEventKey:
+				elif event is InputEventKey:
 					settings.wait = true
 					var input = InputEventKey.new()
 					input.keycode = event.keycode
-					controleractions[current_setting]["key"][keyno][keypos].text = input.as_text()
+					controleractions[0]["key"][keyno][keypos].text = input.as_text()
 					savedata["settings"]["controls"][current_setting][keyno][keypos] = event.keycode
 					filecontrols.map_inputs(savedata)
 					pressnow = false
 					wait = true
 				return
-			"controler":
-				controleractions[current_setting]["key"][keyno][keypos].text = "Listing for input"
+			1:
+				controleractions[1]["key"][keyno][keypos].text = "Listing for input"
 				if wait == true:
 					wait = false
-					return
-				if event is InputEventJoypadButton:
+				elif event is InputEventJoypadButton:
 					settings.wait = true
 					var input = InputEventJoypadButton.new()
 					input.button_index = event.button_index
@@ -93,13 +91,13 @@ func reset_values():
 				if no == 1:
 					pass
 				else:
-					keyboardinput.keycode = int(savedata["settings"]["controls"]["keyboard"][no][pos])
-					controlerinput.button_index =int(savedata["settings"]["controls"]["controler"][no][pos])
-					controleractions["keyboard"]["key"][no][pos].text = keyboardinput.as_text()
-					controleractions["controler"]["key"][no][pos].text = controlerinput.as_text()
+					keyboardinput.keycode = int(savedata["settings"]["controls"][0][no][pos])
+					controlerinput.button_index =int(savedata["settings"]["controls"][1][no][pos])
+					controleractions[0]["key"][no][pos].text = keyboardinput.as_text()
+					controleractions[1]["key"][no][pos].text = controlerinput.as_text()
 			else:
-				keyboardinput.keycode = int(savedata["settings"]["controls"]["keyboard"][no][pos])
-				controlerinput.button_index =int(savedata["settings"]["controls"]["controler"][no][pos])
-				controleractions["keyboard"]["key"][no][pos].text = keyboardinput.as_text()
-				controleractions["controler"]["key"][no][pos].text = controlerinput.as_text()
+				keyboardinput.keycode = int(savedata["settings"]["controls"][0][no][pos])
+				controlerinput.button_index =int(savedata["settings"]["controls"][1][no][pos])
+				controleractions[0]["key"][no][pos].text = keyboardinput.as_text()
+				controleractions[1]["key"][no][pos].text = controlerinput.as_text()
 	

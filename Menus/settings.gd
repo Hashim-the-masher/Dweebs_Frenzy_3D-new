@@ -2,9 +2,9 @@ extends Control
 
 @onready var menu_pause: Control = $".."
 @onready var titles = [$SliderSettings/Titles,$"../Sound_settings/SliderSettings/Titles",$"../Visual_settings/SliderSettings/Titles",$"../Controler_settings/SliderSettings/Titles"]
-var titles_sizes = [[0,0,0,0],[0,0,0],[0,0,0],[0,0,0]]
-@onready var values = [null,$"../Sound_settings/SliderSettings/Display value",$"../Visual_settings/SliderSettings/Display value",null]
-@onready var arrows = [[$SliderSettings/arrows/arrow, $SliderSettings/arrows/arrow2, $SliderSettings/arrows/arrow3, $SliderSettings/arrows/arrow4],[$"../Sound_settings/SliderSettings/arrows/arrow", $"../Sound_settings/SliderSettings/arrows/arrow2", $"../Sound_settings/SliderSettings/arrows/arrow3"],[$"../Visual_settings/SliderSettings/arrows/arrow", $"../Visual_settings/SliderSettings/arrows/arrow2", $"../Visual_settings/SliderSettings/arrows/arrow3"],[$"../Controler_settings/SliderSettings/arrows/arrow", $"../Controler_settings/SliderSettings/arrows/arrow2", $"../Controler_settings/SliderSettings/arrows/arrow3"]]
+var titles_sizes = [[0,0,0,0],[0,0,0],[0,0,0],[0,0,0,0]]
+@onready var values = [null,$"../Sound_settings/SliderSettings/Display value",$"../Visual_settings/SliderSettings/Display value",$"../Controler_settings/SliderSettings/Display value"]
+@onready var arrows = [[$SliderSettings/arrows/arrow, $SliderSettings/arrows/arrow2, $SliderSettings/arrows/arrow3, $SliderSettings/arrows/arrow4],[$"../Sound_settings/SliderSettings/arrows/arrow", $"../Sound_settings/SliderSettings/arrows/arrow2", $"../Sound_settings/SliderSettings/arrows/arrow3"],[$"../Visual_settings/SliderSettings/arrows/arrow", $"../Visual_settings/SliderSettings/arrows/arrow2", $"../Visual_settings/SliderSettings/arrows/arrow3"],[$"../Controler_settings/SliderSettings/arrows/arrow", $"../Controler_settings/SliderSettings/arrows/arrow2", $"../Controler_settings/SliderSettings/arrows/arrow3",$"../Controler_settings/SliderSettings/arrows/arrow4"]]
 var setting_no = [3,2,2,2]
 const UI_SETTINGS_SELECTED = preload("uid://bu6x8ru5xi2kt")
 const UI_SETTINGS = preload("uid://b4ckevhw0xmal")
@@ -100,6 +100,20 @@ func _input(event: InputEvent) -> void:
 					move_mode=0
 					file_controls.save_to_json_file(savedata)
 					return
+			3:
+				if event.is_action_pressed("ui_left"):
+					savedata["settings"]["controls"][setting_no[current_setting]] -=.1
+					savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.1,4.0)
+					values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
+				if event.is_action_pressed("ui_right"):
+					savedata["settings"]["controls"][setting_no[current_setting]] +=.1
+					savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.1,4.0)
+					values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
+				if event.is_action_pressed("ui_accept"):
+					arrows[current_setting][setting_no[current_setting]].get_child(0).texture = LIGHT_ARROW
+					values[current_setting].get_child(setting_no[current_setting]).label_settings = UI_SETTINGS
+					move_mode=0
+					file_controls.save_to_json_file(savedata)
 		return
 	asettings[current_setting].show()
 	if event.is_action_pressed("ui_up") and on[1] == false and on[0] == false:
@@ -181,6 +195,8 @@ func _input(event: InputEvent) -> void:
 							arrows[current_setting][setting_no[current_setting]].hide()
 							controler.show()
 					2:
+						move_mode = 1
+					3:
 						current_setting = 0
 						return
 	if event.is_action_pressed("esc"):

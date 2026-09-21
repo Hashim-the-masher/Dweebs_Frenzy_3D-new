@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cd84kpceb6h3p"]
 
 [ext_resource type="Script" uid="uid://b608oqa21a84r" path="res://Tools/music_player.gd" id="1_id1nq"]
+[ext_resource type="AudioStream" uid="uid://dopn2ggm2t6eg" path="res://assets/mus/steelpansound.wav" id="2_8giuk"]
 
 [node name="Music player" type="Control" unique_id=899637923]
 layout_mode = 3
@@ -12,9 +13,12 @@ grow_vertical = 2
 script = ExtResource("1_id1nq")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1413297032]
-max_polyphony = 3
+stream = ExtResource("2_8giuk")
+max_polyphony = 2
 bus = &"Music"
 
 [node name="Timer" type="Timer" parent="." unique_id=1537931602]
 process_callback = 0
 one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

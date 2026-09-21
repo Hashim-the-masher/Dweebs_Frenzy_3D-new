@@ -4,18 +4,6 @@
 [ext_resource type="Script" uid="uid://ba5tkakqhj0yl" path="res://Main game loop/Main/central_game_controler.gd" id="1_v7lg2"]
 [ext_resource type="PackedScene" uid="uid://bqkn7wtuydlss" path="res://Menus/paused.tscn" id="3_ops67"]
 
-[sub_resource type="Environment" id="Environment_ops67"]
-background_color = Color(1, 1, 1, 1)
-ambient_light_source = 1
-reflected_light_source = 1
-tonemap_white = 4.0
-tonemap_agx_white = 4.0
-tonemap_agx_contrast = 1.0
-adjustment_enabled = true
-adjustment_saturation = 2.0
-
-[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ad5ch"]
-
 [node name="Main" type="Node3D" unique_id=228340767]
 script = ExtResource("1_v7lg2")
 
@@ -39,9 +27,5 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=895315133]
-environment = SubResource("Environment_ops67")
-camera_attributes = SubResource("CameraAttributesPhysical_ad5ch")
 
 [connection signal="on_win" from="." to="." method="_on_win"]

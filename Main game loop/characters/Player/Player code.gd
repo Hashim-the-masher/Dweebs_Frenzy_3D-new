@@ -93,7 +93,7 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		coursor.position += event.velocity*coursorspeed
+		coursor.position += event.velocity*coursorspeed*get_physics_process_delta_time()
 		coursor.position.x = clamp(coursor.position.x,-29,991)
 		coursor.position.y = clamp(coursor.position.y,-29,481)
 

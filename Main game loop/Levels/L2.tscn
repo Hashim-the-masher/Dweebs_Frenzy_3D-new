@@ -18,6 +18,3 @@ data = {
 
 [node name="Enemy" parent="." unique_id=1970184306 instance=ExtResource("3_mqlrh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.917648, -9.536743e-07, 0.58004093)
-
-[node name="Enemy2" parent="." unique_id=1939739746 instance=ExtResource("3_mqlrh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.160499, 0, -1.1208005)

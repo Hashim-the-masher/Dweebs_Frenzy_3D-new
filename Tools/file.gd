@@ -68,8 +68,8 @@ func map_inputs(data):#spesific to THE GAME WITH FAWAS
 			var controlerinput = InputEventJoypadButton.new()
 			match no:
 				0:
-					controlerinput.button_index = int(savedata["settings"]["controls"]["controler"][no][pos])
-					keyboardinput.keycode = int(savedata["settings"]["controls"]["keyboard"][no][pos])
+					controlerinput.button_index = int(savedata["settings"]["controls"][1][no][pos])
+					keyboardinput.keycode = int(savedata["settings"]["controls"][0][no][pos])
 					match pos:
 						0:
 							InputMap.action_erase_events("Shoot")
@@ -99,8 +99,8 @@ func map_inputs(data):#spesific to THE GAME WITH FAWAS
 					if pos == 5:
 						save_to_json_file(savedata)
 						return
-					controlerinput.button_index = int(savedata["settings"]["controls"]["controler"][no][pos])
-					keyboardinput.keycode = int(savedata["settings"]["controls"]["keyboard"][no][pos])
+					controlerinput.button_index = int(savedata["settings"]["controls"][1][no][pos])
+					keyboardinput.keycode = int(savedata["settings"]["controls"][0][no][pos])
 					match pos:
 						0:
 							InputMap.action_erase_events("ui_accept")
