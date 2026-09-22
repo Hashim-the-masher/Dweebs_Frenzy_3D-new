@@ -8,24 +8,25 @@ radius = 0.538
 height = 2.069
 
 [sub_resource type="Gradient" id="Gradient_tya31"]
-interpolation_mode = 2
-colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
+interpolation_mode = 1
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qv84b"]
 gradient = SubResource("Gradient_tya31")
-fill = 2
-fill_from = Vector2(0.67990655, 0.317757)
+fill_from = Vector2(0.43575418, 0)
+fill_to = Vector2(0.24860336, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tya31"]
 shading_mode = 0
 detail_enabled = true
-detail_uv_layer = 1
 detail_albedo = SubResource("GradientTexture2D_qv84b")
 uv2_triplanar = true
 uv2_world_triplanar = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3umxu"]
 material = SubResource("StandardMaterial3D_tya31")
+radius = 1.5
+height = 6.0
 
 [node name="Bullet" type="Area3D" unique_id=171727240]
 collision_layer = 16
