@@ -46,6 +46,7 @@ func _ready() -> void:
 			file_controls.change_res(savedata["settings"]["visuals"][0],get_window())
 
 func _input(event: InputEvent) -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if deactivate == true:
 		return
 	if inputflag == false:

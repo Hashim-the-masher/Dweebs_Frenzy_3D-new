@@ -10,18 +10,19 @@ var rotation_friction = 1.15
 var rotation_velocity:float
 @onready var dmg_sound: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var player: CharacterBody3D = $"../../player"
-var BULLET:PackedScene
+@onready var timer: Timer = $Timer
+const BULLET = preload("uid://drhbyeog3igbd")
 signal kill
 
 func _process(delta: float) -> void:
-	if enemy_detected_flag == false:
+	if enemy_detected_flag == true:
+		if timer.is_stopped() == true:
+			timer.start()
 		if rotation_speed == null:
 			rotation_speed = 0.5
-		print(name+str(rotation_degrees.y))
 		var desireable_rotation = atan2((player.position.x-position.x),(player.position.z-position.z))-PI/2
 		if rad_to_deg(desireable_rotation) >= -270  and rad_to_deg(desireable_rotation) <= -180:
 			desireable_rotation += TAU
-		print(name+str(rad_to_deg(desireable_rotation)))
 		if absf(desireable_rotation-rotation.y)<0.05:
 			pass
 		elif desireable_rotation>rotation.y:
@@ -45,6 +46,7 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	print(name+",took damge from:"+area.name)
 	hp -= 1 
 	dmg_sound.play()
+	enemy_detected_flag = true
 	if area.name == "Smash":
 		hp -= extra_smash_damge
 	if hp <= 0:
@@ -56,12 +58,9 @@ func _on_timer_timeout() -> void:
 		shoot()
 
 func shoot():
-	if wait_for_it_flag == true:
-		wait_for_it_flag = false
-		return
 	if BULLET == null:
 		print("enemy bullet is null")
 		return
 	var bullet = BULLET.instantiate()
 	get_tree().root.add_child(bullet)
-	bullet.start(position,rotation)
+	bullet.start(position,(-rotation.y))

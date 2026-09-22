@@ -36,4 +36,5 @@ shape = SubResource("CylinderShape3D_n673q")
 stream = ExtResource("3_47qgu")
 bus = &"Sfx"
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_hitbox_area_entered"]

@@ -85,8 +85,7 @@ func _physics_process(delta: float) -> void:
 		rotaion_velocity /= rotation_friction
 		rotaion_velocity = clampf(rotaion_velocity,min_rotation,max_rotation)
 		rotation.y += rotaion_velocity
-		meshes[state].get_parent().rotation_degrees.y -= rad_to_deg(rotaion_velocity)
-		meshes[state].get_parent().rotation_degrees.y -= rad_to_deg(rotaion_velocity)#i dont want to know, but it works
+		meshes[state].get_parent().rotation_degrees.y += rad_to_deg(-rotaion_velocity*2)
 		audio_listener.rotation.y -= rotaion_velocity
 		camera.rotation.y -= rotaion_velocity
 		move_and_slide()

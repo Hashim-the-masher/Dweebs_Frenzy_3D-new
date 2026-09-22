@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://drhbyeog3igbd"]
+
+[ext_resource type="Script" uid="uid://cjgqk7wdsgopl" path="res://Main game loop/characters/Enemies/Enemies bullets/Bullet.gd" id="1_dyopk"]
+[ext_resource type="AudioStream" uid="uid://dcs838hbv8c2c" path="res://assets/sound/shoot.wav" id="3_u230n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tya31"]
+radius = 0.538
+height = 2.069
+
+[sub_resource type="Gradient" id="Gradient_tya31"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qv84b"]
+gradient = SubResource("Gradient_tya31")
+fill = 2
+fill_from = Vector2(0.67990655, 0.317757)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tya31"]
+shading_mode = 0
+detail_enabled = true
+detail_uv_layer = 1
+detail_albedo = SubResource("GradientTexture2D_qv84b")
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3umxu"]
+material = SubResource("StandardMaterial3D_tya31")
+
+[node name="Bullet" type="Area3D" unique_id=171727240]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_dyopk")
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="." unique_id=1232173343]
+transform = Transform3D(-4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_tya31")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier3D" parent="." unique_id=65630602]
+
+[node name="MeshInstance2D" type="MeshInstance3D" parent="." unique_id=2142549565]
+transform = Transform3D(-4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_3umxu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer3D" parent="." unique_id=1531674879]
+stream = ExtResource("3_u230n")
+autoplay = true
+bus = &"Sfx"
+
+[connection signal="area_entered" from="." to="." method="_on_enemy"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
