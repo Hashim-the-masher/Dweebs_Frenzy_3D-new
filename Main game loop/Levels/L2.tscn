@@ -22,3 +22,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.917648, -9.536743e-07, 0.
 
 [node name="KillGate" parent="." unique_id=1914425793 instance=ExtResource("4_bq6i7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -1)
+
+[connection signal="kill" from="Enemy" to="KillGate" method="_on_enemy_kill"]

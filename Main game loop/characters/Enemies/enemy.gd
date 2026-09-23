@@ -8,6 +8,7 @@ var enemy_detected_flag = false
 @export var extra_smash_damge = 14
 var rotation_friction = 1.15
 var rotation_velocity:float
+
 @onready var dmg_sound: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var player: CharacterBody3D = $"../../player"
 @onready var timer: Timer = $Timer
@@ -50,6 +51,7 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 	if area.name == "Smash":
 		hp -= extra_smash_damge
 	if hp <= 0:
+		kill.emit()
 		queue_free()
 
 
