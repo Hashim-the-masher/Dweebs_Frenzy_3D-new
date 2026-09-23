@@ -11,6 +11,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_id1nq")
+music_notes = {
+"pitch": [1.5, 1.6, 1.7],
+"the silence between the notes": [15.0, 15.0, 15.0]
+}
+playmode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1413297032]
 stream = ExtResource("2_8giuk")

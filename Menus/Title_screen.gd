@@ -90,6 +90,7 @@ func _input(event: InputEvent) -> void:
 				title_screen.hide()
 				settings.show()
 			0:
+				savedata = file_controls.load_json_file()
 				match sure_flag:
 					true:
 						savedata["setting_no"]["title"] = option_selected

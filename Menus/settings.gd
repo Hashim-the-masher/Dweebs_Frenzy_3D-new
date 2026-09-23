@@ -64,7 +64,7 @@ func _input(event: InputEvent) -> void:
 					match setting_no[current_setting]:
 						0:
 							savedata["settings"]["visuals"][setting_no[current_setting]] -=.5
-							savedata["settings"]["visuals"][setting_no[current_setting]] = clampf(savedata["settings"]["visuals"][setting_no[current_setting]],0.5,3.0)
+							savedata["settings"]["visuals"][setting_no[current_setting]] = clampf(savedata["settings"]["visuals"][setting_no[current_setting]],0.5,5.0)
 							if savedata["settings"]["visuals"][1] !=1:
 								file_controls.change_res(savedata["settings"]["visuals"][0],get_window())
 						1:
@@ -81,7 +81,7 @@ func _input(event: InputEvent) -> void:
 					match setting_no[current_setting]:
 						0:
 							savedata["settings"]["visuals"][setting_no[current_setting]] +=.5
-							savedata["settings"]["visuals"][setting_no[current_setting]] = clampf(savedata["settings"]["visuals"][setting_no[current_setting]],0.5,3.0)
+							savedata["settings"]["visuals"][setting_no[current_setting]] = clampf(savedata["settings"]["visuals"][setting_no[current_setting]],0.5,5.0)
 							if savedata["settings"]["visuals"][1] !=1:
 								file_controls.change_res(savedata["settings"]["visuals"][0],get_window())
 						1:

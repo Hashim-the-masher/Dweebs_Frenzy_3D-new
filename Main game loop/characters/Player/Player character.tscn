@@ -12,7 +12,7 @@ radius = 0.75439453
 [sub_resource type="SphereMesh" id="SphereMesh_je8wp"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7ach6"]
-radius = 0.41357422
+radius = 0.5283203
 
 [node name="player" type="CharacterBody3D" unique_id=1720083908]
 collision_mask = 2
