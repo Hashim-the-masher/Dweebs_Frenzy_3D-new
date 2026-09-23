@@ -140,7 +140,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		match current_setting:
 			0:
-				print("on settings")
 				match setting_no[current_setting]:
 					0:
 						print("on sound")
