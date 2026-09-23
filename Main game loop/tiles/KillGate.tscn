@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://j64bs42o5nba"]
+
+[ext_resource type="Script" uid="uid://2by3yl4gq84i" path="res://Main game loop/tiles/kill_gate.gd" id="1_j4bdc"]
+[ext_resource type="Texture2D" uid="uid://5y6bdmaf2nha" path="res://assets/Textures/Indivisual_tiles/tile5.png" id="1_yv41j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m72vo"]
+shading_mode = 0
+albedo_texture = ExtResource("1_yv41j")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m7j03"]
+material = SubResource("StandardMaterial3D_m72vo")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4bdc"]
+size = Vector3(2, 3.285, 2)
+
+[node name="KillGate" type="StaticBody3D" unique_id=1914425793]
+collision_layer = 2
+collision_mask = 29
+script = ExtResource("1_j4bdc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1988038106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0377928, 0)
+mesh = SubResource("PlaneMesh_m7j03")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1165471564]
+shape = SubResource("BoxShape3D_j4bdc")
