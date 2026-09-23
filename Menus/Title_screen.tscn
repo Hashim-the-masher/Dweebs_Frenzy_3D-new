@@ -270,7 +270,7 @@ label_settings = ExtResource("3_7ciif")
 
 [node name="Cursor Speed" type="Label" parent="Controler_settings/SliderSettings/Titles" unique_id=1178681655]
 layout_mode = 2
-text = "Cursor Speed"
+text = "DotSpeed"
 label_settings = ExtResource("3_7ciif")
 
 [node name="Quit" type="Label" parent="Controler_settings/SliderSettings/Titles" unique_id=2106408644]

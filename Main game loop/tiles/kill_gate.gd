@@ -11,6 +11,6 @@ func _ready() -> void:
 func _on_enemy_kill() -> void:
 	KillAmount-=1
 	print(KillAmount)
-	if KillAmount<0:
+	if KillAmount<=0:
 		print("KillGateOpen")
 		queue_free()

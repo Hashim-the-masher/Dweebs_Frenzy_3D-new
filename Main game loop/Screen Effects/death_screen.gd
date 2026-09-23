@@ -17,6 +17,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	label.label_settings.font_size = lerp(16,cocksize,ttime-timer.time_left)
 	label.label_settings.font_color.a8 = lerp(0,255,ttime-timer.time_left)
-	if ttime-timer.time_left > ttime-0.05:
+	if ttime-timer.time_left > ttime-0.05 or Input.is_action_pressed("ui_accept"):
 		timer.stop()
 		get_tree().change_scene_to_file("res://Menus/Title_screen.tscn")
