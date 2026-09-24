@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://2i0bvg7frkuw"]
+
+[ext_resource type="LabelSettings" uid="uid://b5pijvb5s1ujn" path="res://assets/Textures/UI.tres" id="1_27uig"]
+[ext_resource type="Script" uid="uid://dilu88leuchi1" path="res://Menus/starting_screen.gd" id="1_dkai6"]
+
+[node name="Control" type="Control" unique_id=1028239776]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dkai6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1303883983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1595906038]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1901914243]
+layout_mode = 2
+text = "Whats  your Name?"
+label_settings = ExtResource("1_27uig")
+
+[node name="Name" type="Control" parent="VBoxContainer" unique_id=122191591]
+layout_mode = 2
+
+[node name="Age" type="Control" parent="VBoxContainer" unique_id=1147813406]
+layout_mode = 2
