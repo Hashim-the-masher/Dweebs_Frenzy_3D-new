@@ -14,7 +14,7 @@ func _ready() -> void:
 	timer.wait_time = ttime
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	label.label_settings.font_size = lerp(16,cocksize,ttime-timer.time_left)
 	label.label_settings.font_color.a8 = lerp(0,255,ttime-timer.time_left)
 	if ttime-timer.time_left > ttime-0.05 or Input.is_action_pressed("ui_accept"):

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2by3yl4gq84i" path="res://Main game loop/tiles/kill_gate.gd" id="1_j4bdc"]
 [ext_resource type="Texture2D" uid="uid://5y6bdmaf2nha" path="res://assets/Textures/Indivisual_tiles/tile5.png" id="1_yv41j"]
+[ext_resource type="AudioStream" uid="uid://73mmow3rkkng" path="res://assets/sound/die.wav" id="3_1fkih"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m72vo"]
 shading_mode = 0
@@ -25,3 +26,8 @@ mesh = SubResource("PlaneMesh_m7j03")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1165471564]
 shape = SubResource("BoxShape3D_j4bdc")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=982604129]
+stream = ExtResource("3_1fkih")
+panning_strength = 1.61
+bus = &"Sfx"

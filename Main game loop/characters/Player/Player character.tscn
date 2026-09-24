@@ -12,7 +12,7 @@ radius = 0.75439453
 [sub_resource type="SphereMesh" id="SphereMesh_je8wp"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7ach6"]
-radius = 0.5283203
+radius = 0.68603516
 
 [node name="player" type="CharacterBody3D" unique_id=1720083908]
 collision_mask = 2
@@ -56,7 +56,7 @@ mesh = SubResource("SphereMesh_je8wp")
 mesh = SubResource("SphereMesh_je8wp")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1385163065]
-collision_mask = 20
+collision_mask = 84
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=182703933]
 shape = SubResource("CylinderShape3D_7ach6")
