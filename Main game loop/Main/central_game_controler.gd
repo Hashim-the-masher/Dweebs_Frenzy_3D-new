@@ -34,7 +34,9 @@ func fade_out():
 func _on_win(Currentlevel: int, Wintype: int, Nextlevel: int) -> void:
 	black.color = Color.BLACK
 	print("Win code:"+str(Currentlevel)+str(Wintype)+str(Nextlevel))
-	if Wintype == 1:
+	if Wintype == 0:
+		start_level(Nextlevel)
+	elif Wintype == 1:
 		fade_out()
 		if Currentlevel+1 > alevel.size()-1:
 			print("Cannot load level "+str(Currentlevel+1))
