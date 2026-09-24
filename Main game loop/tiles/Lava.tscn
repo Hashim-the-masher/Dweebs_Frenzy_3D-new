@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dmokskh2vwy58"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_acc6h"]
+size = Vector3(2, 3.285, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_acc6h"]
+transparency = 1
+albedo_color = Color(0.8081372, 4.428029e-06, 7.70092e-07, 0.3647059)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ge0e2"]
+material = SubResource("StandardMaterial3D_acc6h")
+size = Vector3(2, 2, 2)
+
+[node name="Lava" type="Area3D" unique_id=1369593937]
+collision_layer = 64
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=678628704]
+shape = SubResource("BoxShape3D_acc6h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1196699050]
+mesh = SubResource("BoxMesh_ge0e2")
