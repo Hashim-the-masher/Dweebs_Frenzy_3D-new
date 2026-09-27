@@ -2,6 +2,10 @@
 
 [ext_resource type="LabelSettings" uid="uid://b5pijvb5s1ujn" path="res://assets/Textures/UI.tres" id="1_27uig"]
 [ext_resource type="Script" uid="uid://dilu88leuchi1" path="res://Menus/starting_screen.gd" id="1_dkai6"]
+[ext_resource type="LabelSettings" uid="uid://b4ckevhw0xmal" path="res://assets/Textures/UI_settings.tres" id="3_kukry"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kukry"]
+load_path = "res://.godot/imported/light_arrow.png-0e8f184ed11110db5dc47bef2bb5fc2c.ctex"
 
 [node name="Control" type="Control" unique_id=1028239776]
 layout_mode = 3
@@ -33,5 +37,802 @@ label_settings = ExtResource("1_27uig")
 [node name="Name" type="Control" parent="VBoxContainer" unique_id=122191591]
 layout_mode = 2
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Name" unique_id=4479585]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 98.0
+grow_horizontal = 2
+
+[node name="Letters" type="HBoxContainer" parent="VBoxContainer/Name/VBoxContainer2" unique_id=605062459]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=1401236618]
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("1_27uig")
+
+[node name="Label2" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=1480890741]
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("1_27uig")
+
+[node name="Label3" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=1662795860]
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("1_27uig")
+
+[node name="Label4" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=214844074]
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("1_27uig")
+
+[node name="Label5" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=1077920821]
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("1_27uig")
+
+[node name="Label6" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=1921090855]
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("1_27uig")
+
+[node name="ButtonY" type="VBoxContainer" parent="VBoxContainer/Name/VBoxContainer2" unique_id=1436274335]
+layout_mode = 2
+
+[node name="Buttonx" type="HBoxContainer" parent="VBoxContainer/Name/VBoxContainer2/ButtonY" unique_id=1108049868]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=1497808143]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "Q"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label" unique_id=1607343038]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=1332297102]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "W"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label2" unique_id=1357510894]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=1717233113]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "E"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label3" unique_id=979738621]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=1020484982]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "R"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label4" unique_id=1833321901]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=209556775]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "T"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label5" unique_id=1902927948]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=1083755710]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "Y"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label6" unique_id=1348469962]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=367091958]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "U"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label7" unique_id=1698541682]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label8" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=1207103638]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "I"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label8" unique_id=1110155973]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label9" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=1310680631]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "O"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label9" unique_id=154330316]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label10" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=1654689194]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "P"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label10" unique_id=414265413]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label11" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=79593036]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "J"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label11" unique_id=1591432117]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label12" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=347019470]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "K"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label12" unique_id=1966852980]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label13" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx" unique_id=876348895]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "L"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx/Label13" unique_id=745800830]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Buttonx2" type="HBoxContainer" parent="VBoxContainer/Name/VBoxContainer2/ButtonY" unique_id=379300369]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=1044579955]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "A"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label" unique_id=1451508715]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=1899959410]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Z"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label2" unique_id=344470977]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=99201767]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "S"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label3" unique_id=1094183060]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=141645388]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "X"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label4" unique_id=346343017]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=1276027649]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "D"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label5" unique_id=1354610564]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=997288948]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "C"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label6" unique_id=250510821]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=2009827890]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "F"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label7" unique_id=199917935]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label8" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=716605583]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "V"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label8" unique_id=1853270134]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label9" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=2106556926]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "G"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label9" unique_id=1005639772]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label10" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=2056175962]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "B"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label10" unique_id=1505037802]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label11" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=2051858567]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "H"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label11" unique_id=1473867822]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label12" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=1805788715]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "N"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label12" unique_id=1756046771]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label13" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2" unique_id=105509967]
+custom_minimum_size = Vector2(27, 40)
+layout_mode = 2
+text = "M"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2/Label13" unique_id=1719714328]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Buttonx3" type="HBoxContainer" parent="VBoxContainer/Name/VBoxContainer2/ButtonY" unique_id=51611193]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx3" unique_id=1522963736]
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "⌫"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx3/Label" unique_id=930111469]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx3" unique_id=1958451634]
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "⌧"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx3/Label2" unique_id=1674121260]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx3" unique_id=1583703798]
+custom_minimum_size = Vector2(45, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "⮠"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx3/Label3" unique_id=1864952441]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.4399996
+offset_top = -14.12
+offset_right = 162.44
+offset_bottom = 17.879993
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_kukry")
+expand_mode = 1
+
 [node name="Age" type="Control" parent="VBoxContainer" unique_id=1147813406]
+visible = false
 layout_mode = 2
