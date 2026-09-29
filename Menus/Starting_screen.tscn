@@ -49,34 +49,46 @@ layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=1401236618]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "1"
+text = "⌷"
 label_settings = ExtResource("1_27uig")
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=1480890741]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "1"
+text = "⌷"
 label_settings = ExtResource("1_27uig")
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=1662795860]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "1"
+text = "⌷"
 label_settings = ExtResource("1_27uig")
+horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=214844074]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "1"
+text = "⌷"
 label_settings = ExtResource("1_27uig")
+horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=1077920821]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "1"
+text = "⌷"
 label_settings = ExtResource("1_27uig")
+horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="VBoxContainer/Name/VBoxContainer2/Letters" unique_id=1921090855]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "1"
+text = "⌷"
 label_settings = ExtResource("1_27uig")
+horizontal_alignment = 1
 
 [node name="ButtonY" type="VBoxContainer" parent="VBoxContainer/Name/VBoxContainer2" unique_id=1436274335]
 layout_mode = 2
