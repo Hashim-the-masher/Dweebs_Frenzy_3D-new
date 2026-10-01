@@ -848,3 +848,68 @@ expand_mode = 1
 [node name="Age" type="Control" parent="VBoxContainer" unique_id=1147813406]
 visible = false
 layout_mode = 2
+
+[node name="SureScreen" type="Control" parent="." unique_id=1387843487]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -128.0
+offset_right = 256.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="SureScreen" unique_id=2010941028]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -128.0
+offset_right = 256.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SureScreen" unique_id=983652040]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SureScreen/VBoxContainer" unique_id=1069784454]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+text = "You Sure?"
+label_settings = ExtResource("1_27uig")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SureScreen/VBoxContainer" unique_id=9656466]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="SureScreen/VBoxContainer/HBoxContainer" unique_id=1521576764]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Yes"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="SureScreen/VBoxContainer/HBoxContainer" unique_id=1098153935]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "No"
+label_settings = ExtResource("3_kukry")
