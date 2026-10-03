@@ -3,6 +3,7 @@
 [ext_resource type="LabelSettings" uid="uid://b5pijvb5s1ujn" path="res://assets/Textures/UI.tres" id="1_27uig"]
 [ext_resource type="Script" uid="uid://dilu88leuchi1" path="res://Menus/starting_screen.gd" id="1_dkai6"]
 [ext_resource type="LabelSettings" uid="uid://b4ckevhw0xmal" path="res://assets/Textures/UI_settings.tres" id="3_kukry"]
+[ext_resource type="Texture2D" uid="uid://c00hgowi3ycyb" path="res://assets/Textures/arrowB.png" id="4_td1ce"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kukry"]
 load_path = "res://.godot/imported/light_arrow.png-0e8f184ed11110db5dc47bef2bb5fc2c.ctex"
@@ -35,6 +36,7 @@ text = "Whats  your Name?"
 label_settings = ExtResource("1_27uig")
 
 [node name="Name" type="Control" parent="VBoxContainer" unique_id=122191591]
+visible = false
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Name" unique_id=4479585]
@@ -846,8 +848,120 @@ texture = SubResource("CompressedTexture2D_kukry")
 expand_mode = 1
 
 [node name="Age" type="Control" parent="VBoxContainer" unique_id=1147813406]
-visible = false
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Age" unique_id=1999366283]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 78.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Age/VBoxContainer" unique_id=2127635180]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Number"
+label_settings = ExtResource("1_27uig")
+
+[node name="Num1" type="HBoxContainer" parent="VBoxContainer/Age/VBoxContainer" unique_id=1843973675]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="1" type="Label" parent="VBoxContainer/Age/VBoxContainer/Num1" unique_id=468153414]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "1"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="2" type="Label" parent="VBoxContainer/Age/VBoxContainer/Num1" unique_id=1912435686]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "2"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="3" type="Label" parent="VBoxContainer/Age/VBoxContainer/Num1" unique_id=307501450]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "3"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="Num2" type="HBoxContainer" parent="VBoxContainer/Age/VBoxContainer" unique_id=1499102889]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="4" type="Label" parent="VBoxContainer/Age/VBoxContainer/Num2" unique_id=2013964942]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "4"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="5" type="Label" parent="VBoxContainer/Age/VBoxContainer/Num2" unique_id=684181147]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "5"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="6" type="Label" parent="VBoxContainer/Age/VBoxContainer/Num2" unique_id=1090635795]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "6"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="Num3" type="HBoxContainer" parent="VBoxContainer/Age/VBoxContainer" unique_id=363685247]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="7" type="Label" parent="VBoxContainer/Age/VBoxContainer/Num3" unique_id=1597489759]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "7"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="8" type="Label" parent="VBoxContainer/Age/VBoxContainer/Num3" unique_id=281895625]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "8"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="9" type="Label" parent="VBoxContainer/Age/VBoxContainer/Num3" unique_id=1918891764]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "9"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="Mis" type="HBoxContainer" parent="VBoxContainer/Age/VBoxContainer" unique_id=408018199]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="bksp" type="Label" parent="VBoxContainer/Age/VBoxContainer/Mis" unique_id=808560700]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "⌫"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="0" type="Label" parent="VBoxContainer/Age/VBoxContainer/Mis" unique_id=2121775927]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
+
+[node name="Entr" type="Label" parent="VBoxContainer/Age/VBoxContainer/Mis" unique_id=2119689383]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "⮠"
+label_settings = ExtResource("3_kukry")
+horizontal_alignment = 1
 
 [node name="SureScreen" type="Control" parent="." unique_id=1387843487]
 visible = false
@@ -913,3 +1027,154 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = "No"
 label_settings = ExtResource("3_kukry")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=83852542]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.551
+anchor_right = 1.0
+offset_left = -0.22399902
+offset_bottom = 78.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer2" unique_id=1581826855]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Arrow Keys"
+label_settings = ExtResource("1_27uig")
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="Control" parent="VBoxContainer2" unique_id=1441903382]
+custom_minimum_size = Vector2(192, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="left" type="TextureRect" parent="VBoxContainer2/HBoxContainer2" unique_id=387087299]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+rotation = 1.5707964
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("4_td1ce")
+stretch_mode = 2
+flip_v = true
+
+[node name="left2" type="TextureRect" parent="VBoxContainer2/HBoxContainer2" unique_id=2050764679]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+rotation = -1.5707964
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("4_td1ce")
+stretch_mode = 2
+
+[node name="right" type="TextureRect" parent="VBoxContainer2/HBoxContainer2" unique_id=843223876]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = -1.5707964
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("4_td1ce")
+stretch_mode = 2
+flip_v = true
+
+[node name="right2" type="TextureRect" parent="VBoxContainer2/HBoxContainer2" unique_id=1136211815]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 1.5707964
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("4_td1ce")
+stretch_mode = 2
+
+[node name="down" type="TextureRect" parent="VBoxContainer2/HBoxContainer2" unique_id=1530204737]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("4_td1ce")
+stretch_mode = 2
+flip_v = true
+
+[node name="down2" type="TextureRect" parent="VBoxContainer2/HBoxContainer2" unique_id=2036025388]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 3.1415927
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("4_td1ce")
+stretch_mode = 2
+
+[node name="up" type="TextureRect" parent="VBoxContainer2/HBoxContainer2" unique_id=1236854683]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 64.0
+grow_horizontal = 2
+rotation = 3.1415927
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("4_td1ce")
+stretch_mode = 2
+flip_v = true
+
+[node name="up2" type="TextureRect" parent="VBoxContainer2/HBoxContainer2" unique_id=2123151693]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 64.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("4_td1ce")
+stretch_mode = 2

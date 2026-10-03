@@ -55,7 +55,7 @@ func _input(event: InputEvent) -> void:
 						name_keyboard_pos.x = 12
 		buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS_SELECTED
 	if event.is_action_pressed("ui_right"):
-		match current_letter:
+		match current_section:
 			0:
 				buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS
 				name_keyboard_pos.x +=1
@@ -115,3 +115,8 @@ func _input(event: InputEvent) -> void:
 							sure_button[1].label_settings = UI_SETTINGS_SELECTED
 			1:
 				pass
+	if event.is_action("ui_text_backspace"):
+		if current_letter<1:
+			return
+		current_letter-=1
+		letter[current_letter].text = "⌷"
