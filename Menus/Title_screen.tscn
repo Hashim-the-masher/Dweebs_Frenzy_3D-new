@@ -995,15 +995,42 @@ layout_mode = 2
 text = "Start"
 label_settings = ExtResource("2_hfqrc")
 
+[node name="Button1" type="Button" parent="Title_screen/VBoxContainer/Start" unique_id=1981383674]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
 [node name="Options" type="Label" parent="Title_screen/VBoxContainer" unique_id=1753880263]
 layout_mode = 2
 text = "Options"
 label_settings = ExtResource("3_og6q2")
 
+[node name="Button2" type="Button" parent="Title_screen/VBoxContainer/Options" unique_id=1137759283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
 [node name="Exit" type="Label" parent="Title_screen/VBoxContainer" unique_id=834751316]
 layout_mode = 2
 text = "Exit"
 label_settings = ExtResource("3_og6q2")
+
+[node name="Button3" type="Button" parent="Title_screen/VBoxContainer/Exit" unique_id=2081998247]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
 
 [node name="Exit2" type="Label" parent="Title_screen/VBoxContainer" unique_id=817677894]
 layout_mode = 2
@@ -1142,3 +1169,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_hfqrc")
+
+[connection signal="pressed" from="Title_screen/VBoxContainer/Start/Button1" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Title_screen/VBoxContainer/Options/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Title_screen/VBoxContainer/Exit/Button3" to="." method="_on_button_3_pressed"]

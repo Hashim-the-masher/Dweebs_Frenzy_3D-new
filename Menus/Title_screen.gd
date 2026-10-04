@@ -15,11 +15,14 @@ var file_controls = file_control.new()
 const UI = preload("uid://b5pijvb5s1ujn")
 const UI_SELECTED = preload("uid://dvpvf7wdsrfxi")
 const UI_HIDDEN = preload("uid://jeih4ch5reov")
-
+var code=[]
 func _ready() -> void:
 	if file_controls.load_json_file() == null:
 		file_controls.make_new_json_file()
+		get_tree().change_scene_to_file("res://Menus/Starting_screen.tscn")
 	savedata = file_controls.load_json_file()
+	if savedata["flags"][0] != 1.0:
+		get_tree().change_scene_to_file("res://Menus/Starting_screen.tscn")
 	file_controls.map_inputs(savedata)
 	option_selected = savedata["setting_no"]["title"]
 	if option_selected > 1: option_selected = 1
@@ -99,3 +102,22 @@ func _input(event: InputEvent) -> void:
 					false:
 						sure_flag = true
 						labels[0].text = "You sure?"
+
+
+func _on_button_pressed() -> void:
+	code.append(1)
+
+
+func _on_button_2_pressed() -> void:
+	code.append(2)
+
+
+func _on_button_3_pressed() -> void:
+	code.append(3)
+	if code.size()<5:
+		return
+	if str(code[-1],code[-2],code[-3],code[-4],code[-5]) == "31222":
+		file_controls.make_new_json_file()
+		get_tree().quit()
+	if str(code[-1],code[-2],code[-3],code[-4],code[-5]) == "33311":
+		get_tree().quit()
