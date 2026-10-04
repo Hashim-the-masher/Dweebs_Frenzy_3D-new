@@ -1,18 +1,16 @@
 [gd_scene format=3 uid="uid://bqkn7wtuydlss"]
 
-[ext_resource type="Script" uid="uid://b7ay11noj1e5q" path="res://Menus/paused.gd" id="1_5lqxi"]
-[ext_resource type="Texture2D" uid="uid://bq3vnwmwmyho6" path="res://Assets/Textures/simple_overlay.png" id="2_5lqxi"]
-[ext_resource type="LabelSettings" uid="uid://dvpvf7wdsrfxi" path="res://Assets/Textures/UI_selected.tres" id="2_th6tw"]
-[ext_resource type="LabelSettings" uid="uid://b5pijvb5s1ujn" path="res://Assets/Textures/UI.tres" id="3_eod33"]
-[ext_resource type="Texture2D" uid="uid://cv5f0412ftkvv" path="res://Assets/Textures/light_arrow.png" id="5_5duk1"]
-[ext_resource type="Script" uid="uid://bx8px8fwrwoq" path="res://Menus/paused_settings.gd" id="5_th6tw"]
-[ext_resource type="LabelSettings" uid="uid://b4ckevhw0xmal" path="res://Assets/Textures/UI_settings.tres" id="6_eod33"]
-[ext_resource type="LabelSettings" uid="uid://bi6gm77mgn5ao" path="res://Assets/Textures/UI_settings_hidden.tres" id="7_eod33"]
-[ext_resource type="LabelSettings" uid="uid://cc1invi444o3p" path="res://Assets/Textures/UI_settings_light.tres" id="8_5duk1"]
-[ext_resource type="Texture2D" uid="uid://dtq32lcq2avv" path="res://Assets/Textures/keyboard_high_quality.png" id="8_yvqh5"]
-[ext_resource type="LabelSettings" uid="uid://bu6x8ru5xi2kt" path="res://Assets/Textures/UI_settings_selected.tres" id="9_0tufv"]
-[ext_resource type="Texture2D" uid="uid://c22hdpty5ylgo" path="res://Assets/Textures/contoler_high_quality.png" id="10_5duk1"]
-[ext_resource type="Texture2D" uid="uid://c5knpln58e3fi" path="res://Assets/Textures/xtra_arrow.png" id="11_8q3t0"]
+[ext_resource type="Script" uid="uid://cpp7jr2ave1vs" path="res://Menus/paused.gd" id="1_5lqxi"]
+[ext_resource type="Texture2D" uid="uid://bq3vnwmwmyho6" path="res://assets/Textures/simple_overlay.png" id="2_5lqxi"]
+[ext_resource type="LabelSettings" uid="uid://dvpvf7wdsrfxi" path="res://assets/Textures/UI_selected.tres" id="2_th6tw"]
+[ext_resource type="LabelSettings" uid="uid://b5pijvb5s1ujn" path="res://assets/Textures/UI.tres" id="3_eod33"]
+[ext_resource type="Texture2D" uid="uid://cv5f0412ftkvv" path="res://assets/Textures/light_arrow.png" id="5_5duk1"]
+[ext_resource type="Script" uid="uid://byii0airnq7hg" path="res://Menus/paused_settings.gd" id="5_th6tw"]
+[ext_resource type="LabelSettings" uid="uid://b4ckevhw0xmal" path="res://assets/Textures/UI_settings.tres" id="6_eod33"]
+[ext_resource type="LabelSettings" uid="uid://bi6gm77mgn5ao" path="res://assets/Textures/UI_settings_hidden.tres" id="7_eod33"]
+[ext_resource type="LabelSettings" uid="uid://cc1invi444o3p" path="res://assets/Textures/UI_settings_light.tres" id="8_5duk1"]
+[ext_resource type="LabelSettings" uid="uid://bu6x8ru5xi2kt" path="res://assets/Textures/UI_settings_selected.tres" id="9_0tufv"]
+[ext_resource type="Texture2D" uid="uid://dcp0brvck5fdl" path="res://icon.svg" id="11_8q3t0"]
 
 [node name="menu_pause" type="Control" unique_id=1629708582]
 layout_mode = 3
@@ -560,7 +558,7 @@ visible = false
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 512.0
-texture = ExtResource("8_yvqh5")
+texture = ExtResource("11_8q3t0")
 
 [node name="Label4" type="Label" parent="settings/keyboard" unique_id=311537773]
 layout_mode = 1
@@ -838,7 +836,7 @@ visible = false
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 512.0
-texture = ExtResource("10_5duk1")
+texture = ExtResource("11_8q3t0")
 
 [node name="Label2" type="Label" parent="settings/controler" unique_id=205680386]
 layout_mode = 1
