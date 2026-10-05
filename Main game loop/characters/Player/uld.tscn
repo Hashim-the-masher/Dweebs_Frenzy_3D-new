@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://p1qot1lojblj"]
+[gd_scene format=3 uid="uid://6yblwcubx4wd"]
 
 [ext_resource type="Script" uid="uid://c1yq5e3ldovvc" path="res://Main game loop/characters/Player/Player code.gd" id="1_brlli"]
 [ext_resource type="Texture2D" uid="uid://dunh2c5j5h5qy" path="res://assets/Textures/coursor_placeholder.tres" id="2_urkgk"]

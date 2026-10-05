@@ -2,20 +2,21 @@ extends Control
 
 @onready var menu_pause: Control = $".."
 @onready var titles = [$main/Titles,$sound/SliderSettings/Titles,$visual/SliderSettings/Titles,$controls/SliderSettings/Titles,$controls/SliderSettings/Titles]
-var titles_sizes = [[0,0,0,0],[0,0,0],[0,0,0],[0,0,0]]
-@onready var values = [null,$"sound/SliderSettings/Display value",$"visual/SliderSettings/Display value",null]
-@onready var arrows = [[$main/arrows/arrow/arrow, $main/arrows/arrow2/arrow2, $main/arrows/arrow3/arrow3, $main/arrows/arrow4/arrow3],[$sound/SliderSettings/arrows/arrow/arrow, $sound/SliderSettings/arrows/arrow2/arrow2, $sound/SliderSettings/arrows/arrow3/arrow3],[$visual/SliderSettings/arrows/arrow/arrow, $visual/SliderSettings/arrows/arrow2/arrow2, $visual/SliderSettings/arrows/arrow3/arrow3],[$controls/SliderSettings/arrows/arrow/arrow, $controls/SliderSettings/arrows/arrow2/arrow2, $controls/SliderSettings/arrows/arrow3/arrow3]]
+var titles_sizes = [[0,0,0,0],[0,0,0],[0,0,0],[0,0,0,0]]
+@onready var values = [null,$"sound/SliderSettings/Display value",$"visual/SliderSettings/Display value",$"controls/SliderSettings/Display value"]
+@onready var arrows = [[$main/arrows/arrow/arrow, $main/arrows/arrow2/arrow2, $main/arrows/arrow3/arrow3, $main/arrows/arrow4/arrow3],[$sound/SliderSettings/arrows/arrow/arrow, $sound/SliderSettings/arrows/arrow2/arrow2, $sound/SliderSettings/arrows/arrow3/arrow3],[$visual/SliderSettings/arrows/arrow/arrow, $visual/SliderSettings/arrows/arrow2/arrow2, $visual/SliderSettings/arrows/arrow3/arrow3],[$controls/SliderSettings/arrows/arrow/arrow, $controls/SliderSettings/arrows/arrow2/arrow2, $controls/SliderSettings/arrows/arrow3/arrow3,$controls/SliderSettings/arrows/arrow4/arrow3]]
 @onready var level = $"../../.."
 @onready var player = $"../../../player"
 var setting_no = [3,2,2,2]
 const UI_SETTINGS_SELECTED = preload("uid://bu6x8ru5xi2kt")
 const UI_SETTINGS = preload("uid://cc1invi444o3p")
 var back_confirmation_flag = false
+var wait := false
 @onready var asettings = get_children(false)
 var current_setting = 0
 var on = [false,false]
-@onready var keyboard: TextureRect = $keyboard
-@onready var controler: TextureRect = $controler
+@onready var keyboard: = $keyboard
+@onready var controler: = $controler
 const LIGHT_BI_ARROW = preload("uid://pjnv4b1w6ef7")
 const LIGHT_ARROW = preload("uid://cv5f0412ftkvv")
 var move_mode = 0
@@ -28,6 +29,7 @@ func _ready() -> void:
 	values[1].get_child(1).text =  str(savedata["settings"]["sounds"][1])
 	values[2].get_child(0).text = str(savedata["settings"]["visuals"][0])
 	values[2].get_child(1).text = str(savedata["settings"]["visuals"][1])
+	values[3].get_child(2).text = str(savedata["settings"]["controls"][2])
 	match values[2].get_child(1).text:
 		"1.0":
 			values[2].get_child(1).text = "Yes"
@@ -61,7 +63,7 @@ func _input(event: InputEvent) -> void:
 					match setting_no[current_setting]:
 						0:
 							savedata["settings"]["visuals"][setting_no[current_setting]] -=.5
-							savedata["settings"]["visuals"][setting_no[current_setting]] = clampf(savedata["settings"]["visuals"][setting_no[current_setting]],0.5,3.0)
+							savedata["settings"]["visuals"][setting_no[current_setting]] = clampf(savedata["settings"]["visuals"][setting_no[current_setting]],0.5,5.0)
 							match savedata["settings"]["visuals"][1]:
 								1.0:
 									file_controls.fullscreen(get_window())
@@ -85,7 +87,7 @@ func _input(event: InputEvent) -> void:
 					match setting_no[current_setting]:
 						0:
 							savedata["settings"]["visuals"][setting_no[current_setting]] +=.5
-							savedata["settings"]["visuals"][setting_no[current_setting]] = clampf(savedata["settings"]["visuals"][setting_no[current_setting]],0.5,3.0)
+							savedata["settings"]["visuals"][setting_no[current_setting]] = clampf(savedata["settings"]["visuals"][setting_no[current_setting]],0.5,5.0)
 							match savedata["settings"]["visuals"][1]:
 								1.0:
 									file_controls.fullscreen(get_window())
@@ -111,6 +113,22 @@ func _input(event: InputEvent) -> void:
 					move_mode=0
 					file_controls.save_to_json_file(savedata)
 					return
+			3:
+				if event.is_action_pressed("ui_left"):
+					savedata["settings"]["controls"][setting_no[current_setting]] -=.1
+					savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.1,4.0)
+					values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
+				if event.is_action_pressed("ui_right"):
+					savedata["settings"]["controls"][setting_no[current_setting]] +=.1
+					savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.1,4.0)
+					values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
+				if event.is_action_pressed("ui_accept"):
+					print(str(current_setting)+""+str(setting_no[current_setting]))
+					arrows[current_setting][setting_no[current_setting]].texture = LIGHT_ARROW
+					values[current_setting].get_child(setting_no[current_setting]).label_settings = UI_SETTINGS
+					move_mode=0
+					file_controls.save_to_json_file(savedata)
+					player.refresh()
 		return
 	if menu_pause.settings == false:
 		asettings[current_setting].hide()
@@ -139,7 +157,7 @@ func _input(event: InputEvent) -> void:
 			else:nodes.show()
 	if event.is_action_pressed("ui_accept"):
 		match current_setting:
-			0:
+			0:#settings
 				match setting_no[current_setting]:
 					0:
 						current_setting = setting_no[current_setting]+1
@@ -155,7 +173,7 @@ func _input(event: InputEvent) -> void:
 						asettings[current_setting].hide()
 						menu_pause.settings = false
 						return
-			1:
+			1:#sound
 				match setting_no[current_setting]:
 					0:
 						move_mode = 1
@@ -164,7 +182,7 @@ func _input(event: InputEvent) -> void:
 					2:
 						current_setting = 0
 						return
-			2:
+			2:#visual
 				match setting_no[current_setting]:
 					0:
 						move_mode = 1
@@ -173,31 +191,39 @@ func _input(event: InputEvent) -> void:
 					2:
 						current_setting = 0
 						return
-			3:
+			3:#con
 				match setting_no[current_setting]:
 					0:
-						if on[0] == true:
-							on[0]=false
-							titles[current_setting].get_child(0).label_settings = UI_SETTINGS_SELECTED
-							keyboard.hide()
-							return
 						if on[0] == false:
 							on[0]= true
 							titles[current_setting].get_child(0).label_settings = UI_SETTINGS
+							arrows[current_setting][setting_no[current_setting]].hide()
 							keyboard.show()
 					1:
-						if on[1] == true:
-							on[1]=false
-							titles[current_setting].get_child(1).label_settings = UI_SETTINGS_SELECTED
-							controler.hide()
-							return
 						if on[1] == false:
 							on[1]= true
 							titles[current_setting].get_child(1).label_settings = UI_SETTINGS
+							arrows[current_setting][setting_no[current_setting]].hide()
 							controler.show()
 					2:
+						move_mode = 1
+					3:
 						current_setting = 0
 						return
+	if event.is_action_pressed("esc"):
+		if on[0] == true and wait == false:
+			on[0]=false
+			titles[current_setting].get_child(0).label_settings = UI_SETTINGS_SELECTED
+			arrows[current_setting][setting_no[current_setting]].show()
+			keyboard.hide()
+			return
+		if on[1] == true and wait == false:
+			on[1]=false
+			titles[current_setting].get_child(1).label_settings = UI_SETTINGS_SELECTED
+			arrows[current_setting][setting_no[current_setting]].show()
+			controler.hide()
+			return
+
 
 func exit_settings():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

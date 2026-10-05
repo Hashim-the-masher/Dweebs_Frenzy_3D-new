@@ -4,7 +4,7 @@ var rotaion_velocity:float
 @export var max_rotation:float = .1
 @export var min_rotation:float = -.1
 @export var rotation_friction:float = 1.15
-@export var coursorspeed:float = 0.015
+@export var coursorspeed:float = 2
 @export var speed:float = 9
 var velocity_on_a_plane:=Vector2(0,0)
 var tank_speed:float = speed*(PI/2)
@@ -32,6 +32,7 @@ var savedata:Dictionary
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	savedata = file_tools.load_json_file()
+	coursorspeed = savedata["settings"]["controls"][2]
 	state = states[0]
 	switch_mesh()
 
@@ -126,6 +127,10 @@ func _on_area_2d_body_entered(body: Node3D) -> void:
 	print("this body killed me:"+body.name)
 	Death()
 	flags["hit?"] = true
+
+func refresh():
+	savedata = file_tools.load_json_file()
+	coursorspeed = savedata["settings"]["controls"][2]
 
 func Death():
 	get_tree().change_scene_to_file("res://Main game loop/Screen Effects/Death screen.tscn")

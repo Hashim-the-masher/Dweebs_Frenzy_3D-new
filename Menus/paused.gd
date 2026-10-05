@@ -49,7 +49,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") and ignore == true:
 		ignore = false
 		return
-	if event.is_action_pressed("esc"):
+	if event.is_action_pressed("esc") and $settings.current_setting!=3:
 		if settings == true:
 			settings = false
 			$settings.exit_settings()

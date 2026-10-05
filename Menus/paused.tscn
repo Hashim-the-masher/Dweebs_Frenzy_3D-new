@@ -9,8 +9,8 @@
 [ext_resource type="LabelSettings" uid="uid://b4ckevhw0xmal" path="res://assets/Textures/UI_settings.tres" id="6_eod33"]
 [ext_resource type="LabelSettings" uid="uid://bi6gm77mgn5ao" path="res://assets/Textures/UI_settings_hidden.tres" id="7_eod33"]
 [ext_resource type="LabelSettings" uid="uid://cc1invi444o3p" path="res://assets/Textures/UI_settings_light.tres" id="8_5duk1"]
-[ext_resource type="LabelSettings" uid="uid://bu6x8ru5xi2kt" path="res://assets/Textures/UI_settings_selected.tres" id="9_0tufv"]
-[ext_resource type="Texture2D" uid="uid://dcp0brvck5fdl" path="res://icon.svg" id="11_8q3t0"]
+[ext_resource type="Texture2D" uid="uid://dyf64kjp5hdow" path="res://assets/Textures/arrow.png" id="10_77or2"]
+[ext_resource type="Script" uid="uid://dt2eyahv3y3c5" path="res://Menus/pausedcontrols.gd" id="10_yvqh5"]
 
 [node name="menu_pause" type="Control" unique_id=1629708582]
 layout_mode = 3
@@ -476,6 +476,12 @@ layout_mode = 2
 text = "Controler"
 label_settings = ExtResource("6_eod33")
 
+[node name="dotspeed" type="Label" parent="settings/controls/SliderSettings/Titles" unique_id=1731923456]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Dotspeed"
+label_settings = ExtResource("6_eod33")
+
 [node name="Quit" type="Label" parent="settings/controls/SliderSettings/Titles" unique_id=2147000153]
 layout_mode = 2
 text = "Back"
@@ -493,6 +499,10 @@ label_settings = ExtResource("6_eod33")
 [node name="Label2" type="Label" parent="settings/controls/SliderSettings/Display value" unique_id=776951935]
 layout_mode = 2
 label_settings = ExtResource("6_eod33")
+
+[node name="Label3" type="Label" parent="settings/controls/SliderSettings/Display value" unique_id=1347544338]
+layout_mode = 2
+label_settings = ExtResource("8_5duk1")
 
 [node name="Quit" type="Label" parent="settings/controls/SliderSettings/Display value" unique_id=967731653]
 layout_mode = 2
@@ -537,7 +547,7 @@ texture = ExtResource("5_5duk1")
 expand_mode = 1
 
 [node name="empty3" type="Control" parent="settings/controls/SliderSettings/arrows" unique_id=1420001559]
-custom_minimum_size = Vector2(0, 42.095)
+custom_minimum_size = Vector2(0, 32.24)
 layout_mode = 2
 
 [node name="arrow3" type="Control" parent="settings/controls/SliderSettings/arrows" unique_id=793406140]
@@ -553,380 +563,525 @@ offset_bottom = 40.0
 texture = ExtResource("5_5duk1")
 expand_mode = 1
 
-[node name="keyboard" type="TextureRect" parent="settings" unique_id=159532361]
+[node name="empty4" type="Control" parent="settings/controls/SliderSettings/arrows" unique_id=263180754]
+custom_minimum_size = Vector2(0, 42.095)
+layout_mode = 2
+
+[node name="arrow4" type="Control" parent="settings/controls/SliderSettings/arrows" unique_id=341748101]
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="settings/controls/SliderSettings/arrows/arrow4" unique_id=175722555]
 visible = false
+custom_minimum_size = Vector2(160, 32)
 layout_mode = 0
-offset_right = 1024.0
-offset_bottom = 512.0
-texture = ExtResource("11_8q3t0")
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("5_5duk1")
+expand_mode = 1
 
-[node name="Label4" type="Label" parent="settings/keyboard" unique_id=311537773]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.624
-anchor_top = 0.70500004
-anchor_right = 0.624
-anchor_bottom = 0.70500004
-offset_left = -19.976013
-offset_top = 16.039978
-offset_right = 12.023987
-offset_bottom = 56.039978
-rotation = -1.5707964
-text = "𝥦"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label3" type="Label" parent="settings/keyboard" unique_id=1506234136]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.70100003
-anchor_top = 0.707
-anchor_right = 0.70100003
-anchor_bottom = 0.707
-offset_left = 16.175964
-offset_top = 20.015991
-offset_right = 48.175964
-offset_bottom = 60.01599
-rotation = 3.1415927
-text = "𝥦"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label2" type="Label" parent="settings/keyboard" unique_id=1254432211]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.702
-anchor_top = 0.572
-anchor_right = 0.702
-anchor_bottom = 0.572
-offset_left = -15.848022
-offset_top = -19.864014
-offset_right = 16.151978
-offset_bottom = 20.135986
-text = "𝥦"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label" type="Label" parent="settings/keyboard" unique_id=34731140]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.578
-anchor_top = 0.84400004
-anchor_right = 0.578
-anchor_bottom = 0.84400004
-offset_left = -65.87201
-offset_top = -20.128021
-offset_right = 66.12799
-offset_bottom = 19.871979
-text = "Spacebar"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label5" type="Label" parent="settings/keyboard" unique_id=1283952681]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.776
-anchor_top = 0.707
-anchor_right = 0.776
-anchor_bottom = 0.707
-offset_left = 20.375977
-offset_top = -15.984009
-offset_right = 52.375977
-offset_bottom = 24.015991
-rotation = 1.5707964
-text = "𝥦"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label6" type="Label" parent="settings/keyboard" unique_id=1633466459]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.47800002
-anchor_top = 0.437
-anchor_right = 0.47800002
-anchor_bottom = 0.437
-offset_left = -15.472015
-offset_top = -19.744003
-offset_right = 14.527985
-offset_bottom = 20.255997
-text = "W"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label7" type="Label" parent="settings/keyboard" unique_id=771921389]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.47500002
-anchor_top = 0.568
-anchor_right = 0.47500002
-anchor_bottom = 0.568
-offset_left = -7.4000244
-offset_top = -17.81601
-offset_right = 9.599976
-offset_bottom = 22.18399
-text = "S"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label9" type="Label" parent="settings/keyboard" unique_id=972304519]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.55200005
-anchor_top = 0.572
-anchor_right = 0.55200005
-anchor_bottom = 0.572
-offset_left = -11.248047
-offset_top = -19.864014
-offset_right = 11.751953
-offset_bottom = 20.135986
-text = "D"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label8" type="Label" parent="settings/keyboard" unique_id=304600958]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.39900002
-anchor_top = 0.574
-anchor_right = 0.39900002
-anchor_bottom = 0.574
-offset_left = -10.576019
-offset_top = -19.888
-offset_right = 10.423981
-offset_bottom = 20.112
-text = "A"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label10" type="Label" parent="settings/keyboard" unique_id=1709221322]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.549
-anchor_top = 0.437
-anchor_right = 0.549
-anchor_bottom = 0.437
-offset_left = -8.176025
-offset_top = -19.744003
-offset_right = 8.823975
-offset_bottom = 20.255997
-text = "E"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label11" type="Label" parent="settings/keyboard" unique_id=2057712471]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4
-anchor_top = 0.437
-anchor_right = 0.4
-anchor_bottom = 0.439
-offset_left = -12.600006
-offset_top = -21.744003
-offset_right = 12.399994
-offset_bottom = 17.231995
-text = "Q"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label12" type="Label" parent="settings/keyboard" unique_id=223660927]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.275
-anchor_top = 0.82800007
-anchor_right = 0.275
-anchor_bottom = 0.82800007
-offset_left = -84.600006
-offset_top = -19.936035
-offset_right = 0.3999939
-offset_bottom = 20.063965
-text = "Shoot"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label13" type="Label" parent="settings/keyboard" unique_id=337667610]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.61600006
-anchor_top = 0.27100003
-anchor_right = 0.61600006
-anchor_bottom = 0.27100003
-offset_left = 0.21594238
-offset_top = -39.752014
-offset_right = 85.21594
-offset_bottom = 0.24798584
-text = "Shoot"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label14" type="Label" parent="settings/keyboard" unique_id=1258073499]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.187
-anchor_top = 0.572
-anchor_right = 0.187
-anchor_bottom = 0.572
-offset_left = -143.488
-offset_top = -19.864014
-offset_right = -0.4880066
-offset_bottom = 20.135986
-text = "Steer Left"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label15" type="Label" parent="settings/keyboard" unique_id=412669997]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.657
-anchor_top = 0.39600003
-anchor_right = 0.657
-anchor_bottom = 0.39600003
-offset_left = 2.2319946
-offset_top = -53.752014
-offset_right = 79.231995
-offset_bottom = 29.247986
-text = "Steer
-Right"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label16" type="Label" parent="settings/keyboard" unique_id=1252237985]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.813
-anchor_top = 0.36100003
-anchor_right = 0.813
-anchor_bottom = 0.36100003
-offset_left = -15.512024
-offset_top = -45.832016
-offset_right = 339.48798
-offset_bottom = -5.832016
-text = "Move(without 
-      player dir)"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label17" type="Label" parent="settings/keyboard" unique_id=1772914513]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.395
-anchor_top = 0.72300005
-anchor_right = 0.395
-anchor_bottom = 0.72300005
-offset_left = -154.48001
-offset_top = -29.176025
-offset_right = -11.480011
-offset_bottom = 10.823975
-text = "Backwards"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label18" type="Label" parent="settings/keyboard" unique_id=161148816]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.312
-anchor_top = 0.266
-anchor_right = 0.312
-anchor_bottom = 0.266
-offset_left = -84.48801
-offset_top = -40.192
-offset_right = 0.5119934
-offset_bottom = -0.19200134
-text = "Pause"
-label_settings = ExtResource("9_0tufv")
-
-[node name="Label19" type="Label" parent="settings/keyboard" unique_id=1546217786]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.513
-anchor_top = 0.20500001
-anchor_right = 0.513
-anchor_bottom = 0.20500001
-offset_left = -71.31201
-offset_top = -39.960007
-offset_right = 71.68799
-offset_bottom = 0.039993286
-text = "Forwards"
-label_settings = ExtResource("9_0tufv")
-
-[node name="controler" type="TextureRect" parent="settings" unique_id=391369896]
+[node name="keyboard" type="HBoxContainer" parent="settings" unique_id=1113241101]
 visible = false
-layout_mode = 0
-offset_right = 1024.0
-offset_bottom = 512.0
-texture = ExtResource("11_8q3t0")
-
-[node name="Label2" type="Label" parent="settings/controler" unique_id=205680386]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.80700004
-anchor_top = 0.33
-anchor_right = 0.80700004
-anchor_bottom = 0.33
-offset_left = -0.368042
-offset_top = -39.960007
-offset_right = 153.63196
-offset_bottom = 0.039993286
-text = "Forwards"
-label_settings = ExtResource("9_0tufv")
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -808.0
+offset_top = -304.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("10_yvqh5")
 
-[node name="Label" type="Label" parent="settings/controler" unique_id=1934947080]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.596
-anchor_top = 0.27100003
-anchor_right = 0.596
-anchor_bottom = 0.27100003
-offset_left = -77.304016
-offset_top = -19.752014
-offset_right = 76.695984
-offset_bottom = 20.247986
-text = "Backwards"
-label_settings = ExtResource("9_0tufv")
+[node name="actions" type="VBoxContainer" parent="settings/keyboard" unique_id=1529131968]
+layout_mode = 2
+size_flags_horizontal = 8
 
-[node name="Label3" type="Label" parent="settings/controler" unique_id=232561672]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.786
-anchor_top = 0.21100001
-anchor_right = 0.786
-anchor_bottom = 0.21100001
-offset_left = -40.864014
-offset_top = -42.032005
-offset_right = 44.135986
-offset_bottom = -2.0320053
+[node name="Label" type="Label" parent="settings/keyboard/actions" unique_id=593653325]
+layout_mode = 2
+text = "Action|"
+label_settings = ExtResource("8_5duk1")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="settings/keyboard/actions" unique_id=1171511257]
+layout_mode = 2
 text = "Shoot"
-label_settings = ExtResource("9_0tufv")
+label_settings = ExtResource("8_5duk1")
 
-[node name="Label4" type="Label" parent="settings/controler" unique_id=1650804766]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.51100004
-anchor_top = 0.87100005
-anchor_right = 0.51100004
-anchor_bottom = 0.87100005
-offset_left = -77.26404
-offset_top = 0.047973633
-offset_right = 76.73596
-offset_bottom = 40.047974
-text = "Steer L/R"
-label_settings = ExtResource("9_0tufv")
+[node name="Label3" type="Label" parent="settings/keyboard/actions" unique_id=629975019]
+layout_mode = 2
+text = "forwards"
+label_settings = ExtResource("8_5duk1")
 
-[node name="Label5" type="Label" parent="settings/controler" unique_id=2067297480]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.70500004
-anchor_top = 0.85
-anchor_right = 0.70500004
-anchor_bottom = 0.85
-offset_left = -115.920044
-offset_top = 1.7999878
-offset_right = 246.07996
-offset_bottom = 41.799988
-text = "Move (without player dir)"
-label_settings = ExtResource("9_0tufv")
+[node name="Label4" type="Label" parent="settings/keyboard/actions" unique_id=1839031612]
+layout_mode = 2
+text = "backwards"
+label_settings = ExtResource("8_5duk1")
 
-[node name="Label6" type="Label" parent="settings/controler" unique_id=1876877756]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.646
-anchor_top = 0.36200002
-anchor_right = 0.646
-anchor_bottom = 0.36200002
-offset_left = -29.504028
-offset_top = -34.34401
-offset_right = 55.49597
-offset_bottom = 5.6559906
-text = "Pause"
-label_settings = ExtResource("9_0tufv")
+[node name="Label5" type="Label" parent="settings/keyboard/actions" unique_id=135263541]
+layout_mode = 2
+text = "strafe left"
+label_settings = ExtResource("8_5duk1")
 
-[node name="arrow" type="TextureRect" parent="settings/controler" unique_id=69168733]
+[node name="Label6" type="Label" parent="settings/keyboard/actions" unique_id=1345659469]
+layout_mode = 2
+text = "strafe right"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label7" type="Label" parent="settings/keyboard/actions" unique_id=825783302]
+layout_mode = 2
+text = "esc"
+label_settings = ExtResource("8_5duk1")
+
+[node name="key" type="VBoxContainer" parent="settings/keyboard" unique_id=520883398]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="settings/keyboard/key" unique_id=751500827]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "key"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label2" type="Label" parent="settings/keyboard/key" unique_id=1972104665]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "If your seeing"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label3" type="Label" parent="settings/keyboard/key" unique_id=140704075]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "Then please"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label4" type="Label" parent="settings/keyboard/key" unique_id=341319520]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "Know that"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label5" type="Label" parent="settings/keyboard/key" unique_id=1374297281]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "the only reason"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label6" type="Label" parent="settings/keyboard/key" unique_id=1566039585]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "im doing this"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label7" type="Label" parent="settings/keyboard/key" unique_id=1866747196]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "is because"
+label_settings = ExtResource("8_5duk1")
+
+[node name="arrows" type="VBoxContainer" parent="settings/keyboard" unique_id=41211182]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="empty" type="Control" parent="settings/keyboard/arrows" unique_id=456166781]
+custom_minimum_size = Vector2(0, 4.525)
+layout_mode = 2
+
+[node name="arrow" type="Control" parent="settings/keyboard/arrows" unique_id=1649688526]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="arrow" type="TextureRect" parent="settings/keyboard/arrows/arrow" unique_id=381979238]
+custom_minimum_size = Vector2(160, 32)
 layout_mode = 0
-offset_left = 609.00006
-offset_top = 207.0
-offset_right = 681.00006
-offset_bottom = 318.0
-rotation = -0.46774822
-texture = ExtResource("11_8q3t0")
+offset_right = 160.0
+offset_bottom = 32.0
+texture = ExtResource("10_77or2")
+expand_mode = 1
+
+[node name="empty2" type="Control" parent="settings/keyboard/arrows" unique_id=943280121]
+custom_minimum_size = Vector2(0, 31.71)
+layout_mode = 2
+
+[node name="arrow2" type="Control" parent="settings/keyboard/arrows" unique_id=684697690]
+visible = false
+layout_mode = 2
+
+[node name="arrow2" type="TextureRect" parent="settings/keyboard/arrows/arrow2" unique_id=11888761]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("10_77or2")
+expand_mode = 1
+
+[node name="empty3" type="Control" parent="settings/keyboard/arrows" unique_id=1385976140]
+custom_minimum_size = Vector2(0, 40.455)
+layout_mode = 2
+
+[node name="arrow3" type="Control" parent="settings/keyboard/arrows" unique_id=415239089]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="settings/keyboard/arrows/arrow3" unique_id=1743230241]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("10_77or2")
+expand_mode = 1
+
+[node name="empty4" type="Control" parent="settings/keyboard/arrows" unique_id=1880332526]
+custom_minimum_size = Vector2(0, 40.51)
+layout_mode = 2
+
+[node name="arrow4" type="Control" parent="settings/keyboard/arrows" unique_id=1564208494]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="settings/keyboard/arrows/arrow4" unique_id=1500614914]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("10_77or2")
+expand_mode = 1
+
+[node name="ui_actions" type="VBoxContainer" parent="settings/keyboard" unique_id=2035410266]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="settings/keyboard/ui_actions" unique_id=1657376265]
+layout_mode = 2
+text = "Ui Action|"
+label_settings = ExtResource("8_5duk1")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="settings/keyboard/ui_actions" unique_id=1135370350]
+layout_mode = 2
+text = "ui_accept"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label3" type="Label" parent="settings/keyboard/ui_actions" unique_id=936435171]
+layout_mode = 2
+text = "ui_up"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label4" type="Label" parent="settings/keyboard/ui_actions" unique_id=742901303]
+layout_mode = 2
+text = "ui_down"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label5" type="Label" parent="settings/keyboard/ui_actions" unique_id=1549243979]
+layout_mode = 2
+text = "ui_left"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label6" type="Label" parent="settings/keyboard/ui_actions" unique_id=204020206]
+layout_mode = 2
+text = "ui_right"
+label_settings = ExtResource("8_5duk1")
+
+[node name="key2" type="VBoxContainer" parent="settings/keyboard" unique_id=478467260]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="settings/keyboard/key2" unique_id=979130620]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "key"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label2" type="Label" parent="settings/keyboard/key2" unique_id=1305861519]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "im insane"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label3" type="Label" parent="settings/keyboard/key2" unique_id=1652999675]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "yea thats it"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label4" type="Label" parent="settings/keyboard/key2" unique_id=465388367]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "..."
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label5" type="Label" parent="settings/keyboard/key2" unique_id=1509975046]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "there is no"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label6" type="Label" parent="settings/keyboard/key2" unique_id=900549798]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "other reason"
+label_settings = ExtResource("8_5duk1")
+
+[node name="controler" type="HBoxContainer" parent="settings" unique_id=735196130]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -824.0
+offset_top = -304.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="actions" type="VBoxContainer" parent="settings/controler" unique_id=41126223]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="settings/controler/actions" unique_id=1860654856]
+layout_mode = 2
+text = "Action|"
+label_settings = ExtResource("8_5duk1")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="settings/controler/actions" unique_id=1210217349]
+layout_mode = 2
+text = "Shoot"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label3" type="Label" parent="settings/controler/actions" unique_id=1207349624]
+layout_mode = 2
+text = "forwards"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label4" type="Label" parent="settings/controler/actions" unique_id=1640588198]
+layout_mode = 2
+text = "backwards"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label5" type="Label" parent="settings/controler/actions" unique_id=1437411988]
+layout_mode = 2
+text = "strafe left"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label6" type="Label" parent="settings/controler/actions" unique_id=1738401550]
+layout_mode = 2
+text = "strafe right"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label7" type="Label" parent="settings/controler/actions" unique_id=1727820257]
+layout_mode = 2
+text = "esc"
+label_settings = ExtResource("8_5duk1")
+
+[node name="key" type="VBoxContainer" parent="settings/controler" unique_id=1050183853]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="settings/controler/key" unique_id=1954430706]
+custom_minimum_size = Vector2(254, 0)
+layout_mode = 2
+text = "Key"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label2" type="Label" parent="settings/controler/key" unique_id=1188367806]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "If your seeing"
+label_settings = ExtResource("8_5duk1")
+clip_text = true
+
+[node name="Label3" type="Label" parent="settings/controler/key" unique_id=6128157]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "Then please"
+label_settings = ExtResource("8_5duk1")
+clip_text = true
+
+[node name="Label4" type="Label" parent="settings/controler/key" unique_id=435754191]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "Know that"
+label_settings = ExtResource("8_5duk1")
+clip_text = true
+
+[node name="Label5" type="Label" parent="settings/controler/key" unique_id=544795836]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "the only reason"
+label_settings = ExtResource("8_5duk1")
+clip_text = true
+
+[node name="Label6" type="Label" parent="settings/controler/key" unique_id=1535784202]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "im doing this"
+label_settings = ExtResource("8_5duk1")
+clip_text = true
+
+[node name="Label7" type="Label" parent="settings/controler/key" unique_id=290659204]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "is because"
+label_settings = ExtResource("8_5duk1")
+clip_text = true
+
+[node name="arrows" type="VBoxContainer" parent="settings/controler" unique_id=1745729703]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="empty" type="Control" parent="settings/controler/arrows" unique_id=142493710]
+custom_minimum_size = Vector2(0, 4.525)
+layout_mode = 2
+
+[node name="arrow" type="Control" parent="settings/controler/arrows" unique_id=713245794]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="arrow" type="TextureRect" parent="settings/controler/arrows/arrow" unique_id=2002869255]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 32.0
+texture = ExtResource("10_77or2")
+expand_mode = 1
+
+[node name="empty2" type="Control" parent="settings/controler/arrows" unique_id=541678751]
+custom_minimum_size = Vector2(0, 31.71)
+layout_mode = 2
+
+[node name="arrow2" type="Control" parent="settings/controler/arrows" unique_id=84053635]
+visible = false
+layout_mode = 2
+
+[node name="arrow2" type="TextureRect" parent="settings/controler/arrows/arrow2" unique_id=687199731]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("10_77or2")
+expand_mode = 1
+
+[node name="empty3" type="Control" parent="settings/controler/arrows" unique_id=1233167047]
+custom_minimum_size = Vector2(0, 40.455)
+layout_mode = 2
+
+[node name="arrow3" type="Control" parent="settings/controler/arrows" unique_id=1415598136]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="settings/controler/arrows/arrow3" unique_id=1701242821]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("10_77or2")
+expand_mode = 1
+
+[node name="empty4" type="Control" parent="settings/controler/arrows" unique_id=620459205]
+custom_minimum_size = Vector2(0, 40.51)
+layout_mode = 2
+
+[node name="arrow4" type="Control" parent="settings/controler/arrows" unique_id=1530841560]
+visible = false
+layout_mode = 2
+
+[node name="arrow3" type="TextureRect" parent="settings/controler/arrows/arrow4" unique_id=1058669420]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("10_77or2")
+expand_mode = 1
+
+[node name="ui_actions" type="VBoxContainer" parent="settings/controler" unique_id=591314737]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="settings/controler/ui_actions" unique_id=234851977]
+layout_mode = 2
+text = "Ui Action|"
+label_settings = ExtResource("8_5duk1")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="settings/controler/ui_actions" unique_id=1338752537]
+layout_mode = 2
+text = "ui_accept"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label3" type="Label" parent="settings/controler/ui_actions" unique_id=362103619]
+layout_mode = 2
+text = "ui_up"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label4" type="Label" parent="settings/controler/ui_actions" unique_id=847944253]
+layout_mode = 2
+text = "ui_down"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label5" type="Label" parent="settings/controler/ui_actions" unique_id=1646126930]
+layout_mode = 2
+text = "ui_left"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label6" type="Label" parent="settings/controler/ui_actions" unique_id=568761558]
+layout_mode = 2
+text = "ui_right"
+label_settings = ExtResource("8_5duk1")
+
+[node name="key2" type="VBoxContainer" parent="settings/controler" unique_id=1561161315]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="settings/controler/key2" unique_id=2085122392]
+custom_minimum_size = Vector2(254, 0)
+layout_mode = 2
+text = "Key"
+label_settings = ExtResource("8_5duk1")
+
+[node name="Label2" type="Label" parent="settings/controler/key2" unique_id=1758783014]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "im insane"
+label_settings = ExtResource("8_5duk1")
+clip_text = true
+
+[node name="Label3" type="Label" parent="settings/controler/key2" unique_id=1658648421]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "yea thats it"
+label_settings = ExtResource("8_5duk1")
+clip_text = true
+
+[node name="Label4" type="Label" parent="settings/controler/key2" unique_id=666502534]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "..."
+label_settings = ExtResource("8_5duk1")
+clip_text = true
+
+[node name="Label5" type="Label" parent="settings/controler/key2" unique_id=636989335]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "there is no"
+label_settings = ExtResource("8_5duk1")
+clip_text = true
+
+[node name="Label6" type="Label" parent="settings/controler/key2" unique_id=1397410463]
+custom_minimum_size = Vector2(246, 0)
+layout_mode = 2
+text = "other reason"
+label_settings = ExtResource("8_5duk1")
+clip_text = true
