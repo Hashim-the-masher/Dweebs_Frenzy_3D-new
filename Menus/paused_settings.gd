@@ -43,15 +43,15 @@ func _input(event: InputEvent) -> void:
 		arrows[current_setting][setting_no[current_setting]].texture = LIGHT_BI_ARROW
 		match current_setting:
 			1:
-				if event.is_action_pressed("ui_left"):
+				if event.is_action_pressed("uiLeft"):
 					savedata["settings"]["sounds"][setting_no[current_setting]] -=.1
 					savedata["settings"]["sounds"][setting_no[current_setting]] = clampf(savedata["settings"]["sounds"][setting_no[current_setting]],0.0,1.0)
 					values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["sounds"][setting_no[current_setting]])
-				if event.is_action_pressed("ui_right"):
+				if event.is_action_pressed("uiRight"):
 					savedata["settings"]["sounds"][setting_no[current_setting]] +=.1
 					savedata["settings"]["sounds"][setting_no[current_setting]] = clampf(savedata["settings"]["sounds"][setting_no[current_setting]],0.0,1.0)
 					values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["sounds"][setting_no[current_setting]])
-				if event.is_action_pressed("ui_accept"):
+				if event.is_action_pressed("uiAccept"):
 					arrows[current_setting][setting_no[current_setting]].texture = LIGHT_ARROW
 					values[current_setting].get_child(setting_no[current_setting]).label_settings = UI_SETTINGS
 					move_mode=0
@@ -59,7 +59,7 @@ func _input(event: InputEvent) -> void:
 					file_controls.set_volume(savedata)
 					return
 			2:
-				if event.is_action_pressed("ui_left"):
+				if event.is_action_pressed("uiLeft"):
 					match setting_no[current_setting]:
 						0:
 							savedata["settings"]["visuals"][setting_no[current_setting]] -=.5
@@ -83,7 +83,7 @@ func _input(event: InputEvent) -> void:
 							values[current_setting].get_child(1).text = "Yes"
 						"0.0":
 							values[current_setting].get_child(1).text = "No"
-				if event.is_action_pressed("ui_right"):
+				if event.is_action_pressed("uiRight"):
 					match setting_no[current_setting]:
 						0:
 							savedata["settings"]["visuals"][setting_no[current_setting]] +=.5
@@ -107,22 +107,22 @@ func _input(event: InputEvent) -> void:
 							values[current_setting].get_child(1).text = "Yes"
 						"0.0":
 							values[current_setting].get_child(1).text = "No"
-				if event.is_action_pressed("ui_accept"):
+				if event.is_action_pressed("uiAccept"):
 					values[current_setting].get_child(setting_no[current_setting]).label_settings = UI_SETTINGS
 					arrows[current_setting][setting_no[current_setting]].texture = LIGHT_ARROW
 					move_mode=0
 					file_controls.save_to_json_file(savedata)
 					return
 			3:
-				if event.is_action_pressed("ui_left"):
+				if event.is_action_pressed("uiLeft"):
 					savedata["settings"]["controls"][setting_no[current_setting]] -=.1
 					savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.1,4.0)
 					values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
-				if event.is_action_pressed("ui_right"):
+				if event.is_action_pressed("uiRight"):
 					savedata["settings"]["controls"][setting_no[current_setting]] +=.1
 					savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.1,4.0)
 					values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
-				if event.is_action_pressed("ui_accept"):
+				if event.is_action_pressed("uiAccept"):
 					print(str(current_setting)+""+str(setting_no[current_setting]))
 					arrows[current_setting][setting_no[current_setting]].texture = LIGHT_ARROW
 					values[current_setting].get_child(setting_no[current_setting]).label_settings = UI_SETTINGS
@@ -134,13 +134,13 @@ func _input(event: InputEvent) -> void:
 		asettings[current_setting].hide()
 		return
 	asettings[current_setting].show()
-	if event.is_action_pressed("ui_up") and on[1] == false and on[0] == false:
+	if event.is_action_pressed("uiUp") and on[1] == false and on[0] == false:
 		setting_no[current_setting] -= 1
 		setting_no[current_setting] = clampi(setting_no[current_setting],0,titles_sizes[current_setting].size()-1)
 		if current_setting == 0:
 			back_confirmation_flag = false
 			titles[current_setting].get_child(3).text = "Back"
-	if event.is_action_pressed("ui_down") and on[1] == false and on[0] == false:
+	if event.is_action_pressed("uiDown") and on[1] == false and on[0] == false:
 		setting_no[current_setting] += 1
 		setting_no[current_setting] = clampi(setting_no[current_setting],0,titles_sizes[current_setting].size()-1)
 	if back_confirmation_flag == false and on[1] == false and on[0] == false:
@@ -155,7 +155,7 @@ func _input(event: InputEvent) -> void:
 			if nodes != asettings[current_setting]:
 				nodes.hide()
 			else:nodes.show()
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("uiAccept"):
 		match current_setting:
 			0:#settings
 				match setting_no[current_setting]:

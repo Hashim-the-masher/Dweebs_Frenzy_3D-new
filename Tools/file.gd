@@ -103,22 +103,22 @@ func map_inputs(data):#spesific to THE GAME WITH FAWAS
 					keyboardinput.keycode = int(savedata["settings"]["controls"][0][no][pos])
 					match pos:
 						0:
-							InputMap.action_erase_events("ui_accept")
-							InputMap.action_add_event("ui_accept",keyboardinput)
-							InputMap.action_add_event("ui_accept",controlerinput)
+							InputMap.action_erase_events("uiAccept")
+							InputMap.action_add_event("uiAccept",keyboardinput)
+							InputMap.action_add_event("uiAccept",controlerinput)
 						1:
-							InputMap.action_erase_events("ui_up")
-							InputMap.action_add_event("ui_up",keyboardinput)
-							InputMap.action_add_event("ui_up",controlerinput)
+							InputMap.action_erase_events("uiUp")
+							InputMap.action_add_event("uiUp",keyboardinput)
+							InputMap.action_add_event("uiUp",controlerinput)
 						2:
-							InputMap.action_erase_events("ui_down")
-							InputMap.action_add_event("ui_down",keyboardinput)
-							InputMap.action_add_event("ui_down",controlerinput)
+							InputMap.action_erase_events("uiDown")
+							InputMap.action_add_event("uiDown",keyboardinput)
+							InputMap.action_add_event("uiDown",controlerinput)
 						3:
-							InputMap.action_erase_events("ui_left")
-							InputMap.action_add_event("ui_left",keyboardinput)
-							InputMap.action_add_event("ui_left",controlerinput)
+							InputMap.action_erase_events("uiLeft")
+							InputMap.action_add_event("uiLeft",keyboardinput)
+							InputMap.action_add_event("uiLeft",controlerinput)
 						4:
-							InputMap.action_erase_events("ui_right")
-							InputMap.action_add_event("ui_right",keyboardinput)
-							InputMap.action_add_event("ui_right",controlerinput)
+							InputMap.action_erase_events("uiRight")
+							InputMap.action_add_event("uiRight",keyboardinput)
+							InputMap.action_add_event("uiRight",controlerinput)

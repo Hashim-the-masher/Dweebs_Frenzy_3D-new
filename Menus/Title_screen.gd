@@ -56,12 +56,12 @@ func _input(event: InputEvent) -> void:
 		inputflag = true
 		return
 	title_screen.show()
-	if event.is_action_pressed("ui_down"):
+	if event.is_action_pressed("uiDown"):
 		option_selected +=1
 		labels[0].text = "Start"
 		sure_flag = false
 		option_selected = clamp(option_selected,0,max_options)
-	if event.is_action_pressed("ui_up"):
+	if event.is_action_pressed("uiUp"):
 		option_selected -=1
 		option_selected = clamp(option_selected,0,max_options)
 	for numbers in max_options+1:#highlight loop
@@ -83,7 +83,7 @@ func _input(event: InputEvent) -> void:
 			arrows[numbers].show()
 		else:
 			arrows[numbers].hide()
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("uiAccept"):
 		match option_selected:
 			1:
 				savedata["setting_no"]["title"] = option_selected

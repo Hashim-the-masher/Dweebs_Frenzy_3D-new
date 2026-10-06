@@ -57,13 +57,13 @@ func _input(event: InputEvent) -> void:
 					wait = true
 				return
 	else:
-		if  event.is_action_pressed("ui_up"):
+		if  event.is_action_pressed("uiUp"):
 			keypos-=1
-		if event.is_action_pressed("ui_down"):
+		if event.is_action_pressed("uiDown"):
 			keypos+=1
-		if event.is_action_pressed("ui_left"):
+		if event.is_action_pressed("uiLeft"):
 			keyno-=1
-		if event.is_action_pressed("ui_right"):
+		if event.is_action_pressed("uiRight"):
 			keyno+=1
 		settings.wait = false
 		keyno =  clampi(keyno,0,1)
@@ -78,7 +78,7 @@ func _input(event: InputEvent) -> void:
 					else:controleractions[current_setting]["key"][no][pos].label_settings = UI_SETTINGS
 				else:controleractions[current_setting]["key"][no][pos].label_settings = UI_SETTINGS
 		controleractions[current_setting]["key"][keyno][keypos].label_settings = UI_SETTINGS_SELECTED
-		if event.is_action_pressed("ui_accept"):
+		if event.is_action_pressed("uiAccept"):
 			pressnow = true
 			print("keyno:"+str(keyno)+" keypos:"+str(keypos)+" selected")
 

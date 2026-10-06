@@ -29,13 +29,13 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if sure_screen.visible == true:
-		if event.is_action_pressed("ui_left"):
+		if event.is_action_pressed("uiLeft"):
 			sure_button[1].label_settings = UI_SETTINGS
 			sure_button[0].label_settings = UI_SETTINGS_SELECTED
-		if event.is_action_pressed("ui_right"):
+		if event.is_action_pressed("uiRight"):
 			sure_button[0].label_settings = UI_SETTINGS
 			sure_button[1].label_settings = UI_SETTINGS_SELECTED
-		if event.is_action_pressed("ui_accept"):
+		if event.is_action_pressed("uiAccept"):
 			match current_section:
 				0:
 					if sure_button[0].label_settings == UI_SETTINGS_SELECTED:
@@ -64,7 +64,7 @@ func _input(event: InputEvent) -> void:
 				
 		return
 	
-	if event.is_action_pressed("ui_left"):
+	if event.is_action_pressed("uiLeft"):
 		match  current_section:
 			0:
 				buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS
@@ -83,7 +83,7 @@ func _input(event: InputEvent) -> void:
 					age_keypad_pos.x = 2
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS_SELECTED
 		
-	if event.is_action_pressed("ui_right"):
+	if event.is_action_pressed("uiRight"):
 		match current_section:
 			0:
 				buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS
@@ -101,7 +101,7 @@ func _input(event: InputEvent) -> void:
 				if age_keypad_pos.x ==3:
 					age_keypad_pos.x = 0
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS_SELECTED
-	if event.is_action_pressed("ui_down"):
+	if event.is_action_pressed("uiDown"):
 		match current_section:
 			0:
 				buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS
@@ -118,7 +118,7 @@ func _input(event: InputEvent) -> void:
 				if age_keypad_pos.y ==4:
 					age_keypad_pos.y = 0
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS_SELECTED
-	if event.is_action_pressed("ui_up"):
+	if event.is_action_pressed("uiUp"):
 		match current_section:
 			0:
 				buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS
@@ -137,7 +137,7 @@ func _input(event: InputEvent) -> void:
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS_SELECTED
 			
 		buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS_SELECTED
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("uiAccept"):
 		match current_section:
 			0:
 				if name_keyboard_pos.y!=2:

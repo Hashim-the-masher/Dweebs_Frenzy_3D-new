@@ -1002,6 +1002,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+shortcut_feedback = false
+shortcut_in_tooltip = false
 flat = true
 
 [node name="Options" type="Label" parent="Title_screen/VBoxContainer" unique_id=1753880263]
@@ -1016,6 +1018,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+shortcut_feedback = false
+shortcut_in_tooltip = false
 flat = true
 
 [node name="Exit" type="Label" parent="Title_screen/VBoxContainer" unique_id=834751316]
@@ -1030,6 +1034,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+shortcut_feedback = false
+shortcut_in_tooltip = false
 flat = true
 
 [node name="Exit2" type="Label" parent="Title_screen/VBoxContainer" unique_id=817677894]
