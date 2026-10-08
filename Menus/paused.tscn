@@ -765,27 +765,27 @@ horizontal_alignment = 2
 
 [node name="Label2" type="Label" parent="settings/keyboard/ui_actions" unique_id=1135370350]
 layout_mode = 2
-text = "ui_accept"
+text = " accept"
 label_settings = ExtResource("8_5duk1")
 
 [node name="Label3" type="Label" parent="settings/keyboard/ui_actions" unique_id=936435171]
 layout_mode = 2
-text = "ui_up"
+text = " up"
 label_settings = ExtResource("8_5duk1")
 
 [node name="Label4" type="Label" parent="settings/keyboard/ui_actions" unique_id=742901303]
 layout_mode = 2
-text = "ui_down"
+text = " down"
 label_settings = ExtResource("8_5duk1")
 
 [node name="Label5" type="Label" parent="settings/keyboard/ui_actions" unique_id=1549243979]
 layout_mode = 2
-text = "ui_left"
+text = " left"
 label_settings = ExtResource("8_5duk1")
 
 [node name="Label6" type="Label" parent="settings/keyboard/ui_actions" unique_id=204020206]
 layout_mode = 2
-text = "ui_right"
+text = " right"
 label_settings = ExtResource("8_5duk1")
 
 [node name="key2" type="VBoxContainer" parent="settings/keyboard" unique_id=478467260]
@@ -1018,27 +1018,27 @@ horizontal_alignment = 2
 
 [node name="Label2" type="Label" parent="settings/controler/ui_actions" unique_id=1338752537]
 layout_mode = 2
-text = "ui_accept"
+text = " accept"
 label_settings = ExtResource("8_5duk1")
 
 [node name="Label3" type="Label" parent="settings/controler/ui_actions" unique_id=362103619]
 layout_mode = 2
-text = "ui_up"
+text = " up"
 label_settings = ExtResource("8_5duk1")
 
 [node name="Label4" type="Label" parent="settings/controler/ui_actions" unique_id=847944253]
 layout_mode = 2
-text = "ui_down"
+text = " down"
 label_settings = ExtResource("8_5duk1")
 
 [node name="Label5" type="Label" parent="settings/controler/ui_actions" unique_id=1646126930]
 layout_mode = 2
-text = "ui_left"
+text = " left"
 label_settings = ExtResource("8_5duk1")
 
 [node name="Label6" type="Label" parent="settings/controler/ui_actions" unique_id=568761558]
 layout_mode = 2
-text = "ui_right"
+text = " right"
 label_settings = ExtResource("8_5duk1")
 
 [node name="key2" type="VBoxContainer" parent="settings/controler" unique_id=1561161315]

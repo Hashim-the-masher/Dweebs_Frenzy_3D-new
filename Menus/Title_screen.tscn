@@ -664,27 +664,27 @@ horizontal_alignment = 2
 
 [node name="Label2" type="Label" parent="keyboard/ui_actions" unique_id=117645911]
 layout_mode = 2
-text = "ui_accept"
+text = " accept"
 label_settings = ExtResource("3_7ciif")
 
 [node name="Label3" type="Label" parent="keyboard/ui_actions" unique_id=1881908044]
 layout_mode = 2
-text = "ui_up"
+text = " up"
 label_settings = ExtResource("3_7ciif")
 
 [node name="Label4" type="Label" parent="keyboard/ui_actions" unique_id=82024843]
 layout_mode = 2
-text = "ui_down"
+text = " down"
 label_settings = ExtResource("3_7ciif")
 
 [node name="Label5" type="Label" parent="keyboard/ui_actions" unique_id=1202018497]
 layout_mode = 2
-text = "ui_left"
+text = " left"
 label_settings = ExtResource("3_7ciif")
 
 [node name="Label6" type="Label" parent="keyboard/ui_actions" unique_id=305581111]
 layout_mode = 2
-text = "ui_right"
+text = " right"
 label_settings = ExtResource("3_7ciif")
 
 [node name="key2" type="VBoxContainer" parent="keyboard" unique_id=1885479421]
@@ -914,27 +914,27 @@ horizontal_alignment = 2
 
 [node name="Label2" type="Label" parent="controler/ui_actions" unique_id=575319534]
 layout_mode = 2
-text = "ui_accept"
+text = " accept"
 label_settings = ExtResource("3_7ciif")
 
 [node name="Label3" type="Label" parent="controler/ui_actions" unique_id=550715062]
 layout_mode = 2
-text = "ui_up"
+text = " up"
 label_settings = ExtResource("3_7ciif")
 
 [node name="Label4" type="Label" parent="controler/ui_actions" unique_id=1091756110]
 layout_mode = 2
-text = "ui_down"
+text = " down"
 label_settings = ExtResource("3_7ciif")
 
 [node name="Label5" type="Label" parent="controler/ui_actions" unique_id=2114956504]
 layout_mode = 2
-text = "ui_left"
+text = " left"
 label_settings = ExtResource("3_7ciif")
 
 [node name="Label6" type="Label" parent="controler/ui_actions" unique_id=1837481771]
 layout_mode = 2
-text = "ui_right"
+text = " right"
 label_settings = ExtResource("3_7ciif")
 
 [node name="key2" type="VBoxContainer" parent="controler" unique_id=839953240]
@@ -1175,6 +1175,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_hfqrc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=893404753]
 
 [connection signal="pressed" from="Title_screen/VBoxContainer/Start/Button1" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Title_screen/VBoxContainer/Options/Button2" to="." method="_on_button_2_pressed"]

@@ -15,6 +15,8 @@ var age_keypad_pos:= Vector2i(0,0)
 @onready var sure_button = [$SureScreen/VBoxContainer/HBoxContainer/Label, $SureScreen/VBoxContainer/HBoxContainer/Label2]
 var current_letter:=0
 var current_section:=0
+@onready var sound: AudioStreamPlayer = $sound
+var play_sound:=true
 var numvalue = []
 var file_controls = file_control.new()
 var savedata:Dictionary
@@ -29,6 +31,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if sure_screen.visible == true:
+		if play_sound == true:
+			sound.play()
+			play_sound = false
 		if event.is_action_pressed("uiLeft"):
 			sure_button[1].label_settings = UI_SETTINGS
 			sure_button[0].label_settings = UI_SETTINGS_SELECTED
@@ -159,6 +164,7 @@ func _input(event: InputEvent) -> void:
 							current_letter = 0
 						2:
 							sure_screen.show()
+							play_sound = true
 							sure_button[1].label_settings = UI_SETTINGS_SELECTED
 			1:
 				if age_keypad_pos.y <3:
@@ -178,6 +184,7 @@ func _input(event: InputEvent) -> void:
 						2:
 							sure_button[0].label_settings = UI_SETTINGS
 							sure_button[1].label_settings = UI_SETTINGS_SELECTED
+							play_sound = true
 							sure_screen.show()
 	if event.is_action_pressed("ui_text_backspace"):
 		match current_section:

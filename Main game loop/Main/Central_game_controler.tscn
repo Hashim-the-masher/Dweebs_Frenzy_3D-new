@@ -28,4 +28,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[connection signal="on_win" from="." to="." method="_on_win"]
+[node name="playerSpawnTimer" type="Timer" parent="." unique_id=1476215856]
+
+[connection signal="timeout" from="playerSpawnTimer" to="." method="_on_player_spawn_timer_timeout"]

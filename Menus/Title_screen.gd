@@ -23,30 +23,31 @@ func _ready() -> void:
 	savedata = file_controls.load_json_file()
 	if savedata["flags"][0] != 1.0:
 		get_tree().change_scene_to_file("res://Menus/Starting_screen.tscn")
-	file_controls.map_inputs(savedata)
-	option_selected = savedata["setting_no"]["title"]
-	if option_selected > 1: option_selected = 1
-	match savedata["w/l"][0]:
-		2.0:
-			you_did_it.show()
-		1.0:
-			you_did_it.show()
-		0.0:
-			you_did_it.hide()
-	for numbers in max_options+1:
-		if numbers > 2:
-			labels[numbers].label_settings = UI_HIDDEN
-		elif numbers != option_selected:
-			labels[numbers].label_settings = UI
-			arrows[numbers].hide()
-		else:
-			labels[numbers].label_settings = UI_SELECTED
-			arrows[numbers].show()
-	match savedata["settings"]["visuals"][1]:
-		1.0:
-			file_controls.fullscreen(get_window())
-		0.0:
-			file_controls.change_res(savedata["settings"]["visuals"][0],get_window())
+	else:
+		file_controls.map_inputs(savedata)
+		option_selected = savedata["setting_no"]["title"]
+		if option_selected > 1: option_selected = 1
+		match savedata["w/l"][0]:
+			2.0:
+				you_did_it.show()
+			1.0:
+				you_did_it.show()
+			0.0:
+				you_did_it.hide()
+		for numbers in max_options+1:
+			if numbers > 2:
+				labels[numbers].label_settings = UI_HIDDEN
+			elif numbers != option_selected:
+				labels[numbers].label_settings = UI
+				arrows[numbers].hide()
+			else:
+				labels[numbers].label_settings = UI_SELECTED
+				arrows[numbers].show()
+		match savedata["settings"]["visuals"][1]:
+			1.0:
+				file_controls.fullscreen(get_window())
+			0.0:
+				file_controls.change_res(savedata["settings"]["visuals"][0],get_window())
 
 func _input(event: InputEvent) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

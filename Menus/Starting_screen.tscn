@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dilu88leuchi1" path="res://Menus/starting_screen.gd" id="1_dkai6"]
 [ext_resource type="LabelSettings" uid="uid://b4ckevhw0xmal" path="res://assets/Textures/UI_settings.tres" id="3_kukry"]
 [ext_resource type="Texture2D" uid="uid://c00hgowi3ycyb" path="res://assets/Textures/arrowB.png" id="4_td1ce"]
+[ext_resource type="AudioStream" uid="uid://6jjar4sjhtqo" path="res://assets/sound/UI/sure.mp3" id="5_6bc5q"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kukry"]
 load_path = "res://.godot/imported/light_arrow.png-0e8f184ed11110db5dc47bef2bb5fc2c.ctex"
@@ -1396,3 +1397,6 @@ grow_horizontal = 2
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("4_td1ce")
 stretch_mode = 2
+
+[node name="sound" type="AudioStreamPlayer" parent="." unique_id=1600737025]
+stream = ExtResource("5_6bc5q")
