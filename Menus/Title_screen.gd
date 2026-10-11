@@ -5,6 +5,11 @@ extends Control
 @onready var title_screen: HBoxContainer = $Title_screen
 @onready var settings: VBoxContainer = $settings
 @onready var you_did_it: TextureRect = $you_did_it
+@onready var sound: AudioStreamPlayer = $sound
+const ACCEPT = preload("uid://iskkmxs0afj1")
+const ERROR = preload("uid://bhsk3tgworsc")
+const SPECTRUM = preload("uid://bjlw0nnr76yle")
+const SURE = preload("uid://6jjar4sjhtqo")
 var sure_flag = false
 var deactivate:bool = false
 var inputflag = true
@@ -59,11 +64,25 @@ func _input(event: InputEvent) -> void:
 	title_screen.show()
 	if event.is_action_pressed("uiDown"):
 		option_selected +=1
+		if option_selected > max_options:
+			sound.stream = ERROR
+			sound.play()
+		else:
+			sound.stream = SPECTRUM
+			sound.play()
+		
 		labels[0].text = "Start"
 		sure_flag = false
 		option_selected = clamp(option_selected,0,max_options)
 	if event.is_action_pressed("uiUp"):
+		
 		option_selected -=1
+		if option_selected <0:
+			sound.stream = ERROR
+			sound.play()
+		else:
+			sound.stream = SPECTRUM
+			sound.play()
 		option_selected = clamp(option_selected,0,max_options)
 	for numbers in max_options+1:#highlight loop
 		if numbers >= 2:
@@ -87,6 +106,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("uiAccept"):
 		match option_selected:
 			1:
+				sound.stream = ACCEPT
+				sound.play()
 				savedata["setting_no"]["title"] = option_selected
 				deactivate = true
 				inputflag = false
@@ -102,8 +123,12 @@ func _input(event: InputEvent) -> void:
 						get_tree().change_scene_to_file("res://Main game loop/Main/Central_game_controler.tscn")
 					false:
 						sure_flag = true
+						sound.stream = SURE
+						sound.play()
 						labels[0].text = "You sure?"
-
+			_:
+				sound.stream = ERROR
+				sound.play()
 
 func _on_button_pressed() -> void:
 	code.append(1)

@@ -1176,7 +1176,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_hfqrc")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=893404753]
+[node name="sound" type="AudioStreamPlayer" parent="." unique_id=893404753]
+max_polyphony = 3
+bus = &"Sfx"
 
 [connection signal="pressed" from="Title_screen/VBoxContainer/Start/Button1" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Title_screen/VBoxContainer/Options/Button2" to="." method="_on_button_2_pressed"]

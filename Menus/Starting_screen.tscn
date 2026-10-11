@@ -1398,5 +1398,5 @@ texture = ExtResource("4_td1ce")
 stretch_mode = 2
 
 [node name="sound" type="AudioStreamPlayer" parent="." unique_id=1600737025]
-max_polyphony = 3
+max_polyphony = 2
 bus = &"Sfx"
