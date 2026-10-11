@@ -18,7 +18,8 @@ var current_section:=0
 @onready var sound: AudioStreamPlayer = $sound
 const SPECTRUM = preload("uid://bjlw0nnr76yle")
 const SURE = preload("uid://6jjar4sjhtqo")
-var play_sound:=true
+const ACCEPT = preload("uid://iskkmxs0afj1")
+const ERROR = preload("uid://bhsk3tgworsc")
 var numvalue = []
 var file_controls = file_control.new()
 var savedata:Dictionary
@@ -33,10 +34,6 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if sure_screen.visible == true:
-		if play_sound == true:
-			sound.stream = SURE
-			sound.play()
-			play_sound = false
 		if event.is_action_pressed("uiLeft"):
 			sure_button[1].label_settings = UI_SETTINGS
 			sure_button[0].label_settings = UI_SETTINGS_SELECTED
@@ -47,6 +44,8 @@ func _input(event: InputEvent) -> void:
 			match current_section:
 				0:
 					if sure_button[0].label_settings == UI_SETTINGS_SELECTED:
+						sound.stream = ACCEPT
+						sound.play()
 						print(letter[0].text+letter[1].text+letter[2].text+letter[3].text+letter[4].text+letter[5].text)
 						savedata["info"][0] = (letter[0].text+letter[1].text+letter[2].text+letter[3].text+letter[4].text+letter[5].text)
 						file_controls.save_to_json_file(savedata)
@@ -60,6 +59,8 @@ func _input(event: InputEvent) -> void:
 						sure_screen.hide()
 				1:
 					if sure_button[0].label_settings == UI_SETTINGS_SELECTED:
+						sound.stream = ACCEPT
+						sound.play()
 						print(display_number())
 						savedata["info"][1] = display_number()
 						savedata["flags"][0] = 1.0
@@ -169,50 +170,69 @@ func _input(event: InputEvent) -> void:
 			
 		buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS_SELECTED
 	if event.is_action_pressed("uiAccept"):
-		sound.stream = SPECTRUM
-		sound.play()
 		match current_section:
 			0:
 				if name_keyboard_pos.y!=2:
 					if current_letter >5:
+						sound.stream = ERROR
+						sound.play()
 						return
 					letter[current_letter].text = buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).text
 					current_letter+=1
+					sound.stream = ACCEPT
+					sound.play()
 				else:
 					match name_keyboard_pos.x:
 						0:
+							sound.stream = ACCEPT
+							sound.play()
 							if current_letter<1:
 								return
 							current_letter-=1
 							letter[current_letter].text = "⌷"
 							
 						1:
+							sound.stream = ACCEPT
+							sound.play()
 							for i in 6:
 								letter[i].text = "⌷"
 							current_letter = 0
 						2:
 							sure_screen.show()
-							play_sound = true
+							sound.stream = SURE
+							sound.play()
 							sure_button[1].label_settings = UI_SETTINGS_SELECTED
 			1:
 				if age_keypad_pos.y <3:
 					if numvalue.size() <3:
+						sound.stream = ACCEPT
+						sound.play()
 						numvalue.append(keypad[age_keypad_pos.y][age_keypad_pos.x].text)
+					else:
+						sound.stream = ERROR
+						sound.play()
 					display_number()
 				else:
 					match age_keypad_pos.x:
 						0:
+							sound.stream = ACCEPT
+							sound.play()
 							numvalue.pop_back()
 							display_number()
 						1:
 							if numvalue.size() >=3:
+								sound.stream = ERROR
+								sound.play()
 								return
+							sound.stream = ACCEPT
+							sound.play()
 							numvalue.append("0")
 							display_number()
 						2:
 							sure_button[0].label_settings = UI_SETTINGS
 							sure_button[1].label_settings = UI_SETTINGS_SELECTED
-							play_sound = true
+							sound.stream = SURE
+							sound.play()
 							sure_screen.show()
 	if event.is_action_pressed("ui_text_backspace"):
 		sound.stream = SPECTRUM
