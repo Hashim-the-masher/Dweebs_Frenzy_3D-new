@@ -16,6 +16,8 @@ var age_keypad_pos:= Vector2i(0,0)
 var current_letter:=0
 var current_section:=0
 @onready var sound: AudioStreamPlayer = $sound
+const SPECTRUM = preload("uid://bjlw0nnr76yle")
+const SURE = preload("uid://6jjar4sjhtqo")
 var play_sound:=true
 var numvalue = []
 var file_controls = file_control.new()
@@ -32,6 +34,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if sure_screen.visible == true:
 		if play_sound == true:
+			sound.stream = SURE
 			sound.play()
 			play_sound = false
 		if event.is_action_pressed("uiLeft"):
@@ -70,6 +73,8 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	if event.is_action_pressed("uiLeft"):
+		sound.stream = SPECTRUM
+		sound.play()
 		match  current_section:
 			0:
 				buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS
@@ -89,6 +94,8 @@ func _input(event: InputEvent) -> void:
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS_SELECTED
 		
 	if event.is_action_pressed("uiRight"):
+		sound.stream = SPECTRUM
+		sound.play()
 		match current_section:
 			0:
 				buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS
@@ -107,15 +114,25 @@ func _input(event: InputEvent) -> void:
 					age_keypad_pos.x = 0
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS_SELECTED
 	if event.is_action_pressed("uiDown"):
+		sound.stream = SPECTRUM
+		sound.play()
 		match current_section:
 			0:
 				buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS
 				name_keyboard_pos.y +=1
-				name_keyboard_pos.y = clampi(name_keyboard_pos.y,0,2)
 				if name_keyboard_pos.y == 2:
 						if name_keyboard_pos.x == 6:name_keyboard_pos.x=1
 						elif name_keyboard_pos.x<6:name_keyboard_pos.x=0
 						else:name_keyboard_pos.x=2
+				elif name_keyboard_pos.y == 3:
+					name_keyboard_pos.y = 0
+					match name_keyboard_pos.x:
+						0:
+							name_keyboard_pos.x=5
+						1:
+							name_keyboard_pos.x=6
+						2:
+							name_keyboard_pos.x=7
 				buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS_SELECTED
 			1:
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS
@@ -124,16 +141,25 @@ func _input(event: InputEvent) -> void:
 					age_keypad_pos.y = 0
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS_SELECTED
 	if event.is_action_pressed("uiUp"):
+		sound.stream = SPECTRUM
+		sound.play()
 		match current_section:
 			0:
 				buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS
 				name_keyboard_pos.y -=1
-				name_keyboard_pos.y = clampi(name_keyboard_pos.y,0,2)
+				if name_keyboard_pos.y == -1:
+					name_keyboard_pos.y=2
+					if name_keyboard_pos.x<=5:
+						name_keyboard_pos.x=0
+					elif name_keyboard_pos.x == 6:
+						name_keyboard_pos.x = 1
+					else:
+						name_keyboard_pos.x=2
 				if name_keyboard_pos.y==1:
 						match name_keyboard_pos.x:
-							0:name_keyboard_pos.x=4
+							0:name_keyboard_pos.x=5
 							1:name_keyboard_pos.x=6
-							2:name_keyboard_pos.x=8
+							2:name_keyboard_pos.x=7
 			1:
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS
 				age_keypad_pos.y -= 1
@@ -143,6 +169,8 @@ func _input(event: InputEvent) -> void:
 			
 		buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS_SELECTED
 	if event.is_action_pressed("uiAccept"):
+		sound.stream = SPECTRUM
+		sound.play()
 		match current_section:
 			0:
 				if name_keyboard_pos.y!=2:
@@ -187,6 +215,8 @@ func _input(event: InputEvent) -> void:
 							play_sound = true
 							sure_screen.show()
 	if event.is_action_pressed("ui_text_backspace"):
+		sound.stream = SPECTRUM
+		sound.play()
 		match current_section:
 			0:
 				if current_letter<1:
