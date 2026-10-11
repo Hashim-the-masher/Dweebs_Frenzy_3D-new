@@ -1399,3 +1399,4 @@ stretch_mode = 2
 
 [node name="sound" type="AudioStreamPlayer" parent="." unique_id=1600737025]
 max_polyphony = 3
+bus = &"Sfx"

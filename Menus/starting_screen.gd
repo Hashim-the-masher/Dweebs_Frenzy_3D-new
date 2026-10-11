@@ -220,7 +220,7 @@ func _input(event: InputEvent) -> void:
 							numvalue.pop_back()
 							display_number()
 						1:
-							if numvalue.size() >=3:
+							if numvalue.size() >=3 or number.text == "0":
 								sound.stream = ERROR
 								sound.play()
 								return
