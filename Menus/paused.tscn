@@ -1200,6 +1200,9 @@ shortcut_feedback = false
 shortcut_in_tooltip = false
 flat = true
 
+[node name="sound" type="AudioStreamPlayer" parent="." unique_id=2014851535]
+bus = &"Sfx"
+
 [connection signal="pressed" from="buttons/i" to="." method="_on_i_pressed"]
 [connection signal="pressed" from="buttons/n" to="." method="_on_n_pressed"]
 [connection signal="pressed" from="buttons/t" to="." method="_on_t_pressed"]

@@ -4,6 +4,11 @@ extends Control
 @onready var resume: Label = $HBoxContainer/VBoxContainer/Resume
 @onready var options: Label = $HBoxContainer/VBoxContainer/Options
 @onready var arrow: = [$HBoxContainer/VBoxContainer2/arrow, $HBoxContainer/VBoxContainer2/arrow2]
+@onready var sound: AudioStreamPlayer = $sound
+const ACCEPT = preload("uid://iskkmxs0afj1")
+const ERROR = preload("uid://bhsk3tgworsc")
+const SPECTRUM = preload("uid://bjlw0nnr76yle")
+const SURE = preload("uid://6jjar4sjhtqo")
 var file_controls: = file_control.new()
 var savedata:Dictionary
 var option_selected:int = 0
@@ -51,6 +56,8 @@ func _input(event: InputEvent) -> void:
 		ignore = false
 		return
 	if event.is_action_pressed("esc") and $settings.current_setting!=3:
+		sound.stream = ERROR
+		sound.play()
 		if settings == true:
 			settings = false
 			$settings.exit_settings()
@@ -65,6 +72,11 @@ func _input(event: InputEvent) -> void:
 	if settings == true:
 		return
 	if event.is_action_pressed("uiDown"):
+		if option_selected == 1:
+			sound.stream = ERROR
+		else:
+			sound.stream = SPECTRUM
+		sound.play()
 		option_selected =1
 		resume.label_settings = UI
 		options.label_settings = UI_SELECTED
@@ -72,12 +84,19 @@ func _input(event: InputEvent) -> void:
 		arrow[1].show()
 		arrow[0].hide()
 	if event.is_action_pressed("uiUp"):
+		if option_selected == 0:
+			sound.stream = ERROR
+		else:
+			sound.stream = SPECTRUM
+		sound.play()
 		option_selected = 0
 		resume.label_settings = UI_SELECTED
 		options.label_settings = UI
 		arrow[0].show()
 		arrow[1].hide()
 	if event.is_action_pressed("uiAccept"):
+		sound.stream = ACCEPT
+		sound.play()
 		match option_selected:
 			1:
 				settings = true
