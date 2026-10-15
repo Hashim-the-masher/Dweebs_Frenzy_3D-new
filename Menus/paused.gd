@@ -127,3 +127,25 @@ func _on_r_pressed() -> void:
 		print(code[-5]+code[-4]+code[-3]+code[-2]+code[-1])
 		if (code[-5]+code[-4]+code[-3]+code[-2]+code[-1]) == "inter":
 			print("access granted")
+
+
+func _on_code_submitted(new_text: String) -> void:
+	if new_text.count(",") >2:
+		return
+	var code = [0,0,0]
+	var numberValue:=""
+	var currentNumber= 0
+	for letter in new_text:
+		for numbers in 10:
+			if letter == ",":
+				code[currentNumber] = numberValue.to_int()
+				currentNumber+=1
+				currentNumber = clampi(currentNumber,0,2)
+				numberValue=""
+				print("comma:",letter)
+				break
+			elif letter==str(numbers):
+				numberValue += letter
+				print(numberValue)
+				print("letter:",letter)
+	print(code)

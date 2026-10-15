@@ -62,63 +62,24 @@ func set_volume(data):
 func map_inputs(data):#spesific to THE GAME WITH FAWAS
 	print("mapping controls")
 	savedata = data
+	var action = [["Shoot","forwards","backwards","turn left","turn right","esc"],["uiAccept","uiUp","uiDown","uiLeft","uiRight"]]
 	for no in 2:
 		for pos in 6:
+			if no ==1 and pos==5:
+				save_to_json_file(data)
+				break
 			var keyboardinput = InputEventKey.new()
 			var controlerinput = InputEventJoypadButton.new()
-			match no:
-				0:
-					controlerinput.button_index = int(savedata["settings"]["controls"][1][no][pos])
-					keyboardinput.keycode = int(savedata["settings"]["controls"][0][no][pos])
-					match pos:
-						0:
-							InputMap.action_erase_events("Shoot")
-							InputMap.action_add_event("Shoot",keyboardinput)
-							InputMap.action_add_event("Shoot",controlerinput)
-						1:
-							InputMap.action_erase_events("forwards")
-							InputMap.action_add_event("forwards",keyboardinput)
-							InputMap.action_add_event("forwards",controlerinput)
-						2:
-							InputMap.action_erase_events("backwards")
-							InputMap.action_add_event("backwards",keyboardinput)
-							InputMap.action_add_event("backwards",controlerinput)
-						3:
-							InputMap.action_erase_events("turn left")
-							InputMap.action_add_event("turn left",keyboardinput)
-							InputMap.action_add_event("turn left",controlerinput)
-						4:
-							InputMap.action_erase_events("turn right")
-							InputMap.action_add_event("turn right",keyboardinput)
-							InputMap.action_add_event("turn right",controlerinput)
-						5:
-							InputMap.action_erase_events("esc")
-							InputMap.action_add_event("esc",keyboardinput)
-							InputMap.action_add_event("esc",controlerinput)
-				1:
-					if pos == 5:
-						save_to_json_file(savedata)
-						return
-					controlerinput.button_index = int(savedata["settings"]["controls"][1][no][pos])
-					keyboardinput.keycode = int(savedata["settings"]["controls"][0][no][pos])
-					match pos:
-						0:
-							InputMap.action_erase_events("uiAccept")
-							InputMap.action_add_event("uiAccept",keyboardinput)
-							InputMap.action_add_event("uiAccept",controlerinput)
-						1:
-							InputMap.action_erase_events("uiUp")
-							InputMap.action_add_event("uiUp",keyboardinput)
-							InputMap.action_add_event("uiUp",controlerinput)
-						2:
-							InputMap.action_erase_events("uiDown")
-							InputMap.action_add_event("uiDown",keyboardinput)
-							InputMap.action_add_event("uiDown",controlerinput)
-						3:
-							InputMap.action_erase_events("uiLeft")
-							InputMap.action_add_event("uiLeft",keyboardinput)
-							InputMap.action_add_event("uiLeft",controlerinput)
-						4:
-							InputMap.action_erase_events("uiRight")
-							InputMap.action_add_event("uiRight",keyboardinput)
-							InputMap.action_add_event("uiRight",controlerinput)
+			var controleraxis = InputEventJoypadMotion.new()
+			if int(savedata["settings"]["controls"][1][no][pos])<0:
+				controleraxis.axis = int(savedata["settings"]["controls"][1][no][pos])+6
+				controleraxis.axis_value = savedata["settings"]["controls"][0][no][-(pos+1)]
+			else:
+				controlerinput.button_index = int(savedata["settings"]["controls"][1][no][pos])
+			keyboardinput.keycode = int(savedata["settings"]["controls"][0][no][pos])
+			InputMap.action_erase_events(action[no][pos])
+			InputMap.action_add_event(action[no][pos],keyboardinput)
+			if int(savedata["settings"]["controls"][1][no][pos])>=0:
+				InputMap.action_add_event(action[no][pos],controlerinput)
+			else:
+				InputMap.action_add_event(action[no][pos],controleraxis)

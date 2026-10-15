@@ -35,7 +35,7 @@ func fade_out():
 
 func _on_win(Currentlevel: int, Wintype: int, Nextlevel: int) -> void:
 	black.color = Color.BLACK
-	print("Win code:"+str(Currentlevel)+str(Wintype)+str(Nextlevel))
+	print("Win code:%d,%d,%d" % [Currentlevel,Wintype,Nextlevel])
 	if Wintype == 0:
 		start_level(Nextlevel)
 	elif Wintype == 1:
