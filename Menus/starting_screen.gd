@@ -9,6 +9,7 @@ const UI_SETTINGS = preload("uid://b4ckevhw0xmal")
 @onready var number = $VBoxContainer/Age/VBoxContainer/Label
 @onready var buttony = [$VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx, $VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx2, $VBoxContainer/Name/VBoxContainer2/ButtonY/Buttonx3]
 @onready var keypad = [[$"VBoxContainer/Age/VBoxContainer/Num1/1", $"VBoxContainer/Age/VBoxContainer/Num1/2", $"VBoxContainer/Age/VBoxContainer/Num1/3"],[$"VBoxContainer/Age/VBoxContainer/Num2/4", $"VBoxContainer/Age/VBoxContainer/Num2/5", $"VBoxContainer/Age/VBoxContainer/Num2/6"],[$"VBoxContainer/Age/VBoxContainer/Num3/7", $"VBoxContainer/Age/VBoxContainer/Num3/8", $"VBoxContainer/Age/VBoxContainer/Num3/9"],[$VBoxContainer/Age/VBoxContainer/Mis/bksp, $"VBoxContainer/Age/VBoxContainer/Mis/0", $VBoxContainer/Age/VBoxContainer/Mis/Entr]]
+@onready var arrow_key_texture = [$VBoxContainer2/HBoxContainer2/left, $VBoxContainer2/HBoxContainer2/left2, $VBoxContainer2/HBoxContainer2/right, $VBoxContainer2/HBoxContainer2/right2, $VBoxContainer2/HBoxContainer2/down, $VBoxContainer2/HBoxContainer2/down2, $VBoxContainer2/HBoxContainer2/up, $VBoxContainer2/HBoxContainer2/up2]
 var name_keyboard_pos:= Vector2i(0,0)
 var age_keypad_pos:= Vector2i(0,0)
 @onready var sure_screen: Control = $SureScreen
@@ -20,9 +21,13 @@ const SPECTRUM = preload("uid://bjlw0nnr76yle")
 const SURE = preload("uid://6jjar4sjhtqo")
 const ACCEPT = preload("uid://iskkmxs0afj1")
 const ERROR = preload("uid://bhsk3tgworsc")
+const ARROW_A = preload("uid://d2u81l3dil6om")
+const ARROW_B = preload("uid://c00hgowi3ycyb")
 var numvalue = []
 var file_controls = file_control.new()
 var savedata:Dictionary
+var time:=0.0
+var timespeed:=1.5
 func _ready() -> void:
 	savedata = file_controls.load_json_file()
 	file_controls.map_inputs(savedata)
@@ -31,6 +36,10 @@ func _ready() -> void:
 	else:
 		file_controls.fullscreen(get_window())
 	buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS_SELECTED
+
+func _process(delta: float) -> void:
+	time+=delta
+	change_arrow_texture(int(time*timespeed)%2)
 
 func _input(event: InputEvent) -> void:
 	if sure_screen.visible == true:
@@ -248,6 +257,13 @@ func _input(event: InputEvent) -> void:
 					
 					numvalue.pop_back()
 					display_number()
+
+func change_arrow_texture(type):
+	for texture in arrow_key_texture:
+		if type ==1:
+			texture.texture = ARROW_A
+		else:
+			texture.texture = ARROW_B
 
 func display_number() -> int:
 	number.text = ""

@@ -28,6 +28,7 @@ var meshstate
 var states = {0:"Normal state",1:"Smash state",2:"Dash state"} 
 @onready var file_tools = file_control.new()
 var savedata:Dictionary
+var mouse = InputEventMouseMotion.new()
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -50,6 +51,13 @@ func _physics_process(delta: float) -> void:
 	if menu_pause != null:
 		if menu_pause.active == true:
 			return
+	mouse.velocity /= Vector2(2.6,2.6)
+	if mouse:
+		coursor.position += mouse.velocity*coursorspeed*delta
+	else:
+		coursor.position += Input.get_vector("coursorx-","coursorx+","coursory+","coursory-")*300*coursorspeed*delta
+	coursor.position.x = clamp(coursor.position.x,-29,991)
+	coursor.position.y = clamp(coursor.position.y,-29,481)
 	if Input.is_action_pressed("Shoot") and flags["cooldown"] == true:  
 		shoot()
 	elif flags["spawn"] == true:
@@ -91,13 +99,9 @@ func _physics_process(delta: float) -> void:
 		camera.rotation.y -= rotaion_velocity
 		move_and_slide()
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		coursor.position += event.velocity*coursorspeed*get_physics_process_delta_time()
-		coursor.position.x = clamp(coursor.position.x,-29,991)
-		coursor.position.y = clamp(coursor.position.y,-29,481)
-
-
+		mouse.velocity += event.velocity
 func shoot():
 	match state:
 		"Normal state":

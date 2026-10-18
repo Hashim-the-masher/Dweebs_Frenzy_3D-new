@@ -1,5 +1,4 @@
 extends Control
-
 @onready var hbox: HBoxContainer = $HBoxContainer
 @onready var resume: Label = $HBoxContainer/VBoxContainer/Resume
 @onready var options: Label = $HBoxContainer/VBoxContainer/Options
@@ -132,7 +131,7 @@ func _on_r_pressed() -> void:
 func _on_code_submitted(new_text: String) -> void:
 	if new_text.count(",") >2:
 		return
-	var code = [0,0,0]
+	code = [0,0,0]
 	var numberValue:=""
 	var currentNumber= 0
 	for letter in new_text:
@@ -149,3 +148,6 @@ func _on_code_submitted(new_text: String) -> void:
 				print(numberValue)
 				print("letter:",letter)
 	print(code)
+	match code:
+		"inter":
+			print("access granted")
