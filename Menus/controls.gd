@@ -87,17 +87,63 @@ func reset_values():
 		for pos in 6:
 			var keyboardinput = InputEventKey.new()
 			var controlerinput = InputEventJoypadButton.new()
+			var input = InputEventJoypadMotion.new()
 			if pos == 5:
 				if no == 1:
 					pass
 				else:
 					keyboardinput.keycode = int(savedata["settings"]["controls"][0][no][pos])
-					controlerinput.button_index =int(savedata["settings"]["controls"][1][no][pos])
 					controleractions[0]["key"][no][pos].text = keyboardinput.as_text()
-					controleractions[1]["key"][no][pos].text = controlerinput.as_text()
+					if int(savedata["settings"]["controls"][1][no][pos])<0:
+						input.axis = int(savedata["settings"]["controls"][1][no][pos])+6
+						input.axis_value = savedata["settings"]["controls"][1][no][-(pos+1)]
+						match input.axis:
+							0:
+								if input.axis_value==1:controleractions[1]["key"][no][pos].text = "LeftJoystic:x+" 
+								else:controleractions[1]["key"][no][pos].text = "LeftJoystic:x-" 
+							1:
+								if input.axis_value==1:controleractions[1]["key"][no][pos].text = "LeftJoystic:y-" 
+								else:controleractions[1]["key"][no][pos].text = "LeftJoystic:y+" 
+							2:
+								if input.axis_value==1:controleractions[1]["key"][no][pos].text = "RightJoystic:x+" 
+								else:controleractions[1]["key"][no][pos].text = "RightJoystic:x-" 
+							3:
+								if input.axis_value==1:controleractions[1]["key"][no][pos].text = "RightJoystic:y-" 
+								else:controleractions[1]["key"][no][pos].text = "RightJoystic:y+" 
+							4:
+								if input.axis_value==1:controleractions[1]["key"][no][pos].text = "LeftBumper+" 
+								else:controleractions[1]["key"][no][pos].text = "LeftBumper-" 
+							5:
+								if input.axis_value==1:controleractions[1]["key"][no][pos].text = "RightBumper+" 
+								else:controleractions[1]["key"][no][pos].text = "RightBumper-" 
+					else:
+						controlerinput.button_index =int(savedata["settings"]["controls"][1][no][pos])
+						controleractions[1]["key"][no][pos].text = controlerinput.as_text()
 			else:
 				keyboardinput.keycode = int(savedata["settings"]["controls"][0][no][pos])
-				controlerinput.button_index =int(savedata["settings"]["controls"][1][no][pos])
 				controleractions[0]["key"][no][pos].text = keyboardinput.as_text()
-				controleractions[1]["key"][no][pos].text = controlerinput.as_text()
-	
+				if int(savedata["settings"]["controls"][1][no][pos])<0:
+					input.axis = int(savedata["settings"]["controls"][1][no][pos])+6
+					input.axis_value = savedata["settings"]["controls"][1][no][-(pos+1)]
+					match input.axis:
+						0:
+							if input.axis_value==1:controleractions[1]["key"][no][pos].text = "LeftJoystic:x+" 
+							else:controleractions[1]["key"][no][pos].text = "LeftJoystic:x-" 
+						1:
+							if input.axis_value==1:controleractions[1]["key"][no][pos].text = "LeftJoystic:y-" 
+							else:controleractions[1]["key"][no][pos].text = "LeftJoystic:y+" 
+						2:
+							if input.axis_value==1:controleractions[1]["key"][no][pos].text = "RightJoystic:x+" 
+							else:controleractions[1]["key"][no][pos].text = "RightJoystic:x-" 
+						3:
+							if input.axis_value==1:controleractions[1]["key"][no][pos].text = "RightJoystic:y-" 
+							else:controleractions[1]["key"][no][pos].text = "RightJoystic:y+" 
+						4:
+							if input.axis_value==1:controleractions[1]["key"][no][pos].text = "LeftBumper+" 
+							else:controleractions[1]["key"][no][pos].text = "LeftBumper-" 
+						5:
+							if input.axis_value==1:controleractions[1]["key"][no][pos].text = "RightBumper+" 
+							else:controleractions[1]["key"][no][pos].text = "RightBumper-" 
+				else:
+					controlerinput.button_index =int(savedata["settings"]["controls"][1][no][pos])
+					controleractions[1]["key"][no][pos].text = controlerinput.as_text()

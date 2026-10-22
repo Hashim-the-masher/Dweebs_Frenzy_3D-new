@@ -10,6 +10,7 @@ var velocity_on_a_plane:=Vector2(0,0)
 var tank_speed:float = speed*(PI/2)
 @export var max_velocity:float = 250
 @export var min_velocity:float = 0.1  
+@export var forward_speed_mutiplyer:float = 1.4
 @export var back_slow_mutiplyer:float = .7
 @export var friction:float = (1+ .05) 
 @export var breaking_friction:float = (1+ .1) 
@@ -61,11 +62,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Shoot") and flags["cooldown"] == true:  
 		shoot()
 	elif flags["spawn"] == true:
+		
+		#movment function
 		if Input.is_action_pressed("forwards")==true or Input.is_action_pressed("backwards")==true or Input.is_action_pressed("turn left")==true or Input.is_action_pressed("turn right")==true:
 			if Input.is_action_pressed("turn left") == true or Input.is_action_pressed("turn right") == true:
 				match Input.is_action_pressed("forwards"):
 					true:
-						velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*tank_speed*2
+						velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*tank_speed*forward_speed_mutiplyer
 					false:
 						velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*tank_speed
 				velocity_on_a_plane /= breaking_friction-delta
@@ -78,6 +81,8 @@ func _physics_process(delta: float) -> void:
 			velocity_on_a_plane /= breaking_friction-delta
 		else:velocity_on_a_plane = Vector2.ZERO
 		velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
+		#end of movment function
+		#rotation function
 		if absf(atan2(coursor.position.y-225,coursor.position.x-480)-rotation.y)<0.05:
 			pass
 		elif atan2(coursor.position.y-225,coursor.position.x-480)>rotation.y:
@@ -97,6 +102,8 @@ func _physics_process(delta: float) -> void:
 		meshes[state].get_parent().rotation_degrees.y += rad_to_deg(-rotaion_velocity*2)
 		audio_listener.rotation.y -= rotaion_velocity
 		camera.rotation.y -= rotaion_velocity
+		#end of rotation function
+		
 		move_and_slide()
 
 func _input(event: InputEvent) -> void:

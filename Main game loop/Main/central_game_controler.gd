@@ -19,6 +19,7 @@ func _ready() -> void:
 	player.flags["spawn"] = true
 
 func start_level(level):
+	call_deferred("remove_child",current_level)
 	player.position = Vector3.ZERO
 	level = alevel[level]
 	current_level = level.instantiate()
@@ -28,15 +29,22 @@ func start_level(level):
 func reset_volume():
 	print("reset volume")
 
-func fade_out():
-	var tween = get_tree().create_tween()
-	tween.tween_property(black,"color",Color.hex(00000000),1)
+func fade_out(type=0):
+	match type:
+		0:
+			var tween = get_tree().create_tween()
+			tween.tween_property(black,"color",Color.hex(00000000),1)
+		1:
+			black.color =Color.TRANSPARENT
+	
 
 
 func _on_win(Currentlevel: int, Wintype: int, Nextlevel: int) -> void:
 	black.color = Color.BLACK
 	print("Win code:%d,%d,%d" % [Currentlevel,Wintype,Nextlevel])
 	if Wintype == 0:
+		player.velocity_on_a_plane = Vector2(0,0)
+		fade_out(1)
 		start_level(Nextlevel)
 	elif Wintype == 1:
 		player.flags["spawn"] = false
@@ -45,7 +53,6 @@ func _on_win(Currentlevel: int, Wintype: int, Nextlevel: int) -> void:
 		if Currentlevel+1 > alevel.size()-1:
 			print("Cannot load level "+str(Currentlevel+1))
 			return
-		call_deferred("remove_child",current_level)
 		player_spawn_timer.start()
 		start_level(Currentlevel+1)
 
