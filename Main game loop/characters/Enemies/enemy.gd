@@ -64,5 +64,5 @@ func shoot():
 		print("enemy bullet is null")
 		return
 	var bullet = BULLET.instantiate()
-	get_tree().root.add_child(bullet)
+	add_sibling(bullet)
 	bullet.start(position,(-rotation.y))
