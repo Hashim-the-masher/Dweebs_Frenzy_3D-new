@@ -6,10 +6,10 @@ const ERROR = preload("uid://bhsk3tgworsc")
 const SPECTRUM = preload("uid://bjlw0nnr76yle")
 const SURE = preload("uid://6jjar4sjhtqo")
 @onready var titles = [$SliderSettings/Titles,$"../Sound_settings/SliderSettings/Titles",$"../Visual_settings/SliderSettings/Titles",$"../Controler_settings/SliderSettings/Titles"]
-var titles_sizes = [[0,0,0,0],[0,0,0],[0,0,0],[0,0,0,0]]
+var titles_sizes = [[0,0,0,0],[0,0,0],[0,0,0],[0,0,0,0,0]]
 @onready var values = [null,$"../Sound_settings/SliderSettings/Display value",$"../Visual_settings/SliderSettings/Display value",$"../Controler_settings/SliderSettings/Display value"]
-@onready var arrows = [[$SliderSettings/arrows/arrow, $SliderSettings/arrows/arrow2, $SliderSettings/arrows/arrow3, $SliderSettings/arrows/arrow4],[$"../Sound_settings/SliderSettings/arrows/arrow", $"../Sound_settings/SliderSettings/arrows/arrow2", $"../Sound_settings/SliderSettings/arrows/arrow3"],[$"../Visual_settings/SliderSettings/arrows/arrow", $"../Visual_settings/SliderSettings/arrows/arrow2", $"../Visual_settings/SliderSettings/arrows/arrow3"],[$"../Controler_settings/SliderSettings/arrows/arrow", $"../Controler_settings/SliderSettings/arrows/arrow2", $"../Controler_settings/SliderSettings/arrows/arrow3",$"../Controler_settings/SliderSettings/arrows/arrow4"]]
-var setting_no = [3,2,2,3]
+@onready var arrows = [[$SliderSettings/arrows/arrow, $SliderSettings/arrows/arrow2, $SliderSettings/arrows/arrow3, $SliderSettings/arrows/arrow4],[$"../Sound_settings/SliderSettings/arrows/arrow", $"../Sound_settings/SliderSettings/arrows/arrow2", $"../Sound_settings/SliderSettings/arrows/arrow3"],[$"../Visual_settings/SliderSettings/arrows/arrow", $"../Visual_settings/SliderSettings/arrows/arrow2", $"../Visual_settings/SliderSettings/arrows/arrow3"],[$"../Controler_settings/SliderSettings/arrows/arrow", $"../Controler_settings/SliderSettings/arrows/arrow2", $"../Controler_settings/SliderSettings/arrows/arrow3",$"../Controler_settings/SliderSettings/arrows/arrow4",$"../Controler_settings/SliderSettings/arrows/arrow5"]]
+var setting_no = [3,2,2,4]
 const UI_SETTINGS_SELECTED = preload("uid://bu6x8ru5xi2kt")
 const UI_SETTINGS = preload("uid://b4ckevhw0xmal")
 var back_confirmation_flag = false
@@ -33,11 +33,18 @@ func _ready() -> void:
 	values[1].get_child(1).text =  str(savedata["settings"]["sounds"][1])
 	values[2].get_child(0).text = str(savedata["settings"]["visuals"][0])
 	values[2].get_child(1).text = str(savedata["settings"]["visuals"][1])
+	values[3].get_child(2).text = str(savedata["settings"]["controls"][2])
+	values[3].get_child(3).text = str(savedata["settings"]["controls"][3])
 	match values[2].get_child(1).text:
 		"1.0":
 			values[2].get_child(1).text = "Yes"
 		"0.0":
 			values[2].get_child(1).text = "No"
+	match values[3].get_child(3).text:
+		"1.0":
+			values[3].get_child(3).text = "Yes"
+		"0.0":
+			values[3].get_child(3).text = "No"
 
 func _input(event: InputEvent) -> void:
 	if menu_pause.deactivate == false:
@@ -109,21 +116,44 @@ func _input(event: InputEvent) -> void:
 					file_controls.save_to_json_file(savedata)
 					return
 			3:
-				if event.is_action_pressed("uiLeft"):
-					savedata["settings"]["controls"][setting_no[current_setting]] -=.1
-					savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.1,4.0)
-					values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
-				if event.is_action_pressed("uiRight"):
-					savedata["settings"]["controls"][setting_no[current_setting]] +=.1
-					savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.1,4.0)
-					values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
-				if event.is_action_pressed("uiAccept"):
-					menu_pause.sound.stream = menu_pause.ACCEPT
-					menu_pause.sound.play()
-					arrows[current_setting][setting_no[current_setting]].get_child(0).texture = LIGHT_ARROW
-					values[current_setting].get_child(setting_no[current_setting]).label_settings = UI_SETTINGS
-					move_mode=0
-					file_controls.save_to_json_file(savedata)
+				match setting_no[current_setting]:
+					2:
+						if event.is_action_pressed("uiLeft"):
+							savedata["settings"]["controls"][setting_no[current_setting]] -=.1
+							savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.1,4.0)
+							values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
+						if event.is_action_pressed("uiRight"):
+							savedata["settings"]["controls"][setting_no[current_setting]] +=.1
+							savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.1,4.0)
+							values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
+						if event.is_action_pressed("uiAccept"):
+							menu_pause.sound.stream = menu_pause.ACCEPT
+							menu_pause.sound.play()
+							arrows[current_setting][setting_no[current_setting]].get_child(0).texture = LIGHT_ARROW
+							values[current_setting].get_child(setting_no[current_setting]).label_settings = UI_SETTINGS
+							move_mode=0
+							file_controls.save_to_json_file(savedata)
+					3:
+						if event.is_action_pressed("uiLeft"):
+							savedata["settings"]["controls"][setting_no[current_setting]] -=1
+							savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.0,1.0)
+							values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
+						if event.is_action_pressed("uiRight"):
+							savedata["settings"]["controls"][setting_no[current_setting]] +=1
+							savedata["settings"]["controls"][setting_no[current_setting]] = clampf(savedata["settings"]["controls"][setting_no[current_setting]],0.0,1.0)
+							values[current_setting].get_child(setting_no[current_setting]).text = str(savedata["settings"]["controls"][setting_no[current_setting]])
+						if event.is_action_pressed("uiAccept"):
+							menu_pause.sound.stream = menu_pause.ACCEPT
+							menu_pause.sound.play()
+							arrows[current_setting][setting_no[current_setting]].get_child(0).texture = LIGHT_ARROW
+							values[current_setting].get_child(setting_no[current_setting]).label_settings = UI_SETTINGS
+							move_mode=0
+							file_controls.save_to_json_file(savedata)
+						match values[current_setting].get_child(setting_no[current_setting]).text:
+							"1.0":
+								values[current_setting].get_child(setting_no[current_setting]).text = "Yes"
+							"0.0":
+								values[current_setting].get_child(setting_no[current_setting]).text = "No"
 		return
 	asettings[current_setting].show()
 	if event.is_action_pressed("uiUp") and on[1] == false and on[0] == false:
@@ -244,6 +274,10 @@ func _input(event: InputEvent) -> void:
 						menu_pause.sound.play()
 						move_mode = 1
 					3:
+						menu_pause.sound.stream = menu_pause.ACCEPT
+						menu_pause.sound.play()
+						move_mode = 1
+					4:
 						menu_pause.sound.stream = menu_pause.ERROR
 						menu_pause.sound.play()
 						current_setting = 0

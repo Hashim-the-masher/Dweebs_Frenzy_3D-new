@@ -273,6 +273,11 @@ layout_mode = 2
 text = "DotSpeed"
 label_settings = ExtResource("3_7ciif")
 
+[node name="Old Control" type="Label" parent="Controler_settings/SliderSettings/Titles" unique_id=100415655]
+layout_mode = 2
+text = "Old Control"
+label_settings = ExtResource("3_7ciif")
+
 [node name="Quit" type="Label" parent="Controler_settings/SliderSettings/Titles" unique_id=2106408644]
 layout_mode = 2
 text = "Back"
@@ -294,6 +299,11 @@ label_settings = ExtResource("3_7ciif")
 [node name="Label3" type="Label" parent="Controler_settings/SliderSettings/Display value" unique_id=342367112]
 layout_mode = 2
 text = "2.0"
+label_settings = ExtResource("3_7ciif")
+
+[node name="Label4" type="Label" parent="Controler_settings/SliderSettings/Display value" unique_id=1350537130]
+layout_mode = 2
+text = "0.0"
 label_settings = ExtResource("3_7ciif")
 
 [node name="Quit" type="Label" parent="Controler_settings/SliderSettings/Display value" unique_id=666215169]
@@ -364,6 +374,23 @@ visible = false
 layout_mode = 2
 
 [node name="arrow4" type="TextureRect" parent="Controler_settings/SliderSettings/arrows/arrow4" unique_id=1019120525]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+texture = ExtResource("4_tbroc")
+expand_mode = 1
+
+[node name="empty5" type="Control" parent="Controler_settings/SliderSettings/arrows" unique_id=540598421]
+custom_minimum_size = Vector2(0, 42.095)
+layout_mode = 2
+
+[node name="arrow5" type="Control" parent="Controler_settings/SliderSettings/arrows" unique_id=52582922]
+visible = false
+layout_mode = 2
+
+[node name="arrow5" type="TextureRect" parent="Controler_settings/SliderSettings/arrows/arrow5" unique_id=2144169625]
 custom_minimum_size = Vector2(160, 32)
 layout_mode = 0
 offset_top = 8.0
