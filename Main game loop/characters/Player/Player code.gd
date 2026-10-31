@@ -53,10 +53,10 @@ func _physics_process(delta: float) -> void:
 		if menu_pause.active == true:
 			return
 	mouse.velocity /= Vector2(2.6,2.6)
-	if mouse:
-		coursor.position += mouse.velocity*coursorspeed*delta
-	else:
+	if Input.get_vector("coursorx-","coursorx+","coursory+","coursory-"):
 		coursor.position += Input.get_vector("coursorx-","coursorx+","coursory+","coursory-")*300*coursorspeed*delta
+	else:
+		coursor.position += mouse.velocity*coursorspeed*delta
 	coursor.position.x = clamp(coursor.position.x,-29,991)
 	coursor.position.y = clamp(coursor.position.y,-29,481)
 	if Input.is_action_pressed("Shoot") and flags["cooldown"] == true:  
