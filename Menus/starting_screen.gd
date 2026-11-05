@@ -25,6 +25,8 @@ const ARROW_A = preload("uid://d2u81l3dil6om")
 const ARROW_B = preload("uid://c00hgowi3ycyb")
 var numvalue = []
 var file_controls = file_control.new()
+var repeat:bool=true
+var stop:bool=false
 var savedata:Dictionary
 var time:=0.0
 var timespeed:=1.5
@@ -81,8 +83,7 @@ func _input(event: InputEvent) -> void:
 						sure_screen.hide()
 				
 		return
-	
-	if event.is_action_pressed("uiLeft"):
+	if event.is_action_pressed("uiLeft") or event.is_echo() and event.is_action("uiLeft"):
 		sound.stream = SPECTRUM
 		sound.play()
 		match  current_section:
@@ -103,7 +104,7 @@ func _input(event: InputEvent) -> void:
 					age_keypad_pos.x = 2
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS_SELECTED
 		
-	if event.is_action_pressed("uiRight"):
+	if event.is_action_pressed("uiRight") or event.is_echo() and event.is_action("uiRight"):
 		sound.stream = SPECTRUM
 		sound.play()
 		match current_section:
@@ -123,7 +124,7 @@ func _input(event: InputEvent) -> void:
 				if age_keypad_pos.x ==3:
 					age_keypad_pos.x = 0
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS_SELECTED
-	if event.is_action_pressed("uiDown"):
+	if event.is_action_pressed("uiDown") or event.is_echo() and event.is_action("uiDown"):
 		sound.stream = SPECTRUM
 		sound.play()
 		match current_section:
@@ -150,7 +151,7 @@ func _input(event: InputEvent) -> void:
 				if age_keypad_pos.y ==4:
 					age_keypad_pos.y = 0
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS_SELECTED
-	if event.is_action_pressed("uiUp"):
+	if event.is_action_pressed("uiUp") or event.is_echo() and event.is_action("uiUp"):
 		sound.stream = SPECTRUM
 		sound.play()
 		match current_section:
@@ -178,7 +179,7 @@ func _input(event: InputEvent) -> void:
 				keypad[age_keypad_pos.y][age_keypad_pos.x].label_settings = UI_SETTINGS_SELECTED
 			
 		buttony[name_keyboard_pos.y].get_child(name_keyboard_pos.x).label_settings = UI_SETTINGS_SELECTED
-	if event.is_action_pressed("uiAccept"):
+	if event.is_action_pressed("uiAccept") or event.is_echo() and event.is_action("uiAccept"):
 		match current_section:
 			0:
 				if name_keyboard_pos.y!=2:
@@ -243,7 +244,7 @@ func _input(event: InputEvent) -> void:
 							sound.stream = SURE
 							sound.play()
 							sure_screen.show()
-	if event.is_action_pressed("ui_text_backspace"):
+	if event.is_action_pressed("ui_text_backspace") or event.is_echo() and event.is_action("ui_text_backspace"):
 		sound.stream = SPECTRUM
 		sound.play()
 		match current_section:

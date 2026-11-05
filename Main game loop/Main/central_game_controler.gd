@@ -3,7 +3,7 @@ extends Node3D
 @onready var black: ColorRect = $screeneffects/Black
 @onready var filecontrols = file_control.new()
 var savedata:Dictionary
-var alevel = [preload("uid://6iux07jg6eh0"), preload("uid://de734xiky0jrr"), preload("uid://bkns4lqn2imlv"), preload("uid://3yq15gpwfedm"), preload("uid://d200n62wqynj0")]
+var alevel = [preload("uid://6iux07jg6eh0"), preload("uid://de734xiky0jrr"), preload("uid://bkns4lqn2imlv"), preload("uid://3yq15gpwfedm"), preload("uid://d200n62wqynj0"),preload("uid://b3ruiqrms2qnw")]
 var current_level
 @onready var player_spawn_timer: Timer = $playerSpawnTimer
 @export var deafult_spawn_time:float = 1.0
@@ -42,19 +42,26 @@ func fade_out(type=0):
 func _on_win(Currentlevel: int, Wintype: int, Nextlevel: int) -> void:
 	black.color = Color.BLACK
 	print("Win code:%d,%d,%d" % [Currentlevel,Wintype,Nextlevel])
-	if Wintype == 0:
-		player.velocity_on_a_plane = Vector2(0,0)
-		fade_out(1)
-		start_level(Nextlevel)
-	elif Wintype == 1:
-		player.flags["spawn"] = false
-		player.velocity_on_a_plane = Vector2(0,0)
-		fade_out()
-		if Currentlevel+1 > alevel.size()-1:
-			print("Cannot load level "+str(Currentlevel+1))
-			return
-		player_spawn_timer.start()
-		start_level(Currentlevel+1)
+	match Wintype:
+		0:
+			player.velocity_on_a_plane = Vector2(0,0)
+			fade_out(1)
+			start_level(Nextlevel)
+		1:
+			player.flags["spawn"] = false
+			player.velocity_on_a_plane = Vector2(0,0)
+			fade_out()
+			if Currentlevel+1 > alevel.size()-1:
+				print("Cannot load level "+str(Currentlevel+1))
+				return
+			player_spawn_timer.start()
+			start_level(Currentlevel+1)
+		2:
+			player.flags["spawn"] = false
+			player.velocity_on_a_plane = Vector2(0,0)
+			fade_out()
+			player_spawn_timer.start()
+			start_level(Nextlevel)
 
 
 func _on_player_spawn_timer_timeout() -> void:

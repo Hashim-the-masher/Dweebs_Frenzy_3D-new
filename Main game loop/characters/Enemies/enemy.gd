@@ -1,6 +1,6 @@
 extends CharacterBody3D
 var wait_for_it_flag = true
-var enemy_detected_flag = false
+@export var enemy_detected_flag = false
 @export var rotation_speed =.5
 @export var min_rotation:float = -.1
 @export var max_rotation:float = .1
