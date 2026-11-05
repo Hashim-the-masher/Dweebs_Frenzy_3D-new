@@ -5,6 +5,9 @@ extends Control
 @onready var title_screen: HBoxContainer = $Title_screen
 @onready var settings: VBoxContainer = $settings
 @onready var you_did_it: TextureRect = $you_did_it
+@onready var playerName: Label = $Title_screen/VBoxContainer3/name
+@onready var playerProfile: TextureRect = $Title_screen/VBoxContainer3/profile
+@onready var playerAge: Label = $Title_screen/VBoxContainer3/age
 @onready var sound: AudioStreamPlayer = $sound
 const ACCEPT = preload("uid://iskkmxs0afj1")
 const ERROR = preload("uid://bhsk3tgworsc")
@@ -53,6 +56,8 @@ func _ready() -> void:
 				file_controls.fullscreen(get_window())
 			0.0:
 				file_controls.change_res(savedata["settings"]["visuals"][0],get_window())
+	playerName.text = savedata["info"][0]
+	playerAge.text = str(int((Time.get_unix_time_from_system()-savedata["info"][1])/(60*60*24*365.25)))
 
 func _input(event: InputEvent) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

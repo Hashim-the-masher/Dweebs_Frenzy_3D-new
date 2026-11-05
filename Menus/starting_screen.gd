@@ -57,8 +57,7 @@ func _input(event: InputEvent) -> void:
 					if sure_button[0].label_settings == UI_SETTINGS_SELECTED:
 						sound.stream = ACCEPT
 						sound.play()
-						print(letter[0].text+letter[1].text+letter[2].text+letter[3].text+letter[4].text+letter[5].text)
-						savedata["info"][0] = (letter[0].text+letter[1].text+letter[2].text+letter[3].text+letter[4].text+letter[5].text)
+						savedata["info"][0] = getName()
 						file_controls.save_to_json_file(savedata)
 						sure_screen.hide()
 						current_section=1
@@ -73,7 +72,7 @@ func _input(event: InputEvent) -> void:
 						sound.stream = ACCEPT
 						sound.play()
 						print(display_number())
-						savedata["info"][1] = display_number()
+						savedata["info"][1] = (Time.get_unix_time_from_system()-(display_number()*60*60*24*365.25))
 						savedata["flags"][0] = 1.0
 						file_controls.save_to_json_file(savedata)
 						sure_screen.hide()
@@ -265,6 +264,14 @@ func change_arrow_texture(type):
 			texture.texture = ARROW_A
 		else:
 			texture.texture = ARROW_B
+
+func getName() -> String:
+	var charName:String=""
+	for i in letter.size():
+		if letter[i].text != "⌷":
+			charName=(charName+letter[i].text)
+	print(charName)
+	return charName
 
 func display_number() -> int:
 	number.text = ""

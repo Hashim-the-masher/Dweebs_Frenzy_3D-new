@@ -1010,9 +1010,12 @@ label_settings = ExtResource("3_7ciif")
 clip_text = true
 
 [node name="Title_screen" type="HBoxContainer" parent="." unique_id=2083741596]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Title_screen" unique_id=2128584590]
 layout_mode = 2
@@ -1195,6 +1198,24 @@ expand_mode = 1
 custom_minimum_size = Vector2(0, 73.075)
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Title_screen" unique_id=709004692]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="name" type="Label" parent="Title_screen/VBoxContainer3" unique_id=1100529610]
+layout_mode = 2
+text = "Name"
+label_settings = ExtResource("3_og6q2")
+
+[node name="profile" type="TextureRect" parent="Title_screen/VBoxContainer3" unique_id=1462605953]
+layout_mode = 2
+
+[node name="age" type="Label" parent="Title_screen/VBoxContainer3" unique_id=670447736]
+layout_mode = 2
+text = "age"
+label_settings = ExtResource("3_7ciif")
+horizontal_alignment = 1
 
 [node name="you_did_it" type="TextureRect" parent="." unique_id=1198323234]
 visible = false
