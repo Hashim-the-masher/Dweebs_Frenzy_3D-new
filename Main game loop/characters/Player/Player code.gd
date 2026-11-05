@@ -34,6 +34,8 @@ var mouse = InputEventMouseMotion.new()
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	savedata = file_tools.load_json_file()
+	if savedata["settings"]["controls"][3] == 1.0:
+		coursor.hide()
 	coursorspeed = savedata["settings"]["controls"][2]
 	state = states[0]
 	switch_mesh()
@@ -52,6 +54,32 @@ func _physics_process(delta: float) -> void:
 	if menu_pause != null:
 		if menu_pause.active == true:
 			return
+	if savedata["settings"]["controls"][3] == 1.0:
+		if Input.is_action_pressed("Shoot") and flags["spawn"] == true:  
+			shoot()
+			flags["shoot"]= false
+		if Input.get_vector("backwards","forwards","NA","NA"):
+			if sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2) < max_velocity:
+				velocity_on_a_plane += Input.get_vector("backwards","forwards","NA","NA").rotated(rotation.y)*speed*delta
+				if Input.is_action_pressed("backwards"):
+					velocity_on_a_plane -= (Input.get_vector("backwards","forwards","NA","NA").rotated(rotation.y)*speed*delta)*back_slow_mutiplyer
+				velocity_on_a_plane /= friction
+		elif Input.get_vector("uiLeft","uiRight","uiUp","uiDown"):
+			velocity_on_a_plane += Input.get_vector("uiLeft","uiRight","uiUp","uiDown")*tank_speed*delta
+			velocity_on_a_plane /= breaking_friction
+		elif sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2)>min_velocity:
+			velocity_on_a_plane /= breaking_friction
+		else:pass 
+		velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
+		rotaion_velocity += Input.get_vector("NA","NA","turn left","turn right").y*rotation_speed*delta
+		rotaion_velocity /= rotation_friction
+		rotaion_velocity = clampf(rotaion_velocity,min_rotation,max_rotation)
+		rotation.y += rotaion_velocity
+		meshes[state].get_parent().rotation_degrees.y += rad_to_deg(-rotaion_velocity*2)
+		audio_listener.rotation.y -= rotaion_velocity
+		camera.rotation.y -= rotaion_velocity
+		move_and_slide()
+		return
 	mouse.velocity /= Vector2(2.6,2.6)
 	if Input.get_vector("coursorx-","coursorx+","coursory+","coursory-"):
 		coursor.position += Input.get_vector("coursorx-","coursorx+","coursory+","coursory-")*300*coursorspeed*delta
