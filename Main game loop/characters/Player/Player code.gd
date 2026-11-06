@@ -5,15 +5,15 @@ var rotaion_velocity:float
 @export var min_rotation:float = -.1
 @export var rotation_friction:float = 1.15
 @export var coursorspeed:float = 2
-@export var speed:float = 9
+@export var speed:float = 15
 var velocity_on_a_plane:=Vector2(0,0)
-var tank_speed:float = speed*(PI/2)
-@export var max_velocity:float = 250
+var tank_speed:float = speed
+@export var max_velocity:float = 25
 @export var min_velocity:float = 0.1  
 @export var forward_speed_mutiplyer:float = 1.4
-@export var back_slow_mutiplyer:float = .7
-@export var friction:float = (1+ .05) 
-@export var breaking_friction:float = (1+ .1) 
+@export var back_slow_mutiplyer:float = .2
+@export var friction:float = 1.03 
+@export var breaking_friction:float = 1.1 
 @onready var camera = $camera1
 @onready var audio_listener = $AudioListener3D
 @onready var menu_pause: Control = $"../Ui/menu_pause"
@@ -55,30 +55,31 @@ func _physics_process(delta: float) -> void:
 		if menu_pause.active == true:
 			return
 	if savedata["settings"]["controls"][3] == 1.0:
-		if Input.is_action_pressed("Shoot") and flags["spawn"] == true:  
+		if Input.is_action_pressed("Shoot") and flags["cooldown"] == true:  
 			shoot()
-			flags["shoot"]= false
-		if Input.get_vector("backwards","forwards","NA","NA"):
-			if sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2) < max_velocity:
-				velocity_on_a_plane += Input.get_vector("backwards","forwards","NA","NA").rotated(rotation.y)*speed*delta
-				if Input.is_action_pressed("backwards"):
-					velocity_on_a_plane -= (Input.get_vector("backwards","forwards","NA","NA").rotated(rotation.y)*speed*delta)*back_slow_mutiplyer
-				velocity_on_a_plane /= friction
-		elif Input.get_vector("uiLeft","uiRight","uiUp","uiDown"):
-			velocity_on_a_plane += Input.get_vector("uiLeft","uiRight","uiUp","uiDown")*tank_speed*delta
-			velocity_on_a_plane /= breaking_friction
-		elif sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2)>min_velocity:
-			velocity_on_a_plane /= breaking_friction
-		else:pass 
-		velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
-		rotaion_velocity += Input.get_vector("NA","NA","turn left","turn right").y*rotation_speed*delta
-		rotaion_velocity /= rotation_friction
-		rotaion_velocity = clampf(rotaion_velocity,min_rotation,max_rotation)
-		rotation.y += rotaion_velocity
-		meshes[state].get_parent().rotation_degrees.y += rad_to_deg(-rotaion_velocity*2)
-		audio_listener.rotation.y -= rotaion_velocity
-		camera.rotation.y -= rotaion_velocity
-		move_and_slide()
+		elif flags["spawn"] == true:
+			if Input.get_vector("backwards","forwards","NA","NA"):
+				if sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2) < max_velocity:
+					velocity_on_a_plane += Input.get_vector("backwards","forwards","NA","NA").rotated(rotation.y)*speed*delta
+					if Input.is_action_pressed("backwards"):
+						velocity_on_a_plane -= (Input.get_vector("backwards","forwards","NA","NA").rotated(rotation.y)*speed*delta)*back_slow_mutiplyer
+					velocity_on_a_plane /= friction
+			elif Input.get_vector("uiLeft","uiRight","uiUp","uiDown"):
+				velocity_on_a_plane += Input.get_vector("uiLeft","uiRight","uiUp","uiDown")*tank_speed*delta
+				velocity_on_a_plane /= breaking_friction
+			elif sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2)>min_velocity:
+				velocity_on_a_plane /= breaking_friction
+			else:pass 
+			velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
+			print(sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2))
+			rotaion_velocity += Input.get_vector("NA","NA","turn left","turn right").y*rotation_speed*delta
+			rotaion_velocity /= rotation_friction
+			rotaion_velocity = clampf(rotaion_velocity,min_rotation,max_rotation)
+			rotation.y += rotaion_velocity
+			meshes[state].get_parent().rotation_degrees.y += rad_to_deg(-rotaion_velocity*2)
+			audio_listener.rotation.y -= rotaion_velocity
+			camera.rotation.y -= rotaion_velocity
+			move_and_slide()
 		return
 	mouse.velocity /= Vector2(2.6,2.6)
 	if Input.get_vector("coursorx-","coursorx+","coursory+","coursory-"):
@@ -90,7 +91,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Shoot") and flags["cooldown"] == true:  
 		shoot()
 	elif flags["spawn"] == true:
-		
 		#movment function
 		if Input.is_action_pressed("forwards")==true or Input.is_action_pressed("backwards")==true or Input.is_action_pressed("turn left")==true or Input.is_action_pressed("turn right")==true:
 			if Input.is_action_pressed("turn left") == true or Input.is_action_pressed("turn right") == true:
