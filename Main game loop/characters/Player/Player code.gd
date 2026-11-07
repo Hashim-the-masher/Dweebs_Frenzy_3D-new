@@ -58,6 +58,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("Shoot") and flags["cooldown"] == true:  
 			shoot()
 		elif flags["spawn"] == true:
+			#movment function(old)
 			if Input.get_vector("backwards","forwards","NA","NA"):
 				if sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2) < max_velocity:
 					velocity_on_a_plane += Input.get_vector("backwards","forwards","NA","NA").rotated(rotation.y)*speed*delta
@@ -69,8 +70,9 @@ func _physics_process(delta: float) -> void:
 				velocity_on_a_plane /= breaking_friction
 			elif sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2)>min_velocity:
 				velocity_on_a_plane /= breaking_friction
-			else:pass 
+			else:velocity_on_a_plane = Vector2.ZERO 
 			velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
+			#end of movment function(old)
 			print(sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2))
 			rotaion_velocity += Input.get_vector("NA","NA","turn left","turn right").y*rotation_speed*delta
 			rotaion_velocity /= rotation_friction
@@ -92,21 +94,19 @@ func _physics_process(delta: float) -> void:
 		shoot()
 	elif flags["spawn"] == true:
 		#movment function
-		if Input.is_action_pressed("forwards")==true or Input.is_action_pressed("backwards")==true or Input.is_action_pressed("turn left")==true or Input.is_action_pressed("turn right")==true:
-			if Input.is_action_pressed("turn left") == true or Input.is_action_pressed("turn right") == true:
-				match Input.is_action_pressed("forwards"):
-					true:
-						velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*tank_speed*forward_speed_mutiplyer
-					false:
-						velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*tank_speed
-				velocity_on_a_plane /= breaking_friction-delta
-			elif Input.is_action_pressed("backwards") == true:
-				velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*speed*back_slow_mutiplyer
-			else:
-				velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*delta*speed
-			velocity_on_a_plane /= friction-delta
+		if Input.get_vector("backwards","forwards","turn left","turn right"):
+			if sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2) < max_velocity:
+				if Input.get_vector("NA","NA","turn left","turn right"):
+					velocity_on_a_plane += Input.get_vector("backwards","forwards","turn left","turn right").rotated(rotation.y)*tank_speed*delta
+					velocity_on_a_plane /= breaking_friction
+				else:
+					velocity_on_a_plane += Input.get_vector("backwards","forwards","NA","NA").rotated(rotation.y)*speed*delta
+					if Input.is_action_pressed("backwards"):
+						velocity_on_a_plane -= (Input.get_vector("backwards","forwards","NA","NA").rotated(rotation.y)*speed*delta)*back_slow_mutiplyer
+					velocity_on_a_plane /= friction
+				
 		elif sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2)>min_velocity:
-			velocity_on_a_plane /= breaking_friction-delta
+			velocity_on_a_plane /= breaking_friction
 		else:velocity_on_a_plane = Vector2.ZERO
 		velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
 		#end of movment function
