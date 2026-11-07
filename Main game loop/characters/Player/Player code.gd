@@ -73,7 +73,6 @@ func _physics_process(delta: float) -> void:
 			else:velocity_on_a_plane = Vector2.ZERO 
 			velocity = Vector3(velocity_on_a_plane.x,0,velocity_on_a_plane.y)
 			#end of movment function(old)
-			print(sqrt(velocity_on_a_plane.x**2+velocity_on_a_plane.y**2))
 			rotaion_velocity += Input.get_vector("NA","NA","turn left","turn right").y*rotation_speed*delta
 			rotaion_velocity /= rotation_friction
 			rotaion_velocity = clampf(rotaion_velocity,min_rotation,max_rotation)
